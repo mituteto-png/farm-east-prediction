@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2026 ファーム東地区 優勝・順位予測</title>
+<style>
+:root{
+  --bg:#f4f7fb;--panel:#fff;--ink:#10213b;--muted:#6f7f94;--line:#dce5f0;
+  --blue:#0d5bd7;--blue2:#3a7fe9;--navy:#082f69;--red:#c92433;--black:#222;
+  --yak:#173d75;--orange:#ef8219;--green:#14855b;--purple:#7454c9;
+  --shadow:0 12px 36px rgba(27,55,92,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(180deg,#edf4fc 0,#f8fafc 270px,#f4f7fb 100%);color:var(--ink);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif}
+button,input,select{font:inherit}
+button{cursor:pointer}
+.wrap{max-width:1180px;margin:auto;padding:18px 14px 54px}
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#082f69,#0f61df 70%,#357fef);
+color:#fff;border-radius:26px;padding:28px;box-shadow:var(--shadow)}
+.hero:after{content:"⚾";position:absolute;right:18px;top:-18px;font-size:128px;opacity:.12;transform:rotate(-16deg)}
+.hero h1{margin:0;font-size:clamp(28px,5vw,48px);line-height:1.08}
+.hero p{margin:9px 0 0;opacity:.92}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:17px}
+.badge{padding:7px 11px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.2);font-size:12px}
+.topstats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow);min-width:0}
+.stat .label{font-size:12px;color:var(--muted)} .stat .val{font-size:27px;font-weight:900;margin-top:4px;line-height:1.1}
+.stat .sub{font-size:11px;color:var(--muted);margin-top:6px}
+.grid2{display:grid;grid-template-columns:1fr 1.35fr;gap:14px;margin-top:14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--shadow);min-width:0}
+.card h2{margin:0 0 12px;font-size:19px}
+.card h3{margin:0 0 10px;font-size:16px}
+.muted{color:var(--muted)} .tiny{font-size:11px;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:10px 7px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th{font-size:11px;color:var(--muted);font-weight:700}
+th:first-child,td:first-child{text-align:center} th:nth-child(2),td:nth-child(2){text-align:left}
+tr:last-child td{border-bottom:0}
+.teamBtn{border:0;background:transparent;color:inherit;font-weight:800;padding:3px 2px;border-radius:8px;min-height:34px}
+.teamBtn:focus-visible,.filterBtn:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid rgba(13,91,215,.25);outline-offset:2px}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:7px;vertical-align:1px}
+.ham{background:var(--blue)}.rak{background:var(--red)}.lot{background:var(--black)}.yak{background:var(--yak)}.oix{background:var(--orange)}
+.probList{display:flex;flex-direction:column;gap:13px}
+.probRow{display:grid;grid-template-columns:105px 1fr 62px;gap:10px;align-items:center}
+.track{height:17px;background:#e9eef6;border-radius:99px;overflow:hidden}
+.fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--blue),var(--blue2));transition:width .35s ease}
+.pct{text-align:right;font-weight:900} .pct.big{color:var(--blue);font-size:25px}
+.section{margin-top:18px}
+.sectionHead{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin:0 2px 10px}
+.sectionHead h2{margin:0;font-size:22px}
+.teamTabs{display:flex;gap:8px;overflow:auto;padding-bottom:4px}
+.filterBtn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 13px;color:var(--ink);white-space:nowrap;min-height:42px}
+.filterBtn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.rankPanel{display:grid;grid-template-columns:270px 1fr;gap:16px;align-items:start}
+.teamHero{border-radius:18px;background:#f6f9fd;border:1px solid var(--line);padding:18px}
+.teamHero .name{font-size:24px;font-weight:900} .teamHero .champ{font-size:38px;font-weight:950;color:var(--blue);margin:10px 0 5px}
+.rankBars{display:flex;flex-direction:column;gap:11px}
+.rankRow{display:grid;grid-template-columns:52px 1fr 65px;gap:9px;align-items:center}
+.rankTrack{height:22px;border-radius:8px;background:#edf2f8;overflow:hidden}
+.rankFill{height:100%;background:linear-gradient(90deg,#315e9d,#7198ce);border-radius:8px;transition:width .3s}
+.chartWrap{width:100%;overflow:hidden}
+svg{display:block;width:100%;height:auto}
+.chartLabel{font-size:11px;fill:#728197} .chartValue{font-size:12px;fill:#10213b;font-weight:700}
+.twoCol{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.scheduleControls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.scheduleList{max-height:440px;overflow:auto;border:1px solid var(--line);border-radius:14px}
+.game{display:grid;grid-template-columns:62px 1fr auto;gap:9px;padding:11px 12px;border-bottom:1px solid var(--line);align-items:center;font-size:13px}
+.game:last-child{border-bottom:0} .date{font-weight:900;color:var(--navy)} .venue{font-size:11px;color:var(--muted)}
+.direct{display:inline-block;font-size:10px;font-weight:800;padding:3px 6px;border-radius:999px;background:#fff0d5;color:#8b5b00;margin-left:5px}
+.inputGrid{display:grid;grid-template-columns:1.4fr .7fr .7fr;gap:9px}
+label{font-size:12px;color:var(--muted);display:block;margin-bottom:5px}
+select,input[type=number]{width:100%;border:1px solid #cfdbe9;border-radius:12px;padding:11px;background:#fff;color:var(--ink);min-height:44px;font-size:16px}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:11px}
+.primary{border:0;border-radius:12px;background:var(--blue);color:#fff;font-weight:800;padding:11px 16px;min-height:44px}
+.secondary{border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font-weight:700;padding:11px 16px;min-height:44px}
+.msg{min-height:20px;margin-top:8px;font-size:12px;color:#8a5f09}
+.history{margin-top:12px;display:flex;flex-direction:column;gap:7px}
+.histItem{display:flex;justify-content:space-between;gap:10px;background:#f7f9fc;border-radius:10px;padding:9px 10px;font-size:12px}
+.methodGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.method{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:var(--shadow)}
+.method b{display:block;margin-bottom:6px} .method p{margin:0;font-size:12px;color:#607187;line-height:1.65}
+.weight{display:flex;height:36px;border-radius:999px;overflow:hidden;margin-top:13px;color:#fff;font-size:11px;font-weight:800}
+.weight span{display:flex;align-items:center;justify-content:center;min-width:0;text-align:center}
+.w1{width:15%;background:#1464d7}.w2{width:15%;background:#2390a5}.w3{width:20%;background:#59a63c}.w4{width:30%;background:#ef8616}.w5{width:20%;background:#7556c8}
+.note{margin-top:18px;border:1px solid #eedc99;background:#fff8dc;color:#6d5712;border-radius:14px;padding:13px 15px;font-size:12px;line-height:1.65}
+footer{margin-top:24px;text-align:center;color:var(--muted);font-size:11px}
+@media(max-width:900px){
+ .topstats{grid-template-columns:1fr 1fr} .grid2,.twoCol,.rankPanel{grid-template-columns:1fr} .methodGrid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+ .wrap{padding:10px 10px 38px} .hero{padding:22px;border-radius:20px} .topstats{grid-template-columns:1fr 1fr}
+ .stat .val{font-size:22px} .probRow{grid-template-columns:90px 1fr 52px} .pct.big{font-size:20px}
+ .methodGrid{grid-template-columns:1fr} .inputGrid{grid-template-columns:1fr 1fr} .inputGrid>div:first-child{grid-column:1/-1}
+ th,td{padding:9px 4px;font-size:11px} .card{padding:15px} .game{grid-template-columns:54px 1fr}
+ .game .venue{display:none} .weight{height:auto;flex-direction:column;border-radius:12px} .weight span{width:100%!important;padding:7px}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap" id="app">
+  <section class="hero">
+    <h1>2026 ファーム東地区<br>優勝・順位予測</h1>
+    <p>試合結果を入力すると、その場で残り日程を再シミュレーションします。</p>
+    <div class="badges">
+      <span class="badge">基準：8/22終了時点</span>
+      <span class="badge">モンテカルロ 20,000回</span>
+      <span class="badge">非公式モデル V2.2</span>
+      <span class="badge">結果入力対応</span>
+    </div>
+  </section>
+<noscript>
+  <div style="margin-top:14px;padding:13px 15px;border-radius:14px;background:#fff3cd;border:1px solid #ead28a;color:#6d5712;font-size:13px;line-height:1.6">
+    このプレビュー環境ではJavaScriptが実行されていないため、8/22時点の固定データを表示しています。
+    試合結果入力による再計算やタップ操作は、JavaScriptを実行できるブラウザ環境で利用できます。
+  </div>
+</noscript>
+
+  <section class="topstats">
+    <div class="stat"><div class="label">日本ハム 優勝確率</div><div class="val" id="headlineProb">95.8%</div><div class="sub">入力結果に応じて再計算</div></div>
+    <div class="stat"><div class="label">非公式マジック相当</div><div class="val" id="magicNow">M21</div><div class="sub" id="magicTarget">対象：楽天</div></div>
+    <div class="stat"><div class="label">最短優勝日</div><div class="val" id="earliestDate">9/5</div><div class="sub">モデル上の数学的最短・概算</div></div>
+    <div class="stat"><div class="label">残り日本ハム戦</div><div class="val" id="hamRemaining">25</div><div class="sub">入力済み試合は自動で減少</div></div>
+  </section>
+
+  <section class="grid2">
+    <div class="card">
+      <h2>現在順位</h2>
+      <table>
+        <thead><tr><th>順位</th><th>チーム</th><th>勝敗</th><th>勝率</th><th>差</th></tr></thead>
+        <tbody id="standingsBody"><tr><td><b>1</b></td><td><button class="teamBtn" type="button" data-team="日本ハム"><span class="dot ham"></span>日本ハム</button></td><td>54-36-5</td><td>.600</td><td>—</td></tr><tr><td><b>2</b></td><td><button class="teamBtn" type="button" data-team="楽天"><span class="dot rak"></span>楽天</button></td><td>51-43-5</td><td>.543</td><td>5.0</td></tr><tr><td><b>3</b></td><td><button class="teamBtn" type="button" data-team="ロッテ"><span class="dot lot"></span>ロッテ</button></td><td>46-44-5</td><td>.511</td><td>8.0</td></tr><tr><td><b>4</b></td><td><button class="teamBtn" type="button" data-team="ヤクルト"><span class="dot yak"></span>ヤクルト</button></td><td>37-50-7</td><td>.425</td><td>15.5</td></tr><tr><td><b>5</b></td><td><button class="teamBtn" type="button" data-team="オイシックス"><span class="dot oix"></span>オイシックス</button></td><td>38-59-3</td><td>.392</td><td>19.5</td></tr></tbody>
+      </table>
+      <p class="tiny" style="margin:10px 0 0">チーム名をタップすると1〜5位確率を表示します。</p>
+    </div>
+    <div class="card">
+      <h2>東地区 優勝確率</h2>
+      <div class="probList" id="champList"><div class="probRow"><button class="teamBtn" data-team="日本ハム" type="button"><span class="dot ham"></span>日本ハム</button><div class="track"><div class="fill" style="width:95.8%"></div></div><div class="pct big">95.8%</div></div><div class="probRow"><button class="teamBtn" data-team="楽天" type="button"><span class="dot rak"></span>楽天</button><div class="track"><div class="fill" style="width:3.8%"></div></div><div class="pct">3.8%</div></div><div class="probRow"><button class="teamBtn" data-team="ロッテ" type="button"><span class="dot lot"></span>ロッテ</button><div class="track"><div class="fill" style="width:0.4%"></div></div><div class="pct">0.4%</div></div><div class="probRow"><button class="teamBtn" data-team="ヤクルト" type="button"><span class="dot yak"></span>ヤクルト</button><div class="track"><div class="fill" style="width:0.3%"></div></div><div class="pct">0.0%</div></div><div class="probRow"><button class="teamBtn" data-team="オイシックス" type="button"><span class="dot oix"></span>オイシックス</button><div class="track"><div class="fill" style="width:0.3%"></div></div><div class="pct">0.0%</div></div></div>
+      <p class="tiny" style="margin:12px 0 0">現在勝率・地力指標・相手強度・ホーム補正・残りカードから試合ごとに勝率を推定。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="sectionHead"><h2>各チームの最終順位確率</h2><span class="tiny">チームを選択</span></div>
+    <div class="teamTabs" id="teamTabs"><button type="button" class="filterBtn active" data-team="日本ハム">日本ハム</button><button type="button" class="filterBtn" data-team="楽天">楽天</button><button type="button" class="filterBtn" data-team="ロッテ">ロッテ</button><button type="button" class="filterBtn" data-team="ヤクルト">ヤクルト</button><button type="button" class="filterBtn" data-team="オイシックス">オイシックス</button></div>
+    <div class="card rankPanel" style="margin-top:9px">
+      <div class="teamHero">
+        <div class="tiny">選択中</div>
+        <div class="name" id="selectedName">日本ハム</div>
+        <div class="champ" id="selectedChamp">95.8%</div>
+        <div class="muted" id="selectedRecord">平均最終成績：67.9勝 46.2敗 5.9分</div>
+      </div>
+      <div class="rankBars" id="rankBars"><div class="rankRow"><b>1位</b><div class="rankTrack"><div class="rankFill" style="width:95.8%"></div></div><b style="text-align:right">95.8%</b></div><div class="rankRow"><b>2位</b><div class="rankTrack"><div class="rankFill" style="width:4.0%"></div></div><b style="text-align:right">4.0%</b></div><div class="rankRow"><b>3位</b><div class="rankTrack"><div class="rankFill" style="width:0.2%"></div></div><b style="text-align:right">0.2%</b></div><div class="rankRow"><b>4位</b><div class="rankTrack"><div class="rankFill" style="width:0.2%"></div></div><b style="text-align:right">0.0%</b></div><div class="rankRow"><b>5位</b><div class="rankTrack"><div class="rankFill" style="width:0.2%"></div></div><b style="text-align:right">0.0%</b></div></div>
+    </div>
+  </section>
+
+  <section class="section twoCol">
+    <div class="card">
+      <h2>優勝確率の推移</h2>
+      <p class="tiny">8/22を起点に、入力した試合結果ごとに履歴が追加されます。</p>
+      <div class="chartWrap"><svg id="probChart" viewBox="0 0 620 255" role="img" aria-label="優勝確率の推移グラフ">
+<line x1="46" y1="217" x2="602" y2="217" stroke="#e3eaf3"/>
+<line x1="46" y1="168" x2="602" y2="168" stroke="#e3eaf3"/>
+<line x1="46" y1="119" x2="602" y2="119" stroke="#e3eaf3"/>
+<line x1="46" y1="70" x2="602" y2="70" stroke="#e3eaf3"/>
+<line x1="46" y1="21" x2="602" y2="21" stroke="#e3eaf3"/>
+<text x="39" y="221" text-anchor="end" class="chartLabel">0%</text>
+<text x="39" y="172" text-anchor="end" class="chartLabel">25%</text>
+<text x="39" y="123" text-anchor="end" class="chartLabel">50%</text>
+<text x="39" y="74" text-anchor="end" class="chartLabel">75%</text>
+<text x="39" y="25" text-anchor="end" class="chartLabel">100%</text>
+<circle cx="324" cy="29.2" r="6" fill="#0d5bd7"/>
+<text x="324" y="17" text-anchor="middle" class="chartValue">95.8%</text>
+<text x="324" y="241" text-anchor="middle" class="chartLabel">8/22</text>
+<text x="324" y="135" text-anchor="middle" class="chartLabel">結果入力後に履歴が追加されます</text>
+</svg></div>
+    </div>
+    <div class="card">
+      <h2>マジック推移</h2>
+      <p class="tiny">NPB公式表示ではなく、勝率制に合わせた非公式マジック相当です。</p>
+      <div class="chartWrap"><svg id="magicChart" viewBox="0 0 620 255" role="img" aria-label="マジック推移グラフ">
+<line x1="46" y1="217" x2="602" y2="217" stroke="#e3eaf3"/>
+<line x1="46" y1="168" x2="602" y2="168" stroke="#e3eaf3"/>
+<line x1="46" y1="119" x2="602" y2="119" stroke="#e3eaf3"/>
+<line x1="46" y1="70" x2="602" y2="70" stroke="#e3eaf3"/>
+<line x1="46" y1="21" x2="602" y2="21" stroke="#e3eaf3"/>
+<text x="39" y="221" text-anchor="end" class="chartLabel">0</text>
+<text x="39" y="172" text-anchor="end" class="chartLabel">6</text>
+<text x="39" y="123" text-anchor="end" class="chartLabel">12</text>
+<text x="39" y="74" text-anchor="end" class="chartLabel">18</text>
+<text x="39" y="25" text-anchor="end" class="chartLabel">24</text>
+<circle cx="324" cy="45.5" r="6" fill="#7554c9"/>
+<text x="324" y="33" text-anchor="middle" class="chartValue">M21</text>
+<text x="324" y="241" text-anchor="middle" class="chartLabel">8/22</text>
+<text x="324" y="135" text-anchor="middle" class="chartLabel">結果入力後に履歴が追加されます</text>
+</svg></div>
+    </div>
+  </section>
+
+  <section class="section twoCol">
+    <div class="card">
+      <div class="sectionHead" style="margin:0 0 10px"><h2>残り日程</h2><span class="tiny" id="scheduleCount"></span></div>
+      <div class="scheduleControls" id="scheduleFilters"><button class="filterBtn" type="button" data-filter="全体">全体</button><button class="filterBtn active" type="button" data-filter="日本ハム">日本ハム</button><button class="filterBtn" type="button" data-filter="楽天">楽天</button><button class="filterBtn" type="button" data-filter="ロッテ">ロッテ</button><button class="filterBtn" type="button" data-filter="ヤクルト">ヤクルト</button><button class="filterBtn" type="button" data-filter="オイシックス">オイシックス</button></div>
+      <div class="scheduleList" id="scheduleList"><div class="game"><div class="date">8/23</div><div><b>日本ハム － ロッテ</b><span class="direct">東地区直接対決</span><div class="venue">鎌スタ</div></div><div class="venue">鎌スタ</div></div><div class="game"><div class="date">8/25</div><div><b>日本ハム － オイシックス</b><span class="direct">東地区直接対決</span><div class="venue">鎌スタ</div></div><div class="venue">鎌スタ</div></div><div class="game"><div class="date">8/26</div><div><b>日本ハム － オイシックス</b><span class="direct">東地区直接対決</span><div class="venue">鎌スタ</div></div><div class="venue">鎌スタ</div></div><div class="game"><div class="date">8/27</div><div><b>日本ハム － オイシックス</b><span class="direct">東地区直接対決</span><div class="venue">鎌スタ</div></div><div class="venue">鎌スタ</div></div><div class="game"><div class="date">8/29</div><div><b>西武 － 日本ハム</b><div class="venue">南魚沼</div></div><div class="venue">南魚沼</div></div><div class="game"><div class="date">8/30</div><div><b>西武 － 日本ハム</b><div class="venue">カーミニーク</div></div><div class="venue">カーミニーク</div></div><div class="game"><div class="date">9/1</div><div><b>阪神 － 日本ハム</b><div class="venue">SGL</div></div><div class="venue">SGL</div></div><div class="game"><div class="date">9/2</div><div><b>阪神 － 日本ハム</b><div class="venue">SGL</div></div><div class="venue">SGL</div></div><div class="game"><div class="date">9/3</div><div><b>阪神 － 日本ハム</b><div class="venue">SGL</div></div><div class="venue">SGL</div></div><div class="game"><div class="date">9/4</div><div><b>広島 － 日本ハム</b><div class="venue">由宇</div></div><div class="venue">由宇</div></div><div class="game"><div class="date">9/5</div><div><b>広島 － 日本ハム</b><div class="venue">由宇</div></div><div class="venue">由宇</div></div><div class="game"><div class="date">9/6</div><div><b>広島 － 日本ハム</b><div class="venue">由宇</div></div><div class="venue">由宇</div></div><div class="game"><div class="date">9/11</div><div><b>日本ハム － ロッテ</b><span class="direct">東地区直接対決</span><div class="venue">鎌スタ</div></div><div class="venue">鎌スタ</div></div><div class="game"><div class="date">9/12</div><div><b>日本ハム － ロッテ</b><span class="direct">東地区直接対決</span><div class="venue">鎌スタ</div></div><div class="venue">鎌スタ</div></div><div class="game"><div class="date">9/13</div><div><b>日本ハム － ロッテ</b><span class="direct">東地区直接対決</span><div class="venue">鎌スタ</div></div><div class="venue">鎌スタ</div></div><div class="game"><div class="date">9/15</div><div><b>日本ハム － ヤクルト</b><span class="direct">東地区直接対決</span><div class="venue">鎌スタ</div></div><div class="venue">鎌スタ</div></div><div class="game"><div class="date">9/16</div><div><b>日本ハム － ヤクルト</b><span class="direct">東地区直接対決</span><div class="venue">鎌スタ</div></div><div class="venue">鎌スタ</div></div><div class="game"><div class="date">9/18</div><div><b>楽天 － 日本ハム</b><span class="direct">東地区直接対決</span><div class="venue">森林どり泉</div></div><div class="venue">森林どり泉</div></div><div class="game"><div class="date">9/19</div><div><b>楽天 － 日本ハム</b><span class="direct">東地区直接対決</span><div class="venue">森林どり泉</div></div><div class="venue">森林どり泉</div></div><div class="game"><div class="date">9/21</div><div><b>日本ハム － 巨人</b><div class="venue">鎌スタ</div></div><div class="venue">鎌スタ</div></div><div class="game"><div class="date">9/22</div><div><b>日本ハム － 巨人</b><div class="venue">鎌スタ</div></div><div class="venue">鎌スタ</div></div><div class="game"><div class="date">9/23</div><div><b>日本ハム － 巨人</b><div class="venue">鎌スタ</div></div><div class="venue">鎌スタ</div></div><div class="game"><div class="date">9/25</div><div><b>中日 － 日本ハム</b><div class="venue">ナゴヤ</div></div><div class="venue">ナゴヤ</div></div><div class="game"><div class="date">9/26</div><div><b>中日 － 日本ハム</b><div class="venue">ナゴヤ</div></div><div class="venue">ナゴヤ</div></div><div class="game"><div class="date">9/27</div><div><b>中日 － 日本ハム</b><div class="venue">ナゴヤ</div></div><div class="venue">ナゴヤ</div></div></div>
+    </div>
+    <div class="card">
+      <h2>試合結果を入力 → 自動再計算</h2>
+      <p class="tiny">残り日程から試合を選び、スコアを入力してください。引き分けも対応します。</p>
+      <form id="resultForm">
+        <div class="inputGrid">
+          <div><label for="gameSelect">試合</label><select id="gameSelect"><option value="0">8/23　楽天－オイシックス</option><option value="1">8/23　ヤクルト－西武</option><option value="2">8/23　日本ハム－ロッテ</option><option value="3">8/25　ロッテ－DeNA</option><option value="4">8/25　日本ハム－オイシックス</option><option value="5">8/25　西武－楽天</option><option value="6">8/25　ハヤテ－ヤクルト</option><option value="7">8/26　ロッテ－DeNA</option><option value="8">8/26　日本ハム－オイシックス</option><option value="9">8/26　西武－楽天</option><option value="10">8/26　ハヤテ－ヤクルト</option><option value="11">8/27　ロッテ－DeNA</option><option value="12">8/27　日本ハム－オイシックス</option><option value="13">8/27　西武－楽天</option><option value="14">8/27　ハヤテ－ヤクルト</option><option value="15">8/28　オイシックス－楽天</option><option value="16">8/29　オイシックス－楽天</option><option value="17">8/29　ロッテ－ヤクルト</option><option value="18">8/29　西武－日本ハム</option><option value="19">8/30　オイシックス－楽天</option><option value="20">8/30　ロッテ－ヤクルト</option><option value="21">8/30　西武－日本ハム</option><option value="22">9/1　楽天－西武</option><option value="23">9/1　ヤクルト－DeNA</option><option value="24">9/1　ハヤテ－オイシックス</option><option value="25">9/1　阪神－日本ハム</option><option value="26">9/1　広島－ロッテ</option><option value="27">9/2　楽天－西武</option><option value="28">9/2　ヤクルト－DeNA</option><option value="29">9/2　ハヤテ－オイシックス</option><option value="30">9/2　阪神－日本ハム</option><option value="31">9/2　広島－ロッテ</option><option value="32">9/3　楽天－西武</option><option value="33">9/3　ヤクルト－DeNA</option><option value="34">9/3　ハヤテ－オイシックス</option><option value="35">9/3　阪神－日本ハム</option><option value="36">9/3　広島－ロッテ</option><option value="37">9/4　楽天－DeNA</option><option value="38">9/4　オイシックス－西武</option><option value="39">9/4　ヤクルト－オリックス</option><option value="40">9/4　阪神－ロッテ</option><option value="41">9/4　広島－日本ハム</option><option value="42">9/5　楽天－DeNA</option><option value="43">9/5　オイシックス－西武</option><option value="44">9/5　ヤクルト－オリックス</option><option value="45">9/5　阪神－ロッテ</option><option value="46">9/5　広島－日本ハム</option><option value="47">9/6　楽天－DeNA</option><option value="48">9/6　オイシックス－西武</option><option value="49">9/6　ヤクルト－オリックス</option><option value="50">9/6　阪神－ロッテ</option><option value="51">9/6　広島－日本ハム</option><option value="52">9/11　楽天－オイシックス</option><option value="53">9/11　ヤクルト－中日</option><option value="54">9/11　日本ハム－ロッテ</option><option value="55">9/12　楽天－オイシックス</option><option value="56">9/12　ヤクルト－中日</option><option value="57">9/12　日本ハム－ロッテ</option><option value="58">9/13　楽天－オイシックス</option><option value="59">9/13　ヤクルト－中日</option><option value="60">9/13　日本ハム－ロッテ</option><option value="61">9/15　オイシックス－巨人</option><option value="62">9/15　ロッテ－楽天</option><option value="63">9/15　日本ハム－ヤクルト</option><option value="64">9/16　ロッテ－楽天</option><option value="65">9/16　日本ハム－ヤクルト</option><option value="66">9/17　オイシックス－巨人</option><option value="67">9/17　ロッテ－楽天</option><option value="68">9/18　楽天－日本ハム</option><option value="69">9/19　楽天－日本ハム</option><option value="70">9/19　ヤクルト－オイシックス</option><option value="71">9/19　DeNA－ロッテ</option><option value="72">9/20　ヤクルト－オイシックス</option><option value="73">9/20　DeNA－ロッテ</option><option value="74">9/21　オイシックス－楽天</option><option value="75">9/21　ヤクルト－ハヤテ</option><option value="76">9/21　ロッテ－西武</option><option value="77">9/21　日本ハム－巨人</option><option value="78">9/22　オイシックス－楽天</option><option value="79">9/22　ヤクルト－ハヤテ</option><option value="80">9/22　ロッテ－西武</option><option value="81">9/22　日本ハム－巨人</option><option value="82">9/23　オイシックス－楽天</option><option value="83">9/23　ヤクルト－ハヤテ</option><option value="84">9/23　ロッテ－西武</option><option value="85">9/23　日本ハム－巨人</option><option value="86">9/25　楽天－ヤクルト</option><option value="87">9/25　オイシックス－ロッテ</option><option value="88">9/25　中日－日本ハム</option><option value="89">9/26　楽天－ヤクルト</option><option value="90">9/26　オイシックス－ロッテ</option><option value="91">9/26　中日－日本ハム</option><option value="92">9/27　楽天－ヤクルト</option><option value="93">9/27　オイシックス－ロッテ</option><option value="94">9/27　中日－日本ハム</option></select></div>
+          <div><label for="homeScore">ホーム</label><input id="homeScore" type="number" min="0" max="99" inputmode="numeric" required></div>
+          <div><label for="awayScore">ビジター</label><input id="awayScore" type="number" min="0" max="99" inputmode="numeric" required></div>
+        </div>
+        <div class="actions">
+          <button class="primary" type="submit">結果を反映して再計算</button>
+          <button class="secondary" id="resetBtn" type="button">8/22時点に戻す</button>
+        </div>
+        <div class="msg" id="formMsg" aria-live="polite"></div>
+      </form>
+      <div class="history" id="inputHistory"><div class="tiny">まだ追加の結果は入力されていません。</div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="sectionHead"><h2>モデルに入れているデータ</h2><span class="tiny">V2.2</span></div>
+    <div class="methodGrid">
+      <div class="method"><b>① 現在戦力・1軍動向 15%</b><p>1軍登録・抹消によるファームの実働戦力変化を補正。</p></div>
+      <div class="method"><b>② 予想先発・投手層 15%</b><p>登板間隔、防御率、奪三振、与四球などから投手力を評価。</p></div>
+      <div class="method"><b>③ 直近30日成績 20%</b><p>最近の勝敗・得失点・攻撃力を反映しつつ短期上振れを抑制。</p></div>
+      <div class="method"><b>④ 内容指標・地力 30%</b><p>出塁率、長打率、防御率、K-BB系、得失点差、ピタゴラス勝率。</p></div>
+      <div class="method"><b>⑤ 残り日程・相手強度 20%</b><p>直接対決、相手勝率、ホーム/ビジターを各試合に反映。</p></div>
+    </div>
+    <div class="weight"><span class="w1">15%</span><span class="w2">15%</span><span class="w3">20%</span><span class="w4">30%</span><span class="w5">20%</span></div>
+  </section>
+
+  <div class="note">
+    <b>注意：</b> このサイトは非公式の予測ツールです。2026年ファームは中止試合を原則再試合しないため、実際の消化試合数でも確率は変化します。
+    また、1軍昇降格・予想先発などは日々変わるため、本モデルの確率は確定値ではありません。
+  </div>
+  <footer>
+    参照ベース：NPB公式の東地区勝敗表・チーム打撃・チーム投手・公示・8〜9月試合日程 ＋ 8/22結果（日本ハム6-2ロッテ、楽天10-1オイシックス）
+  </footer>
+</div>
+
+<script>
+(() => {
+const EAST=["日本ハム","楽天","ロッテ","ヤクルト","オイシックス"];
+const colors={"日本ハム":"#0d5bd7","楽天":"#c92433","ロッテ":"#222222","ヤクルト":"#173d75","オイシックス":"#ef8219"};
+const classes={"日本ハム":"ham","楽天":"rak","ロッテ":"lot","ヤクルト":"yak","オイシックス":"oix"};
+const initialStand={
+ "日本ハム":{w:54,l:36,t:5,rs:500,ra:370},
+ "楽天":{w:51,l:43,t:5,rs:449,ra:406},
+ "ロッテ":{w:46,l:44,t:5,rs:430,ra:383},
+ "ヤクルト":{w:37,l:50,t:7,rs:339,ra:419},
+ "オイシックス":{w:38,l:59,t:3,rs:362,ra:535}
+};
+const baseStrength={
+ "日本ハム":0.634,"楽天":0.546,"ロッテ":0.553,"ヤクルト":0.404,"オイシックス":0.329,
+ "DeNA":0.641,"巨人":0.615,"西武":0.564,"中日":0.436,"ハヤテ":0.323,
+ "阪神":0.389,"広島":0.405,"オリックス":0.523,"ソフトバンク":0.624
+};
+const initialSchedule=[{"date": "8/23", "home": "楽天", "away": "オイシックス", "venue": "森林どり泉"}, {"date": "8/23", "home": "ヤクルト", "away": "西武", "venue": "戸田"}, {"date": "8/23", "home": "日本ハム", "away": "ロッテ", "venue": "鎌スタ"}, {"date": "8/25", "home": "ロッテ", "away": "DeNA", "venue": "ロッテ"}, {"date": "8/25", "home": "日本ハム", "away": "オイシックス", "venue": "鎌スタ"}, {"date": "8/25", "home": "西武", "away": "楽天", "venue": "カーミニーク"}, {"date": "8/25", "home": "ハヤテ", "away": "ヤクルト", "venue": "静岡"}, {"date": "8/26", "home": "ロッテ", "away": "DeNA", "venue": "ロッテ"}, {"date": "8/26", "home": "日本ハム", "away": "オイシックス", "venue": "鎌スタ"}, {"date": "8/26", "home": "西武", "away": "楽天", "venue": "カーミニーク"}, {"date": "8/26", "home": "ハヤテ", "away": "ヤクルト", "venue": "静岡"}, {"date": "8/27", "home": "ロッテ", "away": "DeNA", "venue": "ロッテ"}, {"date": "8/27", "home": "日本ハム", "away": "オイシックス", "venue": "鎌スタ"}, {"date": "8/27", "home": "西武", "away": "楽天", "venue": "カーミニーク"}, {"date": "8/27", "home": "ハヤテ", "away": "ヤクルト", "venue": "静岡"}, {"date": "8/28", "home": "オイシックス", "away": "楽天", "venue": "長岡悠久山"}, {"date": "8/29", "home": "オイシックス", "away": "楽天", "venue": "長岡悠久山"}, {"date": "8/29", "home": "ロッテ", "away": "ヤクルト", "venue": "ロッテ"}, {"date": "8/29", "home": "西武", "away": "日本ハム", "venue": "南魚沼"}, {"date": "8/30", "home": "オイシックス", "away": "楽天", "venue": "南魚沼"}, {"date": "8/30", "home": "ロッテ", "away": "ヤクルト", "venue": "ロッテ"}, {"date": "8/30", "home": "西武", "away": "日本ハム", "venue": "カーミニーク"}, {"date": "9/1", "home": "楽天", "away": "西武", "venue": "森林どり泉"}, {"date": "9/1", "home": "ヤクルト", "away": "DeNA", "venue": "戸田"}, {"date": "9/1", "home": "ハヤテ", "away": "オイシックス", "venue": "ちゅ〜る"}, {"date": "9/1", "home": "阪神", "away": "日本ハム", "venue": "SGL"}, {"date": "9/1", "home": "広島", "away": "ロッテ", "venue": "由宇"}, {"date": "9/2", "home": "楽天", "away": "西武", "venue": "森林どり泉"}, {"date": "9/2", "home": "ヤクルト", "away": "DeNA", "venue": "戸田"}, {"date": "9/2", "home": "ハヤテ", "away": "オイシックス", "venue": "ちゅ〜る"}, {"date": "9/2", "home": "阪神", "away": "日本ハム", "venue": "SGL"}, {"date": "9/2", "home": "広島", "away": "ロッテ", "venue": "由宇"}, {"date": "9/3", "home": "楽天", "away": "西武", "venue": "森林どり泉"}, {"date": "9/3", "home": "ヤクルト", "away": "DeNA", "venue": "戸田"}, {"date": "9/3", "home": "ハヤテ", "away": "オイシックス", "venue": "ちゅ〜る"}, {"date": "9/3", "home": "阪神", "away": "日本ハム", "venue": "SGL"}, {"date": "9/3", "home": "広島", "away": "ロッテ", "venue": "由宇"}, {"date": "9/4", "home": "楽天", "away": "DeNA", "venue": "森林どり泉"}, {"date": "9/4", "home": "オイシックス", "away": "西武", "venue": "ハードオフ新潟"}, {"date": "9/4", "home": "ヤクルト", "away": "オリックス", "venue": "戸田"}, {"date": "9/4", "home": "阪神", "away": "ロッテ", "venue": "SGL"}, {"date": "9/4", "home": "広島", "away": "日本ハム", "venue": "由宇"}, {"date": "9/5", "home": "楽天", "away": "DeNA", "venue": "森林どり泉"}, {"date": "9/5", "home": "オイシックス", "away": "西武", "venue": "ハードオフ新潟"}, {"date": "9/5", "home": "ヤクルト", "away": "オリックス", "venue": "戸田"}, {"date": "9/5", "home": "阪神", "away": "ロッテ", "venue": "SGL"}, {"date": "9/5", "home": "広島", "away": "日本ハム", "venue": "由宇"}, {"date": "9/6", "home": "楽天", "away": "DeNA", "venue": "森林どり泉"}, {"date": "9/6", "home": "オイシックス", "away": "西武", "venue": "ハードオフ新潟"}, {"date": "9/6", "home": "ヤクルト", "away": "オリックス", "venue": "戸田"}, {"date": "9/6", "home": "阪神", "away": "ロッテ", "venue": "SGL"}, {"date": "9/6", "home": "広島", "away": "日本ハム", "venue": "由宇"}, {"date": "9/11", "home": "楽天", "away": "オイシックス", "venue": "森林どり泉"}, {"date": "9/11", "home": "ヤクルト", "away": "中日", "venue": "戸田"}, {"date": "9/11", "home": "日本ハム", "away": "ロッテ", "venue": "鎌スタ"}, {"date": "9/12", "home": "楽天", "away": "オイシックス", "venue": "森林どり泉"}, {"date": "9/12", "home": "ヤクルト", "away": "中日", "venue": "戸田"}, {"date": "9/12", "home": "日本ハム", "away": "ロッテ", "venue": "鎌スタ"}, {"date": "9/13", "home": "楽天", "away": "オイシックス", "venue": "森林どり泉"}, {"date": "9/13", "home": "ヤクルト", "away": "中日", "venue": "戸田"}, {"date": "9/13", "home": "日本ハム", "away": "ロッテ", "venue": "鎌スタ"}, {"date": "9/15", "home": "オイシックス", "away": "巨人", "venue": "七尾城山"}, {"date": "9/15", "home": "ロッテ", "away": "楽天", "venue": "ロッテ"}, {"date": "9/15", "home": "日本ハム", "away": "ヤクルト", "venue": "鎌スタ"}, {"date": "9/16", "home": "ロッテ", "away": "楽天", "venue": "ロッテ"}, {"date": "9/16", "home": "日本ハム", "away": "ヤクルト", "venue": "鎌スタ"}, {"date": "9/17", "home": "オイシックス", "away": "巨人", "venue": "ハードオフ新潟"}, {"date": "9/17", "home": "ロッテ", "away": "楽天", "venue": "ロッテ"}, {"date": "9/18", "home": "楽天", "away": "日本ハム", "venue": "森林どり泉"}, {"date": "9/19", "home": "楽天", "away": "日本ハム", "venue": "森林どり泉"}, {"date": "9/19", "home": "ヤクルト", "away": "オイシックス", "venue": "戸田"}, {"date": "9/19", "home": "DeNA", "away": "ロッテ", "venue": "横須賀"}, {"date": "9/20", "home": "ヤクルト", "away": "オイシックス", "venue": "戸田"}, {"date": "9/20", "home": "DeNA", "away": "ロッテ", "venue": "横須賀"}, {"date": "9/21", "home": "オイシックス", "away": "楽天", "venue": "長岡悠久山"}, {"date": "9/21", "home": "ヤクルト", "away": "ハヤテ", "venue": "戸田"}, {"date": "9/21", "home": "ロッテ", "away": "西武", "venue": "ロッテ"}, {"date": "9/21", "home": "日本ハム", "away": "巨人", "venue": "鎌スタ"}, {"date": "9/22", "home": "オイシックス", "away": "楽天", "venue": "長岡悠久山"}, {"date": "9/22", "home": "ヤクルト", "away": "ハヤテ", "venue": "戸田"}, {"date": "9/22", "home": "ロッテ", "away": "西武", "venue": "ロッテ"}, {"date": "9/22", "home": "日本ハム", "away": "巨人", "venue": "鎌スタ"}, {"date": "9/23", "home": "オイシックス", "away": "楽天", "venue": "長岡悠久山"}, {"date": "9/23", "home": "ヤクルト", "away": "ハヤテ", "venue": "戸田"}, {"date": "9/23", "home": "ロッテ", "away": "西武", "venue": "ロッテ"}, {"date": "9/23", "home": "日本ハム", "away": "巨人", "venue": "鎌スタ"}, {"date": "9/25", "home": "楽天", "away": "ヤクルト", "venue": "森林どり泉/利府"}, {"date": "9/25", "home": "オイシックス", "away": "ロッテ", "venue": "ハードオフ新潟"}, {"date": "9/25", "home": "中日", "away": "日本ハム", "venue": "ナゴヤ"}, {"date": "9/26", "home": "楽天", "away": "ヤクルト", "venue": "森林どり泉/利府"}, {"date": "9/26", "home": "オイシックス", "away": "ロッテ", "venue": "ハードオフ新潟"}, {"date": "9/26", "home": "中日", "away": "日本ハム", "venue": "ナゴヤ"}, {"date": "9/27", "home": "楽天", "away": "ヤクルト", "venue": "森林どり泉/利府"}, {"date": "9/27", "home": "オイシックス", "away": "ロッテ", "venue": "ハードオフ新潟"}, {"date": "9/27", "home": "中日", "away": "日本ハム", "venue": "ナゴヤ"}];
+const initialSim={
+ rank:{
+  "日本ハム":[0.958,0.040,0.002,0,0],
+  "楽天":[0.038,0.774,0.188,0,0],
+  "ロッテ":[0.004,0.186,0.803,0.007,0],
+  "ヤクルト":[0,0,0.008,0.886,0.106],
+  "オイシックス":[0,0,0,0.106,0.894]
+ },
+ avg:{
+  "日本ハム":{w:67.9,l:46.2,t:5.9},
+  "楽天":{w:64.8,l:55.2,t:6.0},
+  "ロッテ":{w:58.8,l:56.3,t:5.9},
+  "ヤクルト":{w:48.3,l:62.8,t:7.9},
+  "オイシックス":{w:48.4,l:73.7,t:3.9}
+ }
+}
+let state={
+ stand:clone(initialStand),
+ schedule:clone(initialSchedule),
+ entered:[],
+ selected:"日本ハム",
+ scheduleFilter:"日本ハム",
+ probHistory:[{label:"8/22",value:95.8}],
+ magicHistory:[{label:"8/22",value:21}],
+ simulation:clone(initialSim)
+};
+
+function clone(x){return JSON.parse(JSON.stringify(x));}
+function pct(r){return r.w/(r.w+r.l);}
+function formatPct(v,d=1){return (v*100).toFixed(d)+"%";}
+function dateOrder(s){const [m,d]=s.split("/").map(Number);return m*100+d;}
+function remainingCounts(schedule){
+ const c=Object.fromEntries(EAST.map(t=>[t,0]));
+ schedule.forEach(g=>{if(c[g.home]!==undefined)c[g.home]++;if(c[g.away]!==undefined)c[g.away]++;});
+ return c;
+}
+function seedFromState(){
+ let s=2166136261>>>0;
+ const raw=JSON.stringify(state.stand)+JSON.stringify(state.schedule);
+ for(let i=0;i<raw.length;i++){s^=raw.charCodeAt(i);s=Math.imul(s,16777619);}
+ return s>>>0;
+}
+function rngFactory(seed){let x=seed||123456789;return()=>{x^=x<<13;x^=x>>>17;x^=x<<5;return (x>>>0)/4294967296;}}
+function dynamicStrength(team){
+ if(!EAST.includes(team)) return baseStrength[team]||0.5;
+ const r=state.stand[team];
+ const actual=pct(r);
+ const py=Math.pow(r.rs,1.83)/(Math.pow(r.rs,1.83)+Math.pow(r.ra,1.83));
+ return 0.40*actual+0.50*py+0.10*0.5;
+}
+function homeWinProb(home,away){
+ const a=dynamicStrength(home),b=dynamicStrength(away);
+ const x=2.30*(a-b)+0.025;
+ return 1/(1+Math.exp(-x));
+}
+function simulate(iter=20000){
+ const rand=rngFactory(seedFromState());
+ const idx=Object.fromEntries(EAST.map((t,i)=>[t,i]));
+ const baseW=EAST.map(t=>state.stand[t].w), baseL=EAST.map(t=>state.stand[t].l), baseT=EAST.map(t=>state.stand[t].t);
+ const gameData=state.schedule.map(g=>[idx[g.home]??-1,idx[g.away]??-1,homeWinProb(g.home,g.away)]);
+ const rankCounts=Array.from({length:5},()=>[0,0,0,0,0]);
+ const sumW=[0,0,0,0,0],sumL=[0,0,0,0,0],sumT=[0,0,0,0,0];
+ const drawP=0.035;
+ for(let n=0;n<iter;n++){
+   const w=baseW.slice(),l=baseL.slice(),t=baseT.slice();
+   for(let gi=0;gi<gameData.length;gi++){
+     const [hi,ai,p]=gameData[gi],r=rand();
+     if(r<drawP){if(hi>=0)t[hi]++;if(ai>=0)t[ai]++;}
+     else if(r<drawP+(1-drawP)*p){if(hi>=0)w[hi]++;if(ai>=0)l[ai]++;}
+     else {if(ai>=0)w[ai]++;if(hi>=0)l[hi]++;}
+   }
+   const order=[0,1,2,3,4];
+   order.sort((a,b)=>{
+     const pa=w[a]/(w[a]+l[a]),pb=w[b]/(w[b]+l[b]);
+     return pb-pa||w[b]-w[a]||(rand()-.5);
+   });
+   for(let pos=0;pos<5;pos++)rankCounts[order[pos]][pos]++;
+   for(let i=0;i<5;i++){sumW[i]+=w[i];sumL[i]+=l[i];sumT[i]+=t[i];}
+ }
+ const out={rank:{},avg:{}};
+ EAST.forEach((team,i)=>{
+   out.rank[team]=rankCounts[i].map(x=>x/iter);
+   out.avg[team]={w:sumW[i]/iter,l:sumL[i]/iter,t:sumT[i]/iter};
+ });
+ return out;
+}
+function magicInfo(team="日本ハム"){
+ const counts=remainingCounts(state.schedule);
+ let rival=null,maxPct=-1;
+ for(const r of EAST){
+   if(r===team)continue;
+   const x=state.stand[r], rem=counts[r];
+   const p=(x.w+rem)/(x.w+x.l+rem);
+   if(p>maxPct){maxPct=p;rival=r;}
+ }
+ const x=state.stand[team], rem=counts[team], den=x.w+x.l+rem;
+ for(let wins=0;wins<=rem;wins++){
+   if((x.w+wins)/den>maxPct) return {magic:wins,rival,maxPct};
+ }
+ return {magic:null,rival,maxPct};
+}
+function approxEarliest(){
+ let tempStand=clone(state.stand), tempSchedule=clone(state.schedule);
+ const dates=[...new Set(tempSchedule.map(g=>g.date))].sort((a,b)=>dateOrder(a)-dateOrder(b));
+ for(const d of dates){
+   const todays=tempSchedule.filter(g=>g.date===d);
+   for(const g of todays){
+     if(g.home==="日本ハム"){tempStand["日本ハム"].w++; if(EAST.includes(g.away))tempStand[g.away].l++;}
+     else if(g.away==="日本ハム"){tempStand["日本ハム"].w++; if(EAST.includes(g.home))tempStand[g.home].l++;}
+     else {
+       if(EAST.includes(g.home))tempStand[g.home].l++;
+       if(EAST.includes(g.away))tempStand[g.away].l++;
+     }
+   }
+   const future=tempSchedule.filter(g=>dateOrder(g.date)>dateOrder(d));
+   const c=Object.fromEntries(EAST.map(t=>[t,0]));
+   future.forEach(g=>{if(c[g.home]!==undefined)c[g.home]++;if(c[g.away]!==undefined)c[g.away]++;});
+   const nh=tempStand["日本ハム"];
+   const nhWorst=nh.w/(nh.w+nh.l+c["日本ハム"]);
+   let maxR=0;
+   EAST.filter(t=>t!=="日本ハム").forEach(t=>{
+     const r=tempStand[t]; maxR=Math.max(maxR,(r.w+c[t])/(r.w+r.l+c[t]));
+   });
+   if(nhWorst>maxR)return d;
+ }
+ return "—";
+}
+function calcGB(leader,team){
+ const a=leader,b=team;
+ return ((a.w-b.w)+(b.l-a.l))/2;
+}
+function renderStandings(){
+ const arr=EAST.map(t=>({t,r:state.stand[t],p:pct(state.stand[t])})).sort((a,b)=>b.p-a.p||b.r.w-a.r.w);
+ const leader=arr[0].r;
+ document.getElementById("standingsBody").innerHTML=arr.map((x,i)=>`<tr>
+  <td><b>${i+1}</b></td>
+  <td><button class="teamBtn" type="button" data-team="${x.t}"><span class="dot ${classes[x.t]}"></span>${x.t}</button></td>
+  <td>${x.r.w}-${x.r.l}-${x.r.t}</td><td>${x.p.toFixed(3).replace(/^0/,"")}</td>
+  <td>${i===0?"—":calcGB(leader,x.r).toFixed(1)}</td></tr>`).join("");
+ document.querySelectorAll(".teamBtn").forEach(b=>b.addEventListener("click",()=>selectTeam(b.dataset.team)));
+}
+function renderChamp(){
+ const sim=state.simulation;
+ document.getElementById("champList").innerHTML=EAST.map((t,i)=>{
+   const p=sim.rank[t][0], w=Math.max(0.3,p*100);
+   const best=Math.max(...EAST.map(x=>sim.rank[x][0]));
+   return `<div class="probRow"><button class="teamBtn" data-team="${t}" type="button"><span class="dot ${classes[t]}"></span>${t}</button>
+     <div class="track"><div class="fill" style="width:${w}%"></div></div>
+     <div class="pct ${p===best?"big":""}">${formatPct(p)}</div></div>`;
+ }).join("");
+ document.querySelectorAll("#champList .teamBtn").forEach(b=>b.addEventListener("click",()=>selectTeam(b.dataset.team)));
+ document.getElementById("headlineProb").textContent=formatPct(sim.rank["日本ハム"][0]);
+}
+function renderTabs(){
+ document.getElementById("teamTabs").innerHTML=EAST.map(t=>`<button type="button" class="filterBtn ${state.selected===t?"active":""}" data-team="${t}">${t}</button>`).join("");
+ document.querySelectorAll("#teamTabs button").forEach(b=>b.addEventListener("click",()=>selectTeam(b.dataset.team)));
+}
+function selectTeam(t){state.selected=t;renderTabs();renderRankPanel();}
+function renderRankPanel(){
+ const t=state.selected, sim=state.simulation, probs=sim.rank[t], avg=sim.avg[t];
+ document.getElementById("selectedName").innerHTML=`<span class="dot ${classes[t]}"></span>${t}`;
+ document.getElementById("selectedChamp").textContent=formatPct(probs[0]);
+ document.getElementById("selectedRecord").textContent=`平均最終成績：${avg.w.toFixed(1)}勝 ${avg.l.toFixed(1)}敗 ${avg.t.toFixed(1)}分`;
+ document.getElementById("rankBars").innerHTML=probs.map((p,i)=>`<div class="rankRow">
+   <b>${i+1}位</b><div class="rankTrack"><div class="rankFill" style="width:${Math.max(.2,p*100)}%"></div></div><b style="text-align:right">${formatPct(p)}</b>
+ </div>`).join("");
+}
+function renderScheduleFilters(){
+ const opts=["全体",...EAST];
+ document.getElementById("scheduleFilters").innerHTML=opts.map(t=>`<button class="filterBtn ${state.scheduleFilter===t?"active":""}" type="button" data-filter="${t}">${t}</button>`).join("");
+ document.querySelectorAll("#scheduleFilters button").forEach(b=>b.addEventListener("click",()=>{state.scheduleFilter=b.dataset.filter;renderScheduleFilters();renderSchedule();}));
+}
+function renderSchedule(){
+ let a=state.schedule.filter(g=>state.scheduleFilter==="全体"||g.home===state.scheduleFilter||g.away===state.scheduleFilter);
+ a.sort((x,y)=>dateOrder(x.date)-dateOrder(y.date));
+ document.getElementById("scheduleCount").textContent=`${a.length}試合表示`;
+ document.getElementById("scheduleList").innerHTML=a.length?a.map(g=>{
+   const direct=EAST.includes(g.home)&&EAST.includes(g.away)?'<span class="direct">東地区直接対決</span>':"";
+   return `<div class="game"><div class="date">${g.date}</div><div><b>${g.home} － ${g.away}</b>${direct}<div class="venue">${g.venue||""}</div></div><div class="venue">${g.venue||""}</div></div>`;
+ }).join(""):'<div style="padding:18px" class="muted">残り試合はありません。</div>';
+}
+function renderGameSelect(){
+ const sel=document.getElementById("gameSelect");
+ const sorted=state.schedule.slice().sort((a,b)=>dateOrder(a.date)-dateOrder(b.date));
+ sel.innerHTML=sorted.map((g,i)=>`<option value="${state.schedule.indexOf(g)}">${g.date}　${g.home}－${g.away}</option>`).join("");
+ sel.disabled=!sorted.length;
+}
+function applyResult(index,hs,as){
+ const g=state.schedule[index]; if(!g)return false;
+ const hE=EAST.includes(g.home),aE=EAST.includes(g.away);
+ if(hs===as){
+   if(hE){state.stand[g.home].t++;state.stand[g.home].rs+=hs;state.stand[g.home].ra+=as;}
+   if(aE){state.stand[g.away].t++;state.stand[g.away].rs+=as;state.stand[g.away].ra+=hs;}
+ }else if(hs>as){
+   if(hE){state.stand[g.home].w++;state.stand[g.home].rs+=hs;state.stand[g.home].ra+=as;}
+   if(aE){state.stand[g.away].l++;state.stand[g.away].rs+=as;state.stand[g.away].ra+=hs;}
+ }else{
+   if(aE){state.stand[g.away].w++;state.stand[g.away].rs+=as;state.stand[g.away].ra+=hs;}
+   if(hE){state.stand[g.home].l++;state.stand[g.home].rs+=hs;state.stand[g.home].ra+=as;}
+ }
+ state.entered.push({...g,hs,as});
+ state.schedule.splice(index,1);
+ return true;
+}
+function renderHistory(){
+ document.getElementById("inputHistory").innerHTML=state.entered.length?state.entered.slice().reverse().map(x=>`<div class="histItem"><span>${x.date} ${x.home} ${x.hs}－${x.as} ${x.away}</span><b>反映済</b></div>`).join(""):'<div class="tiny">まだ追加の結果は入力されていません。</div>';
+}
+function drawLineChart(svgId,data,opts={}){
+ const svg=document.getElementById(svgId),W=620,H=255,L=46,R=18,T=20,B=38,iw=W-L-R,ih=H-T-B;
+ const yMax=opts.max??Math.max(...data.map(x=>x.value),1), yMin=opts.min??0;
+ const x=(i)=>L+(data.length<=1?iw/2:iw*i/(data.length-1));
+ const y=(v)=>T+ih-(v-yMin)/(yMax-yMin||1)*ih;
+ let s="";
+ for(let i=0;i<=4;i++){const val=yMin+(yMax-yMin)*i/4, yy=y(val);s+=`<line x1="${L}" y1="${yy}" x2="${W-R}" y2="${yy}" stroke="#e3eaf3"/><text x="${L-7}" y="${yy+4}" text-anchor="end" class="chartLabel">${opts.percent?val.toFixed(0)+"%":val.toFixed(0)}</text>`;}
+ if(data.length>1){s+=`<polyline fill="none" stroke="${opts.color||"#0d5bd7"}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" points="${data.map((d,i)=>`${x(i)},${y(d.value)}`).join(" ")}"/>`;}
+ data.forEach((d,i)=>{s+=`<circle cx="${x(i)}" cy="${y(d.value)}" r="5" fill="${opts.color||"#0d5bd7"}"/><text x="${x(i)}" y="${H-15}" text-anchor="middle" class="chartLabel">${d.label}</text><text x="${x(i)}" y="${y(d.value)-9}" text-anchor="middle" class="chartValue">${opts.percent?d.value.toFixed(1)+"%":"M"+Math.round(d.value)}</text>`;});
+ svg.innerHTML=s;
+}
+function updateDerived(pushHistory=false,label=""){
+ state.simulation=simulate(20000);
+ const mi=magicInfo();
+ document.getElementById("magicNow").textContent=mi.magic===null?"—":"M"+mi.magic;
+ document.getElementById("magicTarget").textContent="対象："+mi.rival;
+ document.getElementById("earliestDate").textContent=approxEarliest();
+ document.getElementById("hamRemaining").textContent=remainingCounts(state.schedule)["日本ハム"];
+ if(pushHistory){
+   state.probHistory.push({label,value:state.simulation.rank["日本ハム"][0]*100});
+   state.magicHistory.push({label,value:mi.magic??0});
+ }
+ renderStandings();renderChamp();renderTabs();renderRankPanel();renderScheduleFilters();renderSchedule();renderGameSelect();renderHistory();
+ drawLineChart("probChart",state.probHistory,{min:0,max:100,percent:true,color:"#0d5bd7"});
+ const mm=Math.max(21,...state.magicHistory.map(x=>x.value));
+ drawLineChart("magicChart",state.magicHistory,{min:0,max:Math.max(5,mm+2),percent:false,color:"#7554c9"});
+}
+document.getElementById("resultForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ const idx=Number(document.getElementById("gameSelect").value);
+ const hs=Number(document.getElementById("homeScore").value),as=Number(document.getElementById("awayScore").value);
+ const msg=document.getElementById("formMsg");
+ if(!Number.isInteger(hs)||!Number.isInteger(as)||hs<0||as<0||hs>99||as>99){msg.textContent="0〜99の整数でスコアを入力してください。";return;}
+ const g=state.schedule[idx]; if(!g){msg.textContent="試合を選択してください。";return;}
+ const label=g.date;
+ const ok=applyResult(idx,hs,as); if(!ok)return;
+ msg.textContent=`${g.date} ${g.home} ${hs}－${as} ${g.away} を反映しました。`;
+ document.getElementById("homeScore").value="";document.getElementById("awayScore").value="";
+ updateDerived(true,label);
+});
+document.getElementById("resetBtn").addEventListener("click",()=>{
+ state={stand:clone(initialStand),schedule:clone(initialSchedule),entered:[],selected:"日本ハム",scheduleFilter:"日本ハム",
+ probHistory:[{label:"8/22",value:95.8}],magicHistory:[{label:"8/22",value:21}],simulation:clone(initialSim)};
+ document.getElementById("formMsg").textContent="8/22終了時点に戻しました。";
+ updateDerived(false);
+});
+renderStandings();renderChamp();renderTabs();renderRankPanel();renderScheduleFilters();renderSchedule();renderGameSelect();renderHistory();
+drawLineChart("probChart",state.probHistory,{min:0,max:100,percent:true,color:"#0d5bd7"});
+drawLineChart("magicChart",state.magicHistory,{min:0,max:23,percent:false,color:"#7554c9"});
+setTimeout(()=>updateDerived(false),30);
+})();
+</script>
+</body>
+</html>
