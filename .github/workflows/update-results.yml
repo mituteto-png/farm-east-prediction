@@ -1,0 +1,43 @@
+name: Update official farm results
+
+on:
+  workflow_dispatch:
+  schedule:
+    # GitHub Actions uses UTC: 21:30 and 00:30 Japan time.
+    - cron: "30 12,15 * 8-9 *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-official-farm-results
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Fetch NPB official results
+        run: node scripts/update-results.mjs
+
+      - name: Commit changes when official results changed
+        shell: bash
+        run: |
+          if git diff --quiet -- auto-data.js; then
+            echo "No new official results."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add auto-data.js
+          git commit -m "Update official farm results"
+          git push
