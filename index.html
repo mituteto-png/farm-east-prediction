@@ -110,6 +110,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:11px}
       <span class="badge">モンテカルロ 20,000回</span>
       <span class="badge">非公式モデル V2.2</span>
       <span class="badge">結果入力対応</span>
+      <span class="badge" id="autoUpdateBadge">公式結果を自動確認中</span>
     </div>
   </section>
 <noscript>
@@ -216,7 +217,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:11px}
         </div>
         <div class="actions">
           <button class="primary" type="submit">結果を反映して再計算</button>
-          <button class="secondary" id="resetBtn" type="button">8/22時点に戻す</button>
+          <button class="secondary" id="resetBtn" type="button">最新の自動更新時点に戻す</button>
         </div>
         <div class="msg" id="formMsg" aria-live="polite"></div>
       </form>
@@ -245,6 +246,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:11px}
   </footer>
 </div>
 
+<script src="auto-data.js"></script>
 <script>
 (() => {
 const EAST=["日本ハム","楽天","ロッテ","ヤクルト","オイシックス"];
@@ -279,16 +281,19 @@ const initialSim={
   "オイシックス":{w:48.4,l:73.7,t:3.9}
  }
 }
-let state={
- stand:clone(initialStand),
- schedule:clone(initialSchedule),
- entered:[],
- selected:"日本ハム",
- scheduleFilter:"日本ハム",
- probHistory:[{label:"8/22",value:95.8}],
- magicHistory:[{label:"8/22",value:21}],
- simulation:clone(initialSim)
-};
+function freshState(){
+ return {
+  stand:clone(initialStand),
+  schedule:clone(initialSchedule),
+  entered:[],
+  selected:"日本ハム",
+  scheduleFilter:"日本ハム",
+  probHistory:[{label:"8/22",value:95.8}],
+  magicHistory:[{label:"8/22",value:21}],
+  simulation:clone(initialSim)
+ };
+}
+let state=freshState();
 
 function clone(x){return JSON.parse(JSON.stringify(x));}
 function pct(r){return r.w/(r.w+r.l);}
@@ -467,8 +472,33 @@ function applyResult(index,hs,as){
  state.schedule.splice(index,1);
  return true;
 }
+function applyAutomaticResults(){
+ const data=window.FARM_AUTO_DATA||{results:[]};
+ const results=Array.isArray(data.results)?data.results:[];
+ for(const result of results){
+   const index=state.schedule.findIndex(g=>g.date===result.date&&g.home===result.home&&g.away===result.away);
+   if(index<0)continue;
+   const game=state.schedule[index];
+   if(result.status==="cancelled"){
+     state.entered.push({...game,cancelled:true,automatic:true});
+     state.schedule.splice(index,1);
+   }else if(Number.isInteger(result.homeScore)&&Number.isInteger(result.awayScore)){
+     applyResult(index,result.homeScore,result.awayScore);
+     state.entered[state.entered.length-1].automatic=true;
+   }
+ }
+ const badge=document.getElementById("autoUpdateBadge");
+ if(results.length&&data.lastCompletedDate){
+   badge.textContent=`公式結果を自動反映：${data.lastCompletedDate}`;
+ }else{
+   badge.textContent="公式結果を毎日自動確認";
+ }
+}
 function renderHistory(){
- document.getElementById("inputHistory").innerHTML=state.entered.length?state.entered.slice().reverse().map(x=>`<div class="histItem"><span>${x.date} ${x.home} ${x.hs}－${x.as} ${x.away}</span><b>反映済</b></div>`).join(""):'<div class="tiny">まだ追加の結果は入力されていません。</div>';
+ document.getElementById("inputHistory").innerHTML=state.entered.length?state.entered.slice().reverse().map(x=>{
+   const result=x.cancelled?`${x.date} ${x.home}－${x.away} 中止`:`${x.date} ${x.home} ${x.hs}－${x.as} ${x.away}`;
+   return `<div class="histItem"><span>${result}</span><b>${x.automatic?"自動反映":"入力反映"}</b></div>`;
+ }).join(""):'<div class="tiny">公式結果は毎日自動確認されます。手入力も利用できます。</div>';
 }
 function drawLineChart(svgId,data,opts={}){
  const svg=document.getElementById(svgId),W=620,H=255,L=46,R=18,T=20,B=38,iw=W-L-R,ih=H-T-B;
@@ -511,11 +541,12 @@ document.getElementById("resultForm").addEventListener("submit",e=>{
  updateDerived(true,label);
 });
 document.getElementById("resetBtn").addEventListener("click",()=>{
- state={stand:clone(initialStand),schedule:clone(initialSchedule),entered:[],selected:"日本ハム",scheduleFilter:"日本ハム",
- probHistory:[{label:"8/22",value:95.8}],magicHistory:[{label:"8/22",value:21}],simulation:clone(initialSim)};
- document.getElementById("formMsg").textContent="8/22終了時点に戻しました。";
+ state=freshState();
+ applyAutomaticResults();
+ document.getElementById("formMsg").textContent="最新の公式自動更新時点に戻しました。";
  updateDerived(false);
 });
+applyAutomaticResults();
 renderStandings();renderChamp();renderTabs();renderRankPanel();renderScheduleFilters();renderSchedule();renderGameSelect();renderHistory();
 drawLineChart("probChart",state.probHistory,{min:0,max:100,percent:true,color:"#0d5bd7"});
 drawLineChart("magicChart",state.magicHistory,{min:0,max:23,percent:false,color:"#7554c9"});
