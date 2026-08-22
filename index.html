@@ -104,27 +104,27 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:11px}
 <div class="wrap" id="app">
   <section class="hero">
     <h1>2026 ファーム東地区<br>優勝・順位予測</h1>
-    <p>試合結果を入力すると、その場で残り日程を再シミュレーションします。</p>
+    <p>公式試合結果を毎日自動取得し、順位・優勝確率・残り日程を更新します。</p>
     <div class="badges">
       <span class="badge">基準：8/22終了時点</span>
       <span class="badge">モンテカルロ 20,000回</span>
       <span class="badge">非公式モデル V2.2</span>
-      <span class="badge">結果入力対応</span>
+      <span class="badge">公式結果を自動反映</span>
       <span class="badge" id="autoUpdateBadge">公式結果を自動確認中</span>
     </div>
   </section>
 <noscript>
   <div style="margin-top:14px;padding:13px 15px;border-radius:14px;background:#fff3cd;border:1px solid #ead28a;color:#6d5712;font-size:13px;line-height:1.6">
     このプレビュー環境ではJavaScriptが実行されていないため、8/22時点の固定データを表示しています。
-    試合結果入力による再計算やタップ操作は、JavaScriptを実行できるブラウザ環境で利用できます。
+    公式結果による再計算やタップ操作は、JavaScriptを実行できるブラウザ環境で利用できます。
   </div>
 </noscript>
 
   <section class="topstats">
-    <div class="stat"><div class="label">日本ハム 優勝確率</div><div class="val" id="headlineProb">95.8%</div><div class="sub">入力結果に応じて再計算</div></div>
+    <div class="stat"><div class="label">日本ハム 優勝確率</div><div class="val" id="headlineProb">95.8%</div><div class="sub">公式結果に応じて自動再計算</div></div>
     <div class="stat"><div class="label">非公式マジック相当</div><div class="val" id="magicNow">M21</div><div class="sub" id="magicTarget">対象：楽天</div></div>
     <div class="stat"><div class="label">最短優勝日</div><div class="val" id="earliestDate">9/5</div><div class="sub">モデル上の数学的最短・概算</div></div>
-    <div class="stat"><div class="label">残り日本ハム戦</div><div class="val" id="hamRemaining">25</div><div class="sub">入力済み試合は自動で減少</div></div>
+    <div class="stat"><div class="label">残り日本ハム戦</div><div class="val" id="hamRemaining">25</div><div class="sub">試合終了・中止を自動反映</div></div>
   </section>
 
   <section class="grid2">
@@ -160,7 +160,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:11px}
   <section class="section twoCol">
     <div class="card">
       <h2>優勝確率の推移</h2>
-      <p class="tiny">8/22を起点に、入力した試合結果ごとに履歴が追加されます。</p>
+      <p class="tiny">8/22を起点に、公式結果の反映に合わせて更新されます。</p>
       <div class="chartWrap"><svg id="probChart" viewBox="0 0 620 255" role="img" aria-label="優勝確率の推移グラフ">
 <line x1="46" y1="217" x2="602" y2="217" stroke="#e3eaf3"/>
 <line x1="46" y1="168" x2="602" y2="168" stroke="#e3eaf3"/>
@@ -175,7 +175,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:11px}
 <circle cx="324" cy="29.2" r="6" fill="#0d5bd7"/>
 <text x="324" y="17" text-anchor="middle" class="chartValue">95.8%</text>
 <text x="324" y="241" text-anchor="middle" class="chartLabel">8/22</text>
-<text x="324" y="135" text-anchor="middle" class="chartLabel">結果入力後に履歴が追加されます</text>
+<text x="324" y="135" text-anchor="middle" class="chartLabel">公式結果の反映に合わせて更新されます</text>
 </svg></div>
     </div>
     <div class="card">
@@ -195,7 +195,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:11px}
 <circle cx="324" cy="45.5" r="6" fill="#7554c9"/>
 <text x="324" y="33" text-anchor="middle" class="chartValue">M21</text>
 <text x="324" y="241" text-anchor="middle" class="chartLabel">8/22</text>
-<text x="324" y="135" text-anchor="middle" class="chartLabel">結果入力後に履歴が追加されます</text>
+<text x="324" y="135" text-anchor="middle" class="chartLabel">公式結果の反映に合わせて更新されます</text>
 </svg></div>
     </div>
   </section>
@@ -207,9 +207,9 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:11px}
       <div class="scheduleList" id="scheduleList"><div class="game"><div class="date">8/23</div><div><b>日本ハム － ロッテ</b><span class="direct">東地区直接対決</span><div class="venue">鎌スタ</div></div><div class="venue">鎌スタ</div></div><div class="game"><div class="date">8/25</div><div><b>日本ハム － オイシックス</b><span class="direct">東地区直接対決</span><div class="venue">鎌スタ</div></div><div class="venue">鎌スタ</div></div><div class="game"><div class="date">8/26</div><div><b>日本ハム － オイシックス</b><span class="direct">東地区直接対決</span><div class="venue">鎌スタ</div></div><div class="venue">鎌スタ</div></div><div class="game"><div class="date">8/27</div><div><b>日本ハム － オイシックス</b><span class="direct">東地区直接対決</span><div class="venue">鎌スタ</div></div><div class="venue">鎌スタ</div></div><div class="game"><div class="date">8/29</div><div><b>西武 － 日本ハム</b><div class="venue">南魚沼</div></div><div class="venue">南魚沼</div></div><div class="game"><div class="date">8/30</div><div><b>西武 － 日本ハム</b><div class="venue">カーミニーク</div></div><div class="venue">カーミニーク</div></div><div class="game"><div class="date">9/1</div><div><b>阪神 － 日本ハム</b><div class="venue">SGL</div></div><div class="venue">SGL</div></div><div class="game"><div class="date">9/2</div><div><b>阪神 － 日本ハム</b><div class="venue">SGL</div></div><div class="venue">SGL</div></div><div class="game"><div class="date">9/3</div><div><b>阪神 － 日本ハム</b><div class="venue">SGL</div></div><div class="venue">SGL</div></div><div class="game"><div class="date">9/4</div><div><b>広島 － 日本ハム</b><div class="venue">由宇</div></div><div class="venue">由宇</div></div><div class="game"><div class="date">9/5</div><div><b>広島 － 日本ハム</b><div class="venue">由宇</div></div><div class="venue">由宇</div></div><div class="game"><div class="date">9/6</div><div><b>広島 － 日本ハム</b><div class="venue">由宇</div></div><div class="venue">由宇</div></div><div class="game"><div class="date">9/11</div><div><b>日本ハム － ロッテ</b><span class="direct">東地区直接対決</span><div class="venue">鎌スタ</div></div><div class="venue">鎌スタ</div></div><div class="game"><div class="date">9/12</div><div><b>日本ハム － ロッテ</b><span class="direct">東地区直接対決</span><div class="venue">鎌スタ</div></div><div class="venue">鎌スタ</div></div><div class="game"><div class="date">9/13</div><div><b>日本ハム － ロッテ</b><span class="direct">東地区直接対決</span><div class="venue">鎌スタ</div></div><div class="venue">鎌スタ</div></div><div class="game"><div class="date">9/15</div><div><b>日本ハム － ヤクルト</b><span class="direct">東地区直接対決</span><div class="venue">鎌スタ</div></div><div class="venue">鎌スタ</div></div><div class="game"><div class="date">9/16</div><div><b>日本ハム － ヤクルト</b><span class="direct">東地区直接対決</span><div class="venue">鎌スタ</div></div><div class="venue">鎌スタ</div></div><div class="game"><div class="date">9/18</div><div><b>楽天 － 日本ハム</b><span class="direct">東地区直接対決</span><div class="venue">森林どり泉</div></div><div class="venue">森林どり泉</div></div><div class="game"><div class="date">9/19</div><div><b>楽天 － 日本ハム</b><span class="direct">東地区直接対決</span><div class="venue">森林どり泉</div></div><div class="venue">森林どり泉</div></div><div class="game"><div class="date">9/21</div><div><b>日本ハム － 巨人</b><div class="venue">鎌スタ</div></div><div class="venue">鎌スタ</div></div><div class="game"><div class="date">9/22</div><div><b>日本ハム － 巨人</b><div class="venue">鎌スタ</div></div><div class="venue">鎌スタ</div></div><div class="game"><div class="date">9/23</div><div><b>日本ハム － 巨人</b><div class="venue">鎌スタ</div></div><div class="venue">鎌スタ</div></div><div class="game"><div class="date">9/25</div><div><b>中日 － 日本ハム</b><div class="venue">ナゴヤ</div></div><div class="venue">ナゴヤ</div></div><div class="game"><div class="date">9/26</div><div><b>中日 － 日本ハム</b><div class="venue">ナゴヤ</div></div><div class="venue">ナゴヤ</div></div><div class="game"><div class="date">9/27</div><div><b>中日 － 日本ハム</b><div class="venue">ナゴヤ</div></div><div class="venue">ナゴヤ</div></div></div>
     </div>
     <div class="card">
-      <h2>試合結果を入力 → 自動再計算</h2>
-      <p class="tiny">残り日程から試合を選び、スコアを入力してください。引き分けも対応します。</p>
-      <form id="resultForm">
+      <h2>公式結果の自動反映</h2>
+      <p class="tiny">NPB公式の試合結果を毎日確認し、終了試合・引き分け・中止を自動で反映します。</p>
+      <form id="resultForm" hidden>
         <div class="inputGrid">
           <div><label for="gameSelect">試合</label><select id="gameSelect"><option value="0">8/23　楽天－オイシックス</option><option value="1">8/23　ヤクルト－西武</option><option value="2">8/23　日本ハム－ロッテ</option><option value="3">8/25　ロッテ－DeNA</option><option value="4">8/25　日本ハム－オイシックス</option><option value="5">8/25　西武－楽天</option><option value="6">8/25　ハヤテ－ヤクルト</option><option value="7">8/26　ロッテ－DeNA</option><option value="8">8/26　日本ハム－オイシックス</option><option value="9">8/26　西武－楽天</option><option value="10">8/26　ハヤテ－ヤクルト</option><option value="11">8/27　ロッテ－DeNA</option><option value="12">8/27　日本ハム－オイシックス</option><option value="13">8/27　西武－楽天</option><option value="14">8/27　ハヤテ－ヤクルト</option><option value="15">8/28　オイシックス－楽天</option><option value="16">8/29　オイシックス－楽天</option><option value="17">8/29　ロッテ－ヤクルト</option><option value="18">8/29　西武－日本ハム</option><option value="19">8/30　オイシックス－楽天</option><option value="20">8/30　ロッテ－ヤクルト</option><option value="21">8/30　西武－日本ハム</option><option value="22">9/1　楽天－西武</option><option value="23">9/1　ヤクルト－DeNA</option><option value="24">9/1　ハヤテ－オイシックス</option><option value="25">9/1　阪神－日本ハム</option><option value="26">9/1　広島－ロッテ</option><option value="27">9/2　楽天－西武</option><option value="28">9/2　ヤクルト－DeNA</option><option value="29">9/2　ハヤテ－オイシックス</option><option value="30">9/2　阪神－日本ハム</option><option value="31">9/2　広島－ロッテ</option><option value="32">9/3　楽天－西武</option><option value="33">9/3　ヤクルト－DeNA</option><option value="34">9/3　ハヤテ－オイシックス</option><option value="35">9/3　阪神－日本ハム</option><option value="36">9/3　広島－ロッテ</option><option value="37">9/4　楽天－DeNA</option><option value="38">9/4　オイシックス－西武</option><option value="39">9/4　ヤクルト－オリックス</option><option value="40">9/4　阪神－ロッテ</option><option value="41">9/4　広島－日本ハム</option><option value="42">9/5　楽天－DeNA</option><option value="43">9/5　オイシックス－西武</option><option value="44">9/5　ヤクルト－オリックス</option><option value="45">9/5　阪神－ロッテ</option><option value="46">9/5　広島－日本ハム</option><option value="47">9/6　楽天－DeNA</option><option value="48">9/6　オイシックス－西武</option><option value="49">9/6　ヤクルト－オリックス</option><option value="50">9/6　阪神－ロッテ</option><option value="51">9/6　広島－日本ハム</option><option value="52">9/11　楽天－オイシックス</option><option value="53">9/11　ヤクルト－中日</option><option value="54">9/11　日本ハム－ロッテ</option><option value="55">9/12　楽天－オイシックス</option><option value="56">9/12　ヤクルト－中日</option><option value="57">9/12　日本ハム－ロッテ</option><option value="58">9/13　楽天－オイシックス</option><option value="59">9/13　ヤクルト－中日</option><option value="60">9/13　日本ハム－ロッテ</option><option value="61">9/15　オイシックス－巨人</option><option value="62">9/15　ロッテ－楽天</option><option value="63">9/15　日本ハム－ヤクルト</option><option value="64">9/16　ロッテ－楽天</option><option value="65">9/16　日本ハム－ヤクルト</option><option value="66">9/17　オイシックス－巨人</option><option value="67">9/17　ロッテ－楽天</option><option value="68">9/18　楽天－日本ハム</option><option value="69">9/19　楽天－日本ハム</option><option value="70">9/19　ヤクルト－オイシックス</option><option value="71">9/19　DeNA－ロッテ</option><option value="72">9/20　ヤクルト－オイシックス</option><option value="73">9/20　DeNA－ロッテ</option><option value="74">9/21　オイシックス－楽天</option><option value="75">9/21　ヤクルト－ハヤテ</option><option value="76">9/21　ロッテ－西武</option><option value="77">9/21　日本ハム－巨人</option><option value="78">9/22　オイシックス－楽天</option><option value="79">9/22　ヤクルト－ハヤテ</option><option value="80">9/22　ロッテ－西武</option><option value="81">9/22　日本ハム－巨人</option><option value="82">9/23　オイシックス－楽天</option><option value="83">9/23　ヤクルト－ハヤテ</option><option value="84">9/23　ロッテ－西武</option><option value="85">9/23　日本ハム－巨人</option><option value="86">9/25　楽天－ヤクルト</option><option value="87">9/25　オイシックス－ロッテ</option><option value="88">9/25　中日－日本ハム</option><option value="89">9/26　楽天－ヤクルト</option><option value="90">9/26　オイシックス－ロッテ</option><option value="91">9/26　中日－日本ハム</option><option value="92">9/27　楽天－ヤクルト</option><option value="93">9/27　オイシックス－ロッテ</option><option value="94">9/27　中日－日本ハム</option></select></div>
           <div><label for="homeScore">ホーム</label><input id="homeScore" type="number" min="0" max="99" inputmode="numeric" required></div>
@@ -221,7 +221,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:11px}
         </div>
         <div class="msg" id="formMsg" aria-live="polite"></div>
       </form>
-      <div class="history" id="inputHistory"><div class="tiny">まだ追加の結果は入力されていません。</div></div>
+      <div class="history" id="inputHistory"><div class="tiny">新しい公式結果が確認されると、ここに自動反映履歴が表示されます。</div></div>
     </div>
   </section>
 
@@ -475,6 +475,7 @@ function applyResult(index,hs,as){
 function applyAutomaticResults(){
  const data=window.FARM_AUTO_DATA||{results:[]};
  const results=Array.isArray(data.results)?data.results:[];
+ let applied=0;
  for(const result of results){
    const index=state.schedule.findIndex(g=>g.date===result.date&&g.home===result.home&&g.away===result.away);
    if(index<0)continue;
@@ -482,9 +483,11 @@ function applyAutomaticResults(){
    if(result.status==="cancelled"){
      state.entered.push({...game,cancelled:true,automatic:true});
      state.schedule.splice(index,1);
+     applied++;
    }else if(Number.isInteger(result.homeScore)&&Number.isInteger(result.awayScore)){
      applyResult(index,result.homeScore,result.awayScore);
      state.entered[state.entered.length-1].automatic=true;
+     applied++;
    }
  }
  const badge=document.getElementById("autoUpdateBadge");
@@ -493,12 +496,13 @@ function applyAutomaticResults(){
  }else{
    badge.textContent="公式結果を毎日自動確認";
  }
+ return {applied,lastDate:data.lastCompletedDate||""};
 }
 function renderHistory(){
  document.getElementById("inputHistory").innerHTML=state.entered.length?state.entered.slice().reverse().map(x=>{
    const result=x.cancelled?`${x.date} ${x.home}－${x.away} 中止`:`${x.date} ${x.home} ${x.hs}－${x.as} ${x.away}`;
-   return `<div class="histItem"><span>${result}</span><b>${x.automatic?"自動反映":"入力反映"}</b></div>`;
- }).join(""):'<div class="tiny">公式結果は毎日自動確認されます。手入力も利用できます。</div>';
+   return `<div class="histItem"><span>${result}</span><b>自動反映</b></div>`;
+ }).join(""):'<div class="tiny">新しい公式結果が確認されると、ここに自動反映履歴が表示されます。</div>';
 }
 function drawLineChart(svgId,data,opts={}){
  const svg=document.getElementById(svgId),W=620,H=255,L=46,R=18,T=20,B=38,iw=W-L-R,ih=H-T-B;
@@ -546,12 +550,13 @@ document.getElementById("resetBtn").addEventListener("click",()=>{
  document.getElementById("formMsg").textContent="最新の公式自動更新時点に戻しました。";
  updateDerived(false);
 });
-applyAutomaticResults();
+const automaticUpdate=applyAutomaticResults();
 renderStandings();renderChamp();renderTabs();renderRankPanel();renderScheduleFilters();renderSchedule();renderGameSelect();renderHistory();
 drawLineChart("probChart",state.probHistory,{min:0,max:100,percent:true,color:"#0d5bd7"});
 drawLineChart("magicChart",state.magicHistory,{min:0,max:23,percent:false,color:"#7554c9"});
-setTimeout(()=>updateDerived(false),30);
+setTimeout(()=>updateDerived(automaticUpdate.applied>0,automaticUpdate.lastDate),30);
 })();
 </script>
 </body>
 </html>
+
