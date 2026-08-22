@@ -61,6 +61,16 @@ tr:last-child td{border-bottom:0}
 .rankRow{display:grid;grid-template-columns:52px 1fr 65px;gap:9px;align-items:center}
 .rankTrack{height:22px;border-radius:8px;background:#edf2f8;overflow:hidden}
 .rankFill{height:100%;background:linear-gradient(90deg,#315e9d,#7198ce);border-radius:8px;transition:width .3s}
+.forecastGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.forecastCard{width:100%;border:1px solid var(--line);border-top:4px solid var(--team-color,var(--blue));border-radius:16px;background:#fff;padding:14px;text-align:left;color:var(--ink);box-shadow:var(--shadow)}
+.forecastCard .team{display:block;font-weight:900}.forecastCard .forecastDate{display:block;font-size:27px;font-weight:950;color:var(--team-color,var(--blue));margin:10px 0 5px}
+.forecastCard .champProb{display:block;font-size:12px;color:var(--muted)}
+.probDateWrap{overflow:auto;border:1px solid var(--line);border-radius:14px;margin-top:12px}
+.probDateTable{min-width:760px;margin:0}
+.probDateTable th,.probDateTable td{text-align:center;padding:10px 8px}
+.probDateTable th:first-child,.probDateTable td:first-child{text-align:left;position:sticky;left:0;background:#fff;z-index:1}
+.probDateTable thead th:first-child{z-index:2}
+.probDateCell b{display:block;font-size:14px}.probDateCell span{display:block;font-size:10px;color:var(--muted);margin-top:3px}
 .chartWrap{width:100%;overflow:hidden}
 svg{display:block;width:100%;height:auto}
 .chartLabel{font-size:11px;fill:#728197} .chartValue{font-size:12px;fill:#10213b;font-weight:700}
@@ -88,12 +98,12 @@ select,input[type=number]{width:100%;border:1px solid #cfdbe9;border-radius:12px
 .note{margin-top:18px;border:1px solid #eedc99;background:#fff8dc;color:#6d5712;border-radius:14px;padding:13px 15px;font-size:12px;line-height:1.65}
 footer{margin-top:24px;text-align:center;color:var(--muted);font-size:11px}
 @media(max-width:900px){
- .topstats{grid-template-columns:1fr 1fr} .grid2,.twoCol,.rankPanel{grid-template-columns:1fr} .methodGrid{grid-template-columns:1fr 1fr}
+ .topstats{grid-template-columns:1fr 1fr} .grid2,.twoCol,.rankPanel{grid-template-columns:1fr} .methodGrid{grid-template-columns:1fr 1fr} .forecastGrid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:560px){
  .wrap{padding:10px 10px 38px} .hero{padding:22px;border-radius:20px} .topstats{grid-template-columns:1fr 1fr}
  .stat .val{font-size:22px} .probRow{grid-template-columns:90px 1fr 52px} .pct.big{font-size:20px}
- .methodGrid{grid-template-columns:1fr} .inputGrid{grid-template-columns:1fr 1fr} .inputGrid>div:first-child{grid-column:1/-1}
+ .methodGrid{grid-template-columns:1fr} .inputGrid{grid-template-columns:1fr 1fr} .inputGrid>div:first-child{grid-column:1/-1} .forecastGrid{grid-template-columns:1fr}
  th,td{padding:9px 4px;font-size:11px} .card{padding:15px} .game{grid-template-columns:54px 1fr}
  .game .venue{display:none} .weight{height:auto;flex-direction:column;border-radius:12px} .weight span{width:100%!important;padding:7px}
 }
@@ -154,6 +164,24 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:11px}
         <div class="muted" id="selectedRecord">平均最終成績：67.9勝 46.2敗 5.9分</div>
       </div>
       <div class="rankBars" id="rankBars"><div class="rankRow"><b>1位</b><div class="rankTrack"><div class="rankFill" style="width:95.8%"></div></div><b style="text-align:right">95.8%</b></div><div class="rankRow"><b>2位</b><div class="rankTrack"><div class="rankFill" style="width:4.0%"></div></div><b style="text-align:right">4.0%</b></div><div class="rankRow"><b>3位</b><div class="rankTrack"><div class="rankFill" style="width:0.2%"></div></div><b style="text-align:right">0.2%</b></div><div class="rankRow"><b>4位</b><div class="rankTrack"><div class="rankFill" style="width:0.2%"></div></div><b style="text-align:right">0.0%</b></div><div class="rankRow"><b>5位</b><div class="rankTrack"><div class="rankFill" style="width:0.2%"></div></div><b style="text-align:right">0.0%</b></div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="sectionHead"><h2>各球団の優勝予想日</h2><span class="tiny">20,000回シミュレーション</span></div>
+    <div class="forecastGrid" id="clinchForecast">
+      <div class="card muted">予想日を計算しています。</div>
+    </div>
+    <p class="tiny" style="margin:9px 2px 0">優勝したシミュレーションにおける「優勝決定日」の中央値です。</p>
+  </section>
+
+  <section class="section">
+    <div class="sectionHead"><h2>日程ごとの優勝決定確率</h2><span class="tiny">公式結果の反映ごとに再計算</span></div>
+    <div class="card">
+      <p class="tiny" style="margin:0">上段は「その日に優勝が決まる確率」、下段は「その日までに決まる累計確率」です。</p>
+      <div class="probDateWrap" id="clinchProbabilityTable">
+        <div style="padding:18px" class="muted">日程別の確率を計算しています。</div>
+      </div>
     </div>
   </section>
 
@@ -327,30 +355,80 @@ function simulate(iter=20000){
  const rand=rngFactory(seedFromState());
  const idx=Object.fromEntries(EAST.map((t,i)=>[t,i]));
  const baseW=EAST.map(t=>state.stand[t].w), baseL=EAST.map(t=>state.stand[t].l), baseT=EAST.map(t=>state.stand[t].t);
- const gameData=state.schedule.map(g=>[idx[g.home]??-1,idx[g.away]??-1,homeWinProb(g.home,g.away)]);
+ const baseLabel=window.FARM_AUTO_DATA?.lastCompletedDate||"8/22";
+ const dates=[...new Set([baseLabel,...state.schedule.map(g=>g.date)])].sort((a,b)=>dateOrder(a)-dateOrder(b));
+ const dateIndex=new Map(dates.map((d,i)=>[d,i]));
+ const gamesByDate=dates.map(()=>[]);
+ state.schedule.forEach(g=>gamesByDate[dateIndex.get(g.date)].push([idx[g.home]??-1,idx[g.away]??-1,homeWinProb(g.home,g.away)]));
+ const baseRemaining=EAST.map(team=>state.schedule.reduce((n,g)=>n+(g.home===team||g.away===team?1:0),0));
  const rankCounts=Array.from({length:5},()=>[0,0,0,0,0]);
+ const clinchCounts=Array.from({length:5},()=>Array(dates.length).fill(0));
  const sumW=[0,0,0,0,0],sumL=[0,0,0,0,0],sumT=[0,0,0,0,0];
  const drawP=0.035;
- for(let n=0;n<iter;n++){
-   const w=baseW.slice(),l=baseL.slice(),t=baseT.slice();
-   for(let gi=0;gi<gameData.length;gi++){
-     const [hi,ai,p]=gameData[gi],r=rand();
-     if(r<drawP){if(hi>=0)t[hi]++;if(ai>=0)t[ai]++;}
-     else if(r<drawP+(1-drawP)*p){if(hi>=0)w[hi]++;if(ai>=0)l[ai]++;}
-     else {if(ai>=0)w[ai]++;if(hi>=0)l[hi]++;}
+ const canClinch=(team,w,l,remaining)=>{
+   const ownDen=w[team]+l[team]+remaining[team];
+   const worst=ownDen?w[team]/ownDen:0;
+   for(let rival=0;rival<5;rival++){
+     if(rival===team)continue;
+     const rivalDen=w[rival]+l[rival]+remaining[rival];
+     const best=rivalDen?(w[rival]+remaining[rival])/rivalDen:0;
+     if(worst<=best+1e-12)return false;
    }
-   const order=[0,1,2,3,4];
+   return true;
+ };
+ for(let n=0;n<iter;n++){
+   const w=baseW.slice(),l=baseL.slice(),t=baseT.slice(),remaining=baseRemaining.slice();
+   let clinchTeam=-1;
+   const markClinch=(di)=>{
+     if(clinchTeam>=0)return;
+     let leader=0,leaderPct=w[0]/(w[0]+l[0]);
+     for(let i=1;i<5;i++){
+       const p=w[i]/(w[i]+l[i]);
+       if(p>leaderPct){leader=i;leaderPct=p;}
+     }
+     if(canClinch(leader,w,l,remaining)){
+       clinchTeam=leader;
+       clinchCounts[leader][di]++;
+     }
+   };
+   markClinch(0);
+   for(let di=0;di<dates.length;di++){
+     for(const [hi,ai,p] of gamesByDate[di]){
+       const r=rand();
+       if(r<drawP){if(hi>=0)t[hi]++;if(ai>=0)t[ai]++;}
+       else if(r<drawP+(1-drawP)*p){if(hi>=0)w[hi]++;if(ai>=0)l[ai]++;}
+       else {if(ai>=0)w[ai]++;if(hi>=0)l[hi]++;}
+       if(hi>=0)remaining[hi]--;
+       if(ai>=0)remaining[ai]--;
+     }
+     if(gamesByDate[di].length)markClinch(di);
+   }
+   const order=[0,1,2,3,4],tieBreaker=[rand(),rand(),rand(),rand(),rand()];
    order.sort((a,b)=>{
      const pa=w[a]/(w[a]+l[a]),pb=w[b]/(w[b]+l[b]);
-     return pb-pa||w[b]-w[a]||(rand()-.5);
+     return pb-pa||w[b]-w[a]||tieBreaker[b]-tieBreaker[a];
    });
    for(let pos=0;pos<5;pos++)rankCounts[order[pos]][pos]++;
+   const champion=order[0];
+   if(clinchTeam<0)clinchCounts[champion][dates.length-1]++;
    for(let i=0;i<5;i++){sumW[i]+=w[i];sumL[i]+=l[i];sumT[i]+=t[i];}
  }
- const out={rank:{},avg:{}};
+ const out={rank:{},avg:{},clinch:{dates,exact:{},byDate:{},predictedDate:{}}};
  EAST.forEach((team,i)=>{
    out.rank[team]=rankCounts[i].map(x=>x/iter);
    out.avg[team]={w:sumW[i]/iter,l:sumL[i]/iter,t:sumT[i]/iter};
+   out.clinch.exact[team]=clinchCounts[i].map(x=>x/iter);
+   let cumulative=0;
+   out.clinch.byDate[team]=clinchCounts[i].map(x=>(cumulative+=x)/iter);
+   const winningCases=rankCounts[i][0];
+   let running=0,predicted="—";
+   if(winningCases){
+     for(let di=0;di<dates.length;di++){
+       running+=clinchCounts[i][di];
+       if(running>=winningCases/2){predicted=dates[di];break;}
+     }
+   }
+   out.clinch.predictedDate[team]=predicted;
  });
  return out;
 }
@@ -434,6 +512,31 @@ function renderRankPanel(){
  document.getElementById("rankBars").innerHTML=probs.map((p,i)=>`<div class="rankRow">
    <b>${i+1}位</b><div class="rankTrack"><div class="rankFill" style="width:${Math.max(.2,p*100)}%"></div></div><b style="text-align:right">${formatPct(p)}</b>
  </div>`).join("");
+}
+function renderClinchForecast(){
+ const el=document.getElementById("clinchForecast"),sim=state.simulation;
+ if(!sim.clinch){
+   el.innerHTML='<div class="card muted">予想日を計算しています。</div>';
+   return;
+ }
+ el.innerHTML=EAST.map(team=>`<button type="button" class="forecastCard" data-team="${team}" style="--team-color:${colors[team]}">
+   <span class="team"><span class="dot ${classes[team]}"></span>${team}</span>
+   <span class="forecastDate">${sim.clinch.predictedDate[team]}</span>
+   <span class="champProb">最終優勝確率 ${formatPct(sim.rank[team][0])}</span>
+ </button>`).join("");
+ el.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>selectTeam(b.dataset.team)));
+}
+function renderClinchProbabilityTable(){
+ const el=document.getElementById("clinchProbabilityTable"),sim=state.simulation;
+ if(!sim.clinch){
+   el.innerHTML='<div style="padding:18px" class="muted">日程別の確率を計算しています。</div>';
+   return;
+ }
+ const c=sim.clinch;
+ el.innerHTML=`<table class="probDateTable">
+   <thead><tr><th>日程</th>${EAST.map(t=>`<th><span class="dot ${classes[t]}"></span>${t}</th>`).join("")}</tr></thead>
+   <tbody>${c.dates.map((date,di)=>`<tr><td><b>${date}</b></td>${EAST.map(team=>`<td class="probDateCell"><b>${formatPct(c.exact[team][di])}</b><span>累計 ${formatPct(c.byDate[team][di])}</span></td>`).join("")}</tr>`).join("")}</tbody>
+ </table>`;
 }
 function renderScheduleFilters(){
  const opts=["全体",...EAST];
@@ -526,7 +629,7 @@ function updateDerived(pushHistory=false,label=""){
    state.probHistory.push({label,value:state.simulation.rank["日本ハム"][0]*100});
    state.magicHistory.push({label,value:mi.magic??0});
  }
- renderStandings();renderChamp();renderTabs();renderRankPanel();renderScheduleFilters();renderSchedule();renderGameSelect();renderHistory();
+ renderStandings();renderChamp();renderTabs();renderRankPanel();renderClinchForecast();renderClinchProbabilityTable();renderScheduleFilters();renderSchedule();renderGameSelect();renderHistory();
  drawLineChart("probChart",state.probHistory,{min:0,max:100,percent:true,color:"#0d5bd7"});
  const mm=Math.max(21,...state.magicHistory.map(x=>x.value));
  drawLineChart("magicChart",state.magicHistory,{min:0,max:Math.max(5,mm+2),percent:false,color:"#7554c9"});
@@ -551,7 +654,7 @@ document.getElementById("resetBtn").addEventListener("click",()=>{
  updateDerived(false);
 });
 const automaticUpdate=applyAutomaticResults();
-renderStandings();renderChamp();renderTabs();renderRankPanel();renderScheduleFilters();renderSchedule();renderGameSelect();renderHistory();
+renderStandings();renderChamp();renderTabs();renderRankPanel();renderClinchForecast();renderClinchProbabilityTable();renderScheduleFilters();renderSchedule();renderGameSelect();renderHistory();
 drawLineChart("probChart",state.probHistory,{min:0,max:100,percent:true,color:"#0d5bd7"});
 drawLineChart("magicChart",state.magicHistory,{min:0,max:23,percent:false,color:"#7554c9"});
 setTimeout(()=>updateDerived(automaticUpdate.applied>0,automaticUpdate.lastDate),30);
