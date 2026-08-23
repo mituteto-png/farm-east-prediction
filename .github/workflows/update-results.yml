@@ -3,8 +3,8 @@ name: Update official farm results
 on:
   workflow_dispatch:
   schedule:
-    # GitHub Actions uses UTC: 08:00 and 14:00 = 17:00 and 23:00 Japan time.
-    - cron: "0 8,14 * 8-9 *"
+    # GitHub Actions uses UTC: 23:00 (previous day) and 08:00 = 08:00 and 17:00 Japan time.
+    - cron: "0 23,8 * 8-9 *"
 
 permissions:
   contents: write
