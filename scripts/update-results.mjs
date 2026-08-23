@@ -123,7 +123,7 @@ const results = [...unique.values()].sort((a, b) => {
 
 const lastCompletedDate = results.at(-1)?.date ?? null;
 const payload = { season: YEAR, source: SOURCE, lastCompletedDate, results };
-const scheduleBadgeScript = `\n(() => {\n  const badges = document.querySelector(".badges");\n  if (!badges || document.getElementById("updateScheduleBadge")) return;\n  const badge = document.createElement("span");\n  badge.className = "badge";\n  badge.id = "updateScheduleBadge";\n  badge.textContent = "自動更新：毎日17:00・23:00";\n  badges.appendChild(badge);\n})();\n`;
+const scheduleBadgeScript = `\n(() => {\n  const badges = document.querySelector(".badges");\n  if (!badges || document.getElementById("updateScheduleBadge")) return;\n  const badge = document.createElement("span");\n  badge.className = "badge";\n  badge.id = "updateScheduleBadge";\n  badge.textContent = "自動更新：毎日8:00・17:00";\n  badges.appendChild(badge);\n})();\n`;
 const next = `window.FARM_AUTO_DATA = ${JSON.stringify(payload, null, 2)};\n${scheduleBadgeScript}`;
 if (process.env.FARM_DRY_RUN === "1") {
   console.log(JSON.stringify(payload, null, 2));
