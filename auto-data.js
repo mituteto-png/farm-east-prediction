@@ -11,6 +11,6 @@ window.FARM_AUTO_DATA = {
   const badge = document.createElement("span");
   badge.className = "badge";
   badge.id = "updateScheduleBadge";
-  badge.textContent = "自動更新：毎日17:00・23:00";
+  badge.textContent = "自動更新：毎日8:00・17:00";
   badges.appendChild(badge);
 })();
