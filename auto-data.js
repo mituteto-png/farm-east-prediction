@@ -1,7 +1,7 @@
 window.FARM_AUTO_DATA = {
   "season": 2026,
   "source": "https://npb.jp/farm/2026/",
-  "lastCompletedDate": "8/23",
+  "lastCompletedDate": "8/25",
   "results": [
     {
       "date": "8/23",
@@ -49,6 +49,54 @@ window.FARM_AUTO_DATA = {
       "away": "ロッテ",
       "homeScore": 5,
       "awayScore": 14,
+      "status": "final"
+    },
+    {
+      "date": "8/25",
+      "home": "ハヤテ",
+      "away": "ヤクルト",
+      "homeScore": 0,
+      "awayScore": 14,
+      "status": "final"
+    },
+    {
+      "date": "8/25",
+      "home": "ロッテ",
+      "away": "DeNA",
+      "homeScore": 4,
+      "awayScore": 6,
+      "status": "final"
+    },
+    {
+      "date": "8/25",
+      "home": "広島",
+      "away": "阪神",
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "final"
+    },
+    {
+      "date": "8/25",
+      "home": "西武",
+      "away": "楽天",
+      "homeScore": 13,
+      "awayScore": 1,
+      "status": "final"
+    },
+    {
+      "date": "8/25",
+      "home": "中日",
+      "away": "巨人",
+      "homeScore": 8,
+      "awayScore": 2,
+      "status": "final"
+    },
+    {
+      "date": "8/25",
+      "home": "日本ハム",
+      "away": "オイシックス",
+      "homeScore": 15,
+      "awayScore": 3,
       "status": "final"
     }
   ]
