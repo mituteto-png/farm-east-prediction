@@ -4,7 +4,8 @@ on:
   workflow_dispatch:
   schedule:
     # GitHub Actions uses UTC: 23:00 (previous day) and 08:00 = 08:00 and 17:00 Japan time.
-    - cron: "0 23,8 * 8-9 *"
+    # 08:00 / 17:00 JST。ファーム公式戦がある8〜10月に確認する。
+    - cron: "0 23,8 * 8-10 *"
 
 permissions:
   contents: write
