@@ -111,7 +111,7 @@ select,input[type=number]{width:100%;border:1px solid #cfdbe9;border-radius:12px
 .metricRow{display:flex;justify-content:space-between;gap:12px;font-size:12px;padding:5px 0;border-bottom:1px solid #edf2f7}
 .metricRow:last-child{border-bottom:0}
 .definition{margin-top:12px;background:#f6f9fd;border:1px solid var(--line);border-radius:14px;padding:14px;font-size:12px;line-height:1.7;color:#50637c}
-footer{margin-top:24px;text-align:center;color:var(--muted);font-size:11px}
+footer{margin-top:24px;text-align:center;color:var(--muted);font-size:11px}\n.siteCounter{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:8px;font-size:10px;color:#8a97a8}\n.siteCounter img{display:block;height:18px;width:auto;opacity:.82}
 @media(max-width:900px){
  .topstats{grid-template-columns:1fr 1fr} .grid2,.twoCol,.rankPanel{grid-template-columns:1fr} .methodGrid{grid-template-columns:1fr 1fr} .forecastGrid{grid-template-columns:repeat(2,1fr)} .districtOverview,.strengthGrid{grid-template-columns:1fr}
 }
@@ -302,6 +302,10 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:11px}
   </div>
   <footer>
     参照：NPB公式ファーム成績・東／中／西地区勝敗表・チーム打撃・チーム投手・8〜10月日程。公式結果の公表時刻は固定されていないため、実測に基づき毎日8:00・17:00に確認します。
+    <div class="siteCounter" aria-label="サイトの累計閲覧数">
+      <span>サイト閲覧数</span>
+      <img src="https://hits.sh/mituteto-png.github.io/farm-east-prediction.svg?style=flat-square&amp;label=&amp;color=8795a8" alt="累計閲覧数" loading="lazy">
+    </div>
   </footer>
 </div>
 
