@@ -2,10 +2,10 @@ window.FARM_AUTO_DATA = {
   "season": 2026,
   "source": "https://npb.jp/farm/2026/",
   "statsSource": "https://npb.jp/bis/2026/stats/index_farm.html",
-  "standingsAsOf": "8/27",
+  "standingsAsOf": "8/28",
   "lastCompletedDate": "8/28",
   "officialThroughDate": "8/28",
-  "fetchedAt": "2026-08-29T04:00:43.819Z",
+  "fetchedAt": "2026-08-29T13:36:57.356Z",
   "districts": {
     "east": {
       "name": "東地区",
@@ -81,14 +81,14 @@ window.FARM_AUTO_DATA = {
     "DeNA": {
       "district": "central",
       "w": 63,
-      "l": 35,
+      "l": 34,
       "t": 8,
       "rs": 507,
       "ra": 330
     },
     "巨人": {
       "district": "central",
-      "w": 66,
+      "w": 65,
       "l": 43,
       "t": 1,
       "rs": 475,
@@ -120,7 +120,7 @@ window.FARM_AUTO_DATA = {
     },
     "ソフトバンク": {
       "district": "west",
-      "w": 64,
+      "w": 63,
       "l": 39,
       "t": 5,
       "rs": 501,
@@ -129,14 +129,14 @@ window.FARM_AUTO_DATA = {
     "オリックス": {
       "district": "west",
       "w": 48,
-      "l": 48,
+      "l": 47,
       "t": 6,
       "rs": 330,
       "ra": 389
     },
     "阪神": {
       "district": "west",
-      "w": 41,
+      "w": 40,
       "l": 57,
       "t": 12,
       "rs": 324,
@@ -145,7 +145,7 @@ window.FARM_AUTO_DATA = {
     "広島": {
       "district": "west",
       "w": 38,
-      "l": 56,
+      "l": 55,
       "t": 9,
       "rs": 317,
       "ra": 395
