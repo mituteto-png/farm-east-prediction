@@ -2,10 +2,10 @@ window.FARM_AUTO_DATA = {
   "season": 2026,
   "source": "https://npb.jp/farm/2026/",
   "statsSource": "https://npb.jp/bis/2026/stats/index_farm.html",
-  "standingsAsOf": "8/30",
+  "standingsAsOf": "8/31",
   "lastCompletedDate": "8/30",
-  "officialThroughDate": "8/30",
-  "fetchedAt": "2026-08-31T15:49:52.861Z",
+  "officialThroughDate": "8/31",
+  "fetchedAt": "2026-09-01T01:37:49.975Z",
   "districts": {
     "east": {
       "name": "東地区",
@@ -1120,42 +1120,6 @@ window.FARM_AUTO_DATA = {
     }
   ],
   "results": [
-    {
-      "date": "8/23",
-      "home": "ヤクルト",
-      "away": "西武",
-      "venue": "戸 田",
-      "homeScore": 4,
-      "awayScore": 6,
-      "status": "final"
-    },
-    {
-      "date": "8/23",
-      "home": "楽天",
-      "away": "オイシックス",
-      "venue": "森林どり泉",
-      "homeScore": 5,
-      "awayScore": 1,
-      "status": "final"
-    },
-    {
-      "date": "8/23",
-      "home": "阪神",
-      "away": "ソフトバンク",
-      "venue": "ＳＧＬ",
-      "homeScore": 3,
-      "awayScore": 2,
-      "status": "final"
-    },
-    {
-      "date": "8/23",
-      "home": "日本ハム",
-      "away": "ロッテ",
-      "venue": "鎌スタ",
-      "homeScore": 5,
-      "awayScore": 14,
-      "status": "final"
-    },
     {
       "date": "8/25",
       "home": "ハヤテ",
