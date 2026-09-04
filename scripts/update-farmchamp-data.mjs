@@ -274,15 +274,21 @@ await mapLimit(candidateTeams, 4, async team => {
   }
 
   try {
+    const savedRoster = previous?.rosterSnapshotDate === CONFIG.rosterSnapshotDate
+      ? previous?.teams?.[team]?.rosterSnapshot
+      : null;
+    const hasSavedRoster = Array.isArray(savedRoster) && savedRoster.length > 0;
     const [battingHtml, pitchingHtml, rosterHtml, draftHtml] = await Promise.all([
       fetchText(`https://npb.jp/bis/${CONFIG.season}/stats/idb2_${meta.code}.html`),
       fetchText(`https://npb.jp/bis/${CONFIG.season}/stats/idp2_${meta.code}.html`),
-      fetchText(`https://npb.jp/bis/teams/rst_${meta.code}.html`),
+      hasSavedRoster ? Promise.resolve(null) : fetchText(`https://npb.jp/bis/teams/rst_${meta.code}.html`),
       fetchText(`https://draft.npb.jp/draft/${CONFIG.season - 1}/draftlist_${meta.code}.html`, { optional: true })
     ]);
     const batting = parseBatting(battingHtml);
     const pitching = parsePitching(pitchingHtml);
-    const roster = parseRoster(rosterHtml);
+    // 8月31日の資格基準日後に名簿が変わっても判定対象が揺れないよう、
+    // 初回取得した公式名簿を年度内はスナップショットとして再利用する。
+    const roster = hasSavedRoster ? savedRoster : parseRoster(rosterHtml);
     const draftAvailable = typeof draftHtml === "string";
     const rookies = draftAvailable ? parseDraftNames(draftHtml) : [];
     const players = [];
@@ -313,6 +319,7 @@ await mapLimit(candidateTeams, 4, async team => {
       gamesCompleted,
       projectedTeamGames,
       dataStatus: "complete",
+      rosterSnapshot: roster,
       players: players.sort((a, b) => a.role.localeCompare(b.role) || Number(a.number) - Number(b.number) || a.name.localeCompare(b.name, "ja"))
     };
   } catch (error) {
