@@ -111,9 +111,32 @@ select,input[type=number]{width:100%;border:1px solid #cfdbe9;border-radius:12px
 .metricRow{display:flex;justify-content:space-between;gap:12px;font-size:12px;padding:5px 0;border-bottom:1px solid #edf2f7}
 .metricRow:last-child{border-bottom:0}
 .definition{margin-top:12px;background:#f6f9fd;border:1px solid var(--line);border-radius:14px;padding:14px;font-size:12px;line-height:1.7;color:#50637c}
-footer{margin-top:24px;text-align:center;color:var(--muted);font-size:11px}\n.siteCounter{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:8px;font-size:10px;color:#8a97a8}\n.siteCounter img{display:block;height:18px;width:auto;opacity:.82}
+footer{margin-top:24px;text-align:center;color:var(--muted);font-size:11px}
+.siteCounter{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:8px;font-size:10px;color:#8a97a8}
+.siteCounter img{display:block;height:18px;width:auto;opacity:.82}
+.farmChampJump{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:12px;padding:13px 16px;border:1px solid #bdd3f2;border-radius:15px;background:#eef5ff;color:var(--navy);text-decoration:none;font-size:13px;font-weight:800}
+.farmChampJump span:last-child{white-space:nowrap;color:var(--blue)}
+.farmChampHero{display:grid;grid-template-columns:1.4fr .9fr;gap:14px;align-items:stretch}
+.farmChampIntro{background:linear-gradient(135deg,#082f69,#0d5bd7);color:#fff;border:0}
+.farmChampIntro h3{font-size:22px}.farmChampIntro p{font-size:13px;line-height:1.75;opacity:.94}
+.farmChampDates{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:15px}
+.farmChampDate{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.17);border-radius:12px;padding:10px;text-align:center}
+.farmChampDate b{display:block;font-size:18px}.farmChampDate span{display:block;font-size:10px;margin-top:3px;opacity:.85}
+.officialLink{display:inline-flex;align-items:center;justify-content:center;margin-top:14px;padding:10px 14px;border-radius:11px;background:#fff;color:var(--navy);font-weight:800;text-decoration:none;font-size:12px}
+.farmRuleCard details{border-top:1px solid var(--line);margin-top:10px;padding-top:10px}.farmRuleCard summary{cursor:pointer;font-weight:900;color:var(--navy)}
+.farmFormula{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.farmFormula div{background:#f6f9fd;border-radius:11px;padding:10px;font-size:11px;line-height:1.55}
+.farmChampMeta{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-top:14px}.farmChampMeta h3{margin:0}
+.farmChampTeamTabs{display:flex;gap:8px;overflow:auto;padding:8px 1px 6px}.farmChampTeamTabs .filterBtn{display:flex;flex-direction:column;align-items:flex-start;gap:3px}.farmChampTeamTabs .filterBtn span{font-size:9px;opacity:.75}
+.farmChampSummary{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0}.farmChampSummary div{background:#f6f9fd;border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}.farmChampSummary b{display:block;font-size:22px;color:var(--navy)}.farmChampSummary span{font-size:10px;color:var(--muted)}
+.farmChampFilters{display:flex;gap:7px;overflow:auto;padding:5px 0 9px}.farmChampFilters .filterBtn{padding:7px 11px;min-height:36px;font-size:11px}
+.farmPlayerList{display:grid;grid-template-columns:1fr 1fr;gap:9px}.farmPlayerCard{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden}.farmPlayerCard summary{list-style:none;display:grid;grid-template-columns:1fr auto;gap:6px 10px;padding:12px;cursor:pointer}.farmPlayerCard summary::-webkit-details-marker{display:none}
+.farmRoleHeading{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;margin:8px 1px 0;font-size:14px}.farmRoleHeading span{font-size:10px;color:var(--muted);font-weight:500}
+.farmPlayerIdentity{display:flex;align-items:baseline;gap:7px;min-width:0}.farmPlayerIdentity b{font-size:14px}.farmPlayerIdentity span,.farmMetric,.farmReason{font-size:10px;color:var(--muted)}.farmMetric,.farmReason{grid-column:1/-1}.farmReason{color:#4f627a}
+.farmStatus{border-radius:999px;padding:4px 7px;font-size:9px;font-weight:900;white-space:nowrap}.farmStatus.ok{background:#dff5e9;color:#08764c}.farmStatus.provisional{background:#e4efff;color:#0759c7}.farmStatus.needs{background:#fff0d8;color:#8c5a00}.farmStatus.unknown{background:#edf0f4;color:#607087}.farmStatus.no{background:#f8e5e8;color:#a22d3e}
+.farmPlayerDetail{border-top:1px solid var(--line);background:#f8fafc;padding:11px}.farmPlayerDetail dl{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:0 0 7px}.farmPlayerDetail dl div{min-width:0}.farmPlayerDetail dt{font-size:9px;color:var(--muted)}.farmPlayerDetail dd{margin:2px 0 0;font-size:11px;font-weight:800}.farmPlayerDetail p{font-size:11px;line-height:1.55;margin:8px 0 0}
+.farmChampEmpty{grid-column:1/-1;padding:18px;border:1px dashed #c9d5e3;border-radius:13px;background:#f8fafc;color:var(--muted);font-size:12px;line-height:1.65}
 @media(max-width:900px){
- .topstats{grid-template-columns:1fr 1fr} .grid2,.twoCol,.rankPanel{grid-template-columns:1fr} .methodGrid{grid-template-columns:1fr 1fr} .forecastGrid{grid-template-columns:repeat(2,1fr)} .districtOverview,.strengthGrid{grid-template-columns:1fr}
+ .topstats{grid-template-columns:1fr 1fr} .grid2,.twoCol,.rankPanel,.farmChampHero{grid-template-columns:1fr} .methodGrid{grid-template-columns:1fr 1fr} .forecastGrid{grid-template-columns:repeat(2,1fr)} .districtOverview,.strengthGrid{grid-template-columns:1fr}
 }
 @media(max-width:560px){
  .wrap{padding:10px 10px 38px} .hero{padding:22px;border-radius:20px} .topstats{grid-template-columns:1fr 1fr}
@@ -121,6 +144,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:11px}\n.si
  .methodGrid{grid-template-columns:1fr} .inputGrid{grid-template-columns:1fr 1fr} .inputGrid>div:first-child{grid-column:1/-1} .forecastGrid{grid-template-columns:1fr}
  th,td{padding:9px 4px;font-size:11px} .card{padding:15px} .game{grid-template-columns:54px 1fr}
  .game .venue{display:none} .weight{height:auto;flex-direction:column;border-radius:12px} .weight span{width:100%!important;padding:7px}
+ .farmChampJump{align-items:flex-start}.farmChampJump span:last-child{white-space:normal}.farmChampDates{grid-template-columns:1fr}.farmFormula{grid-template-columns:1fr}.farmChampSummary{grid-template-columns:1fr 1fr}.farmPlayerList{grid-template-columns:1fr}.farmPlayerDetail dl{grid-template-columns:1fr 1fr}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 </style>
@@ -148,6 +172,8 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:11px}\n.si
   <section class="districtOverview" id="districtOverview" aria-label="3地区の優勝確率">
     <div class="card districtCard"><div class="muted">3地区の確率を計算しています。</div></div>
   </section>
+
+  <a class="farmChampJump" href="#farmChampionship"><span>勝ち上がった球団は誰を起用できる？</span><span>ファーム日本選手権 出場資格選手を見る ↓</span></a>
 
   <div class="districtSwitch" id="districtSwitch" aria-label="表示地区を選択"></div>
 
@@ -181,6 +207,34 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:11px}\n.si
       <div class="definition">
         <b>地区戦力指数の定義：</b>各球団について、現在勝率40％、得失点から求めるピタゴラス勝率35％、1試合平均得点15％、1試合平均失点の少なさ10％を合成して「球団戦力指数」を算出します。地区戦力指数は、所属球団数の違いによる有利・不利をなくすため、各地区に所属する球団の指数の単純平均です。得点力と失点抑制力は14球団平均を50として相対評価します。指数は非公式モデルの比較値であり、NPB公式の評価ではありません。
       </div>
+    </div>
+  </section>
+
+  <section class="section" id="farmChampionship">
+    <div class="sectionHead"><h2>ファーム日本選手権</h2><span class="tiny" id="farmChampDataDate">公式データを確認中</span></div>
+    <div class="farmChampHero">
+      <div class="card farmChampIntro">
+        <h3>2026年は4チームのトーナメント</h3>
+        <p>東・中・西の各地区優勝3球団と、各地区2位のうち最高勝率となるワイルドカード1球団が出場します。地区争いの先に、起用可能性がある選手を確認できます。</p>
+        <div class="farmChampDates"><div class="farmChampDate"><b>10/3</b><span>ファーストステージ（準決勝）</span></div><div class="farmChampDate"><b>10/4</b><span>ファイナルステージ（決勝）</span></div><div class="farmChampDate"><b>10/5</b><span>予備日</span></div></div>
+        <a class="officialLink" href="https://npb.jp/farmchamp/2026/" target="_blank" rel="noopener noreferrer">NPB公式｜2026年プロ野球ファーム日本選手権 ↗</a>
+      </div>
+      <div class="card farmRuleCard">
+        <h3>出場資格とは？</h3>
+        <p class="tiny">8月31日時点で支配下・育成登録され、2026年ファーム公式戦に出場した選手のうち、新人、一軍登録なし、または一軍登録歴があっても所定のファーム出場基準を満たす選手が対象です。</p>
+        <div class="farmFormula"><div><b>野手</b><br>必要打席 ＝ floor（チーム試合数 × 2.7 × 0.3）</div><div><b>投手</b><br>必要投球回 ＝ floor（チーム試合数 × 0.8 × 0.3）</div></div>
+        <details><summary>判定表示の考え方</summary><p class="tiny">新人・一軍登録なしは公式情報で確認できた時点で「資格あり」。一軍登録歴がある選手の基準は10月1日時点で決まるため、それ以前は「現時点で基準クリア」「あと○打席／○回」と表示します。最終名簿は10月1日15時のNPB公示をご確認ください。</p></details>
+        <p class="tiny">出場資格・大会概要はNPB公式情報をご確認ください。本サイトの候補抽出と10月1日以前の判定は非公式計算です。</p>
+      </div>
+    </div>
+    <div class="card" style="margin-top:14px" id="farmChampionshipApp">
+      <div class="farmChampMeta"><h3>進出可能性が残る球団</h3><span class="tiny" id="farmChampVisibleCount"></span></div>
+      <p class="tiny" id="farmChampCandidateDefinition">残り日程から数学的可能性を確認しています。</p>
+      <div class="farmChampTeamTabs" id="farmChampTeamTabs"></div>
+      <div class="farmChampMeta"><div><h3 id="farmChampTeamTitle">球団を選択</h3><div class="tiny" id="farmChampTeamReason"></div></div></div>
+      <div class="farmChampSummary" id="farmChampTeamSummary"></div>
+      <div class="farmChampFilters" id="farmChampFilters"></div>
+      <div class="farmPlayerList" id="farmChampPlayers"><div class="farmChampEmpty">選手資格データを読み込んでいます。</div></div>
     </div>
   </section>
 
@@ -310,6 +364,7 @@ footer{margin-top:24px;text-align:center;color:var(--muted);font-size:11px}\n.si
 </div>
 
 <script src="auto-data.js"></script>
+<script src="farmchamp-data.js"></script>
 <script>
 /* Legacy V2.2 script retained for fallback reference.
 const EAST=["日本ハム","楽天","ロッテ","ヤクルト","オイシックス"];
@@ -696,5 +751,6 @@ setTimeout(()=>updateDerived(automaticUpdate.applied>0,automaticUpdate.lastDate)
 */
 </script>
 <script src="app.js"></script>
+<script type="module" src="farmchamp.js"></script>
 </body>
 </html>
