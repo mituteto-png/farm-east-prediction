@@ -30,6 +30,7 @@
     "阪神": { district: "west", w: 38, l: 57, t: 11, rs: 309, ra: 425 }
   };
 
+  const hasOfficialData = Boolean(window.FARM_AUTO_DATA && Object.keys(window.FARM_AUTO_DATA.standings || {}).length === 14);
   const raw = window.FARM_AUTO_DATA || {};
   const districts = raw.districts && Object.keys(raw.districts).length === 3 ? raw.districts : FALLBACK_DISTRICTS;
   const standings = raw.standings && Object.keys(raw.standings).length === 14 ? clone(raw.standings) : clone(FALLBACK_STANDINGS);
@@ -39,9 +40,14 @@
   const teamIndex = Object.fromEntries(teams.map((team, index) => [team, index]));
   const teamDistrict = Object.fromEntries(Object.entries(districts).flatMap(([key, district]) => district.teams.map(team => [team, key])));
 
-  let selectedDistrict = "east";
-  let selectedTeam = "日本ハム";
-  let scheduleFilter = "日本ハム";
+  const urlState = new URLSearchParams(window.location.search);
+  const requestedDistrict = urlState.get("district");
+  const requestedTeam = urlState.get("team");
+  let selectedDistrict = districts[requestedDistrict] ? requestedDistrict : "east";
+  let selectedTeam = standings[requestedTeam] ? requestedTeam : districts[selectedDistrict].teams[0];
+  if (teamDistrict[selectedTeam] !== selectedDistrict) selectedDistrict = teamDistrict[selectedTeam];
+  let scheduleFilter = selectedTeam;
+  let scheduleExpanded = false;
   let simulation = null;
 
   function clone(value) { return JSON.parse(JSON.stringify(value)); }
@@ -56,6 +62,11 @@
     return a / (a + b);
   }
   function formatPct(value, digits = 1) { return `${(value * 100).toFixed(digits)}%`; }
+  function formatProbability(team, value) {
+    if (!mathematicalStatus(team).possible) return "消滅";
+    if (value === 0) return "<0.1%";
+    return formatPct(value);
+  }
   function dateOrder(date) {
     const [month, day] = String(date || "0/0").split("/").map(Number);
     return month * 100 + day;
@@ -66,6 +77,11 @@
   function districtName(key) { return districts[key]?.name || key; }
   function districtTeams(key = selectedDistrict) { return districts[key]?.teams || []; }
 
+  function setText(id, value) {
+    const element = document.getElementById(id);
+    if (element) element.textContent = value;
+  }
+
   function remainingCounts() {
     const counts = Object.fromEntries(teams.map(team => [team, 0]));
     for (const game of schedule) {
@@ -73,6 +89,30 @@
       if (counts[game.away] !== undefined) counts[game.away]++;
     }
     return counts;
+  }
+
+  function mathematicalStatus(team) {
+    const counts = remainingCounts();
+    const record = standings[team];
+    const maximum = (record.w + counts[team]) / Math.max(1, record.w + record.l + counts[team]);
+    const blocked = districtTeams(teamDistrict[team]).some(rival => {
+      if (rival === team) return false;
+      const other = standings[rival];
+      const minimum = other.w / Math.max(1, other.w + other.l + counts[rival]);
+      return minimum > maximum + 1e-12;
+    });
+    const probability = simulation?.rank?.[team]?.[0] || 0;
+    if (blocked) return { possible: false, label: "優勝可能性消滅", tone: "out" };
+    if (probability >= 0.10) return { possible: true, label: "優勝争い中", tone: "live" };
+    return { possible: true, label: "数学的可能性あり", tone: "possible" };
+  }
+
+  function persistSelection(section) {
+    const params = new URLSearchParams(window.location.search);
+    params.set("district", selectedDistrict);
+    params.set("team", selectedTeam);
+    const next = `${window.location.pathname}?${params.toString()}${section ? `#${section}` : window.location.hash}`;
+    window.history.replaceState(null, "", next);
   }
 
   function seedFromData() {
@@ -323,9 +363,21 @@
 
   function renderHeader() {
     const through = raw.officialThroughDate || raw.standingsAsOf || "8/25";
-    document.getElementById("dataDateBadge").textContent = `公式成績：${through}終了時点`;
-    const update = document.getElementById("autoUpdateBadge");
-    update.textContent = "自動更新：毎日8:00・17:00";
+    setText("dataDateBadge", `公式成績 ${through}終了時点`);
+    setText("autoUpdateBadge", "毎日8:00・17:00更新");
+    const pill = document.getElementById("dataStatusPill");
+    const fallback = document.getElementById("updateFallback");
+    if (hasOfficialData) {
+      pill.textContent = "最新データ";
+      pill.className = "statusPill";
+      fallback.classList.remove("show");
+    } else {
+      pill.textContent = "前回データ表示中";
+      pill.className = "statusPill error";
+      fallback.classList.add("show");
+      setText("updateFallbackText", `公式データを読み込めないため、固定データ（${through}時点）を表示しています。`);
+    }
+    setText("todayUpdated", `最終データ ${through}`);
   }
 
   function renderDistrictOverview() {
@@ -333,7 +385,7 @@
     container.innerHTML = Object.entries(districts).map(([key, district]) => {
       const ordered = district.teams.slice().sort((a, b) => simulation.rank[b][0] - simulation.rank[a][0]);
       const leader = ordered[0];
-      return `<button type="button" class="card districtCard" data-district="${key}" style="--district-color:${DISTRICT_COLORS[key]};text-align:left;color:inherit">
+      return `<button type="button" class="card districtCard ${key === selectedDistrict ? "active" : ""}" data-district="${key}" style="--district-color:${DISTRICT_COLORS[key]}">
         <span class="districtName">${district.name}</span>
         <span class="leader">${teamDot(leader)}${leader}</span>
         <span class="leaderProb">${formatPct(simulation.rank[leader][0])}</span>
@@ -352,26 +404,51 @@
   function renderTopStats() {
     const probability = simulation.rank[selectedTeam][0];
     const magic = magicInfo(selectedTeam);
-    document.getElementById("headlineLabel").textContent = `${selectedTeam} 優勝確率`;
-    document.getElementById("headlineProb").textContent = formatPct(probability);
-    document.getElementById("magicNow").textContent = magic.magic === null ? "—" : `M${magic.magic}`;
-    document.getElementById("magicTarget").textContent = `対象：${magic.rival || "—"}`;
-    document.getElementById("earliestDate").textContent = approximateEarliest(selectedTeam);
-    document.getElementById("remainingLabel").textContent = `${selectedTeam} 残り試合`;
-    document.getElementById("hamRemaining").textContent = remainingCounts()[selectedTeam];
+    const ordered = districtTeams().slice().sort((a, b) => pct(standings[b]) - pct(standings[a]) || standings[b].w - standings[a].w);
+    const record = standings[selectedTeam];
+    const card = document.getElementById("selectedTeamCard");
+    card.style.setProperty("--team-color", TEAM_COLORS[selectedTeam] || DISTRICT_COLORS[selectedDistrict]);
+    setText("headlineLabel", "地区優勝確率");
+    setText("selectedName", selectedTeam);
+    setText("selectedChamp", formatProbability(selectedTeam, probability));
+    document.getElementById("selectedChampBar").style.width = `${probability * 100}%`;
+    setText("selectedCurrentRecord", `${ordered.indexOf(selectedTeam) + 1}位｜${record.w}勝${record.l}敗${record.t}分｜勝率 ${pct(record).toFixed(3).replace(/^0/, "")}`);
+    setText("magicNow", magic.magic === null ? "—" : `M${magic.magic}`);
+    setText("magicTarget", `対象：${magic.rival || "—"}`);
+    setText("earliestDate", approximateEarliest(selectedTeam));
+    setText("remainingLabel", `${selectedTeam} 残り試合`);
+    setText("hamRemaining", `${remainingCounts()[selectedTeam]}試合`);
+  }
+
+  function renderToday() {
+    const leaders = Object.entries(districts).map(([key, district]) => {
+      const team = district.teams.slice().sort((a, b) => simulation.rank[b][0] - simulation.rank[a][0])[0];
+      return { key, district: district.name, team, probability: simulation.rank[team][0] };
+    });
+    const contenders = new Set(teams.filter(team => mathematicalStatus(team).possible));
+    const important = schedule.filter(game => teamDistrict[game.home] && teamDistrict[game.home] === teamDistrict[game.away] && contenders.has(game.home) && contenders.has(game.away))
+      .sort((a, b) => dateOrder(a.date) - dateOrder(b.date) || (simulation.rank[b.home][0] + simulation.rank[b.away][0]) - (simulation.rank[a.home][0] + simulation.rank[a.away][0]))[0];
+    const closest = leaders.slice().sort((a, b) => dateOrder(simulation.clinch.predictedDate[a.team]) - dateOrder(simulation.clinch.predictedDate[b.team]))[0];
+    const lead = leaders.map(item => `<div class="todayItem"><span class="todayLabel">${item.district} 最有力</span><strong class="todayValue">${teamDot(item.team)}${item.team} ${formatPct(item.probability)}</strong><span class="todaySub">非公式モデルの地区優勝確率</span></div>`).join("");
+    document.getElementById("todayFarm").innerHTML = `<div class="todayLead"><span class="todayLabel">今日の注目カード</span><strong class="todayValue">${important ? `${important.home} vs ${important.away}` : "対象試合なし"}</strong><span class="todaySub">${important ? `${important.date}｜${districtName(teamDistrict[important.home])}直接対決` : "残り日程に候補同士の直接対決はありません"}</span></div>${lead}<div class="todayItem"><span class="todayLabel">優勝決定が最も近い予測</span><strong class="todayValue">${closest.team} ${simulation.clinch.predictedDate[closest.team]}</strong><span class="todaySub">優勝シミュレーションの中央値</span></div>`;
   }
 
   function renderStandings() {
     const list = districtTeams().map(team => ({ team, record: standings[team], value: pct(standings[team]) })).sort((a, b) => b.value - a.value || b.record.w - a.record.w);
     const leader = list[0].record;
     document.getElementById("standingsTitle").textContent = `${districtName(selectedDistrict)} 現在順位`;
-    document.getElementById("standingsBody").innerHTML = list.map((item, index) => `<tr>
-      <td><b>${index + 1}</b></td>
-      <td><button class="teamBtn" type="button" data-team="${item.team}">${teamDot(item.team)}${item.team}</button></td>
-      <td>${item.record.w}-${item.record.l}-${item.record.t}</td>
+    document.getElementById("standingsBody").innerHTML = list.map((item, index) => {
+      const status = mathematicalStatus(item.team);
+      return `<tr class="${item.team === selectedTeam ? "selected" : ""}">
+      <td><span class="rankNumber">${index + 1}</span></td>
+      <td><button class="teamBtn" type="button" data-team="${item.team}">${teamDot(item.team)}${item.team}<span class="tapCue">›</span></button></td>
+      <td>${item.record.w}勝${item.record.l}敗${item.record.t}分</td>
       <td>${item.value.toFixed(3).replace(/^0/, "")}</td>
       <td>${index === 0 ? "—" : calcGamesBehind(leader, item.record).toFixed(1)}</td>
-    </tr>`).join("");
+      <td><b>${formatProbability(item.team, simulation.rank[item.team][0])}</b></td>
+      <td><span class="statusTag ${status.tone}">${status.label}</span></td>
+    </tr>`;
+    }).join("");
     document.querySelectorAll("#standingsBody .teamBtn").forEach(button => button.addEventListener("click", () => selectTeam(button.dataset.team)));
   }
 
@@ -381,9 +458,10 @@
     document.getElementById("champTitle").textContent = `${districtName(selectedDistrict)} 優勝確率`;
     document.getElementById("champList").innerHTML = district.map(team => {
       const probability = simulation.rank[team][0];
+      const status = mathematicalStatus(team);
       return `<div class="probRow"><button class="teamBtn" data-team="${team}" type="button">${teamDot(team)}${team}</button>
         <div class="track"><div class="fill" style="width:${Math.max(0.3, probability * 100)}%;background:${TEAM_COLORS[team]}"></div></div>
-        <div class="pct ${probability === best ? "big" : ""}">${formatPct(probability)}</div></div>`;
+        <div class="pct ${probability === best ? "big" : ""}" title="${status.label}">${formatProbability(team, probability)}</div></div>`;
     }).join("");
     document.querySelectorAll("#champList .teamBtn").forEach(button => button.addEventListener("click", () => selectTeam(button.dataset.team)));
   }
@@ -397,8 +475,6 @@
     const probabilities = simulation.rank[selectedTeam];
     const average = simulation.avg[selectedTeam];
     document.getElementById("rankTitle").textContent = `${districtName(selectedDistrict)} 最終順位確率`;
-    document.getElementById("selectedName").innerHTML = `${teamDot(selectedTeam)}${selectedTeam}`;
-    document.getElementById("selectedChamp").textContent = formatPct(probabilities[0]);
     document.getElementById("selectedRecord").textContent = `平均最終成績：${average.w.toFixed(1)}勝 ${average.l.toFixed(1)}敗 ${average.t.toFixed(1)}分`;
     document.getElementById("rankBars").innerHTML = probabilities.map((probability, index) => `<div class="rankRow">
       <b>${index + 1}位</b><div class="rankTrack"><div class="rankFill" style="width:${Math.max(0.2, probability * 100)}%;background:${TEAM_COLORS[selectedTeam]}"></div></div><b style="text-align:right">${formatPct(probability)}</b>
@@ -438,24 +514,33 @@
   }
 
   function renderScheduleFilters() {
-    const options = ["全体", ...districtTeams()];
-    if (scheduleFilter !== "全体" && !districtTeams().includes(scheduleFilter)) scheduleFilter = districtTeams()[0];
-    document.getElementById("scheduleFilters").innerHTML = options.map(option => `<button type="button" class="filterBtn ${option === scheduleFilter ? "active" : ""}" data-filter="${option}">${option}</button>`).join("");
+    const options = [[selectedTeam, "選択球団"], ["全体", "地区全体"], ["直接対決", "直接対決のみ"]];
+    if (!["全体", "直接対決", selectedTeam].includes(scheduleFilter)) scheduleFilter = selectedTeam;
+    document.getElementById("scheduleFilters").innerHTML = options.map(([value, label]) => `<button type="button" class="filterBtn ${value === scheduleFilter ? "active" : ""}" data-filter="${value}">${label}${value === selectedTeam ? `：${selectedTeam}` : ""}</button>`).join("");
     document.querySelectorAll("#scheduleFilters button").forEach(button => button.addEventListener("click", () => {
       scheduleFilter = button.dataset.filter;
+      scheduleExpanded = false;
       renderScheduleFilters();
       renderSchedule();
     }));
   }
 
   function renderSchedule() {
-    const filtered = schedule.filter(game => scheduleFilter === "全体" || game.home === scheduleFilter || game.away === scheduleFilter).sort((a, b) => dateOrder(a.date) - dateOrder(b.date));
-    document.getElementById("scheduleCount").textContent = `${filtered.length}試合表示`;
-    document.getElementById("scheduleList").innerHTML = filtered.length ? filtered.map(game => {
+    const filtered = schedule.filter(game => {
+      if (scheduleFilter === "全体") return teamDistrict[game.home] === selectedDistrict || teamDistrict[game.away] === selectedDistrict;
+      if (scheduleFilter === "直接対決") return teamDistrict[game.home] === selectedDistrict && teamDistrict[game.away] === selectedDistrict;
+      return game.home === scheduleFilter || game.away === scheduleFilter;
+    }).sort((a, b) => dateOrder(a.date) - dateOrder(b.date));
+    const visible = scheduleExpanded ? filtered : filtered.slice(0, 5);
+    document.getElementById("scheduleCount").textContent = `${visible.length}/${filtered.length}試合表示`;
+    document.getElementById("scheduleList").innerHTML = visible.length ? visible.map(game => {
       const sameDistrict = teamDistrict[game.home] && teamDistrict[game.home] === teamDistrict[game.away];
       const badge = sameDistrict ? `<span class="direct">${districtName(teamDistrict[game.home])}直接対決</span>` : "";
       return `<div class="game"><div class="date">${game.date}</div><div><b>${game.home} － ${game.away}</b>${badge}<div class="venue">${game.venue || ""}</div></div><div class="venue">${game.venue || ""}</div></div>`;
     }).join("") : '<div style="padding:18px" class="muted">残り試合はありません。</div>';
+    const more = document.getElementById("scheduleMoreBtn");
+    more.hidden = filtered.length <= 5;
+    more.textContent = scheduleExpanded ? "直近5試合に戻す" : `残り全日程を見る（あと${Math.max(0, filtered.length - 5)}試合）`;
   }
 
   function renderHistory() {
@@ -481,7 +566,8 @@
       content += `<line x1="${left}" y1="${vertical}" x2="${width - right}" y2="${vertical}" stroke="#e3eaf3"/><text x="${left - 7}" y="${vertical + 4}" text-anchor="end" class="chartLabel">${options.percent ? `${value.toFixed(0)}%` : value.toFixed(0)}</text>`;
     }
     data.forEach((item, index) => {
-      content += `<circle cx="${x(index)}" cy="${y(item.value)}" r="6" fill="${options.color}"/><text x="${x(index)}" y="${height - 15}" text-anchor="middle" class="chartLabel">${item.label}</text><text x="${x(index)}" y="${y(item.value) - 10}" text-anchor="middle" class="chartValue">${options.percent ? `${item.value.toFixed(1)}%` : item.value === null ? "—" : `M${Math.round(item.value)}`}</text>`;
+      const displayed = options.percent ? `${item.value.toFixed(1)}%` : item.value === null ? "—" : `M${Math.round(item.value)}`;
+      content += `<circle class="chartPoint" tabindex="0" cx="${x(index)}" cy="${y(item.value)}" r="6" fill="${options.color}"><title>${item.label}　${displayed}</title></circle><text x="${x(index)}" y="${height - 15}" text-anchor="middle" class="chartLabel">${item.label}</text><text x="${x(index)}" y="${y(item.value) - 10}" text-anchor="middle" class="chartValue">${displayed}</text>`;
     });
     svg.innerHTML = content;
   }
@@ -499,7 +585,10 @@
     const currentTeams = districtTeams();
     if (!currentTeams.includes(selectedTeam)) selectedTeam = currentTeams.slice().sort((a, b) => simulation.rank[b][0] - simulation.rank[a][0])[0];
     scheduleFilter = selectedTeam;
+    scheduleExpanded = false;
+    persistSelection();
     renderSelectedDistrict();
+    window.dispatchEvent(new CustomEvent("farmteamchange", { detail: { team: selectedTeam } }));
   }
 
   function selectTeam(team) {
@@ -507,10 +596,14 @@
     selectedTeam = team;
     selectedDistrict = teamDistrict[team];
     scheduleFilter = team;
+    scheduleExpanded = false;
+    persistSelection();
     renderSelectedDistrict();
+    window.dispatchEvent(new CustomEvent("farmteamchange", { detail: { team: selectedTeam } }));
   }
 
   function renderSelectedDistrict() {
+    renderDistrictOverview();
     renderDistrictSwitch();
     renderTopStats();
     renderStandings();
@@ -522,6 +615,7 @@
     renderScheduleFilters();
     renderSchedule();
     renderCharts();
+    renderToday();
   }
 
   function renderLoading() {
@@ -534,6 +628,19 @@
   window.FARM_MODEL = { simulate, strengthComparison, teamStrength, districts, standings, schedule };
   if (typeof document === "undefined") return;
 
+  document.getElementById("scheduleMoreBtn").addEventListener("click", () => {
+    scheduleExpanded = !scheduleExpanded;
+    renderSchedule();
+  });
+  document.getElementById("retryButton").addEventListener("click", () => window.location.reload());
+  window.addEventListener("farmchampteamselect", event => {
+    if (event.detail?.team && event.detail.team !== selectedTeam) selectTeam(event.detail.team);
+  });
+  document.querySelectorAll('.pageNav a,.mobileNav a').forEach(link => link.addEventListener("click", () => {
+    const section = link.getAttribute("href")?.slice(1);
+    if (section) persistSelection(section);
+  }));
+
   renderLoading();
   window.setTimeout(() => {
     simulation = simulate(ITERATIONS);
@@ -541,5 +648,6 @@
     renderDistrictOverview();
     renderStrength();
     renderSelectedDistrict();
+    persistSelection();
   }, 30);
 })();

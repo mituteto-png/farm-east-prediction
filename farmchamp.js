@@ -13,7 +13,8 @@ import { getFarmChampionshipEligibility, outsToInnings } from "./farmchamp-eligi
   }
 
   const teams = Object.keys(CONFIG.teams).filter(team => data.teams?.[team]);
-  let selectedTeam = teams[0] || null;
+  const requestedTeam = new URLSearchParams(window.location.search).get("team");
+  let selectedTeam = teams.includes(requestedTeam) ? requestedTeam : teams[0] || null;
   let selectedFilter = "all";
   const filters = [
     ["all", "全選手"], ["eligible", "出場資格あり"], ["rookie", "新人"],
@@ -91,6 +92,7 @@ import { getFarmChampionshipEligibility, outsToInnings } from "./farmchamp-eligi
       selectedFilter = "all";
       renderTeams();
       renderSelectedTeam();
+      window.dispatchEvent(new CustomEvent("farmchampteamselect", { detail: { team: selectedTeam } }));
     }));
   }
 
@@ -146,6 +148,13 @@ import { getFarmChampionshipEligibility, outsToInnings } from "./farmchamp-eligi
 
   document.getElementById("farmChampDataDate").textContent = `選手成績：${data.asOf}時点／一軍登録公示：${data.historyFetchedThrough}まで`;
   document.getElementById("farmChampCandidateDefinition").textContent = data.advancementDefinition;
+  window.addEventListener("farmteamchange", event => {
+    if (!teams.includes(event.detail?.team) || event.detail.team === selectedTeam) return;
+    selectedTeam = event.detail.team;
+    selectedFilter = "all";
+    renderTeams();
+    renderSelectedTeam();
+  });
   renderTeams();
   renderSelectedTeam();
 })();
