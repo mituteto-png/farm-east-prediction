@@ -1,0 +1,20 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>モデル・データ｜2026 ファーム3地区 優勝・順位予測</title><link rel="stylesheet" href="styles.css?v=5"><link rel="stylesheet" href="pages.css?v=5"></head><body data-page="about.html"><div class="wrap" id="app">  <header class="siteHeader" id="overview">
+    <div class="brandEyebrow">Farm Pennant Race 2026</div>
+    <h1>モデル・データ</h1>
+    <p class="siteLead">東・中・西14球団の公式成績から、いまの優勝争いと残りシーズンの行方を見える化します。</p>
+    <div class="headerMeta" aria-label="データとモデルの状態">
+      <span class="statusPill checking" id="dataStatusPill">更新確認中</span>
+      <span class="metaPill" id="dataDateBadge">公式データを確認中</span>
+      <span class="metaPill">モデル V3.0</span><span class="metaPill">20,000回</span>
+      <span class="metaPill" id="autoUpdateBadge">自動更新を確認中</span>
+    </div>
+    <div class="updateFallback" id="updateFallback" role="status"><span id="updateFallbackText">前回取得できたデータを表示しています。</span><button class="retryButton" id="retryButton" type="button">再読み込み</button></div>
+  </header>
+
+<nav class="pageNav" aria-label="サイトメニュー" id="siteNav"></nav><div class="breadcrumb" id="breadcrumb"></div><div id="sharedSelection"></div><noscript><p class="note">最新の予測計算にはJavaScriptが必要です。<a href="https://npb.jp/bis/2026/stats/index_farm.html">NPB公式成績を見る</a></p></noscript><main><section class="section anchorSection" id="model">
+      <div class="sectionHead"><div><span class="eyebrow">Data &amp; Model</span><h2>データ・モデル</h2><p>一般閲覧では不要な説明と運用情報をまとめています</p></div></div>
+      <div class="detailGrid"><details class="accordion"><summary>予測モデルV3.0について詳しく見る</summary><div class="accordionBody"><div class="methodGrid"><div class="method"><b>現在勝率 40%</b><p>引き分けを除いた実際の勝率。</p></div><div class="method"><b>ピタゴラス勝率 45%</b><p>得失点を1.83乗して試合内容を評価。</p></div><div class="method"><b>平均への縮小 15%</b><p>短期的な上振れ・下振れを抑制。</p></div><div class="method"><b>相手強度・ホーム補正</b><p>残りカードを試合単位で反映。</p></div><div class="method"><b>勝率制・中止対応</b><p>球団ごとの消化試合数差を許容。</p></div></div><div class="weight"><span class="w1" style="width:40%">現在勝率 40%</span><span class="w4" style="width:45%">ピタゴラス 45%</span><span class="w3" style="width:15%">平均 15%</span></div></div></details><details class="accordion"><summary>地区間の戦力比較を見る</summary><div class="accordionBody"><div class="strengthGrid" id="strengthGrid"><div class="loadingSkeleton"><span class="skeleton"></span><span class="skeleton short"></span></div></div><div class="definition"><b>地区戦力指数：</b>現在勝率40％、ピタゴラス勝率35％、1試合平均得点15％、平均失点の少なさ10％を合成した球団指数の地区内単純平均です。14球団平均を基準にした非公式比較値です。</div></div></details></div>
+      <details class="accordion" style="margin-top:14px"><summary>更新履歴・運用情報</summary><div class="accordionBody adminGrid"><div><h3>公式結果の自動反映</h3><p class="tiny">NPB公式の掲載状況を毎日8:00・17:00（日本時間）に確認します。管理・検証用の手動入力機能は非表示のまま維持しています。</p></div><div><h3>直近の反映履歴</h3><div class="history" id="inputHistory"><div class="tiny">履歴を確認しています。</div></div></div></div></details>
+      <div class="note" style="margin-top:14px"><b>非公式予測です。</b> 20,000回シミュレーションの確率は確定値ではありません。中止や消化試合数差、同率時の公式条件により実際の結果と異なる場合があります。</div>
+    </section></main>  <footer>参照：NPB公式ファーム成績・3地区勝敗表・球団成績・日程。公式結果は毎日8:00・17:00に確認します。<div class="siteCounter" aria-label="サイトの累計閲覧数"><span>サイト閲覧数</span><img src="https://hits.sh/mituteto-png.github.io/farm-east-prediction.svg?style=flat-square&amp;label=&amp;color=8795a8" alt="累計閲覧数"></div></footer>
+</div><script src="auto-data.js"></script><script type="module" src="league-ui.js?v=5"></script><script type="module" src="site.js?v=5"></script></body></html>

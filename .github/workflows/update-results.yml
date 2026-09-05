@@ -33,18 +33,21 @@ jobs:
       - name: Fetch farm championship eligibility data
         run: node scripts/update-farmchamp-data.mjs
 
+      - name: Fetch additional official player statistics
+        run: node scripts/update-analysis-data.mjs
+
       - name: Test farm championship eligibility logic
-        run: node --test tests/farmchamp.test.mjs
+        run: node --test tests/*.test.mjs
 
       - name: Commit changes when official results changed
         shell: bash
         run: |
-          if git diff --quiet -- auto-data.js farmchamp-data.js; then
+          if git diff --quiet -- auto-data.js farmchamp-data.js analysis-data.json; then
             echo "No new official results."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add auto-data.js farmchamp-data.js
+          git add auto-data.js farmchamp-data.js analysis-data.json
           git commit -m "Update official farm and championship data"
           git push

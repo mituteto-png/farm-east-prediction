@@ -1,0 +1,15 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>パワーランキング｜2026 ファーム3地区 優勝・順位予測</title><link rel="stylesheet" href="styles.css?v=5"><link rel="stylesheet" href="pages.css?v=5"></head><body data-page="power-ranking.html"><div class="wrap" id="app">  <header class="siteHeader" id="overview">
+    <div class="brandEyebrow">Farm Pennant Race 2026</div>
+    <h1>パワーランキング</h1>
+    <p class="siteLead">東・中・西14球団の公式成績から、いまの優勝争いと残りシーズンの行方を見える化します。</p>
+    <div class="headerMeta" aria-label="データとモデルの状態">
+      <span class="statusPill checking" id="dataStatusPill">更新確認中</span>
+      <span class="metaPill" id="dataDateBadge">公式データを確認中</span>
+      <span class="metaPill">モデル V3.0</span><span class="metaPill">20,000回</span>
+      <span class="metaPill" id="autoUpdateBadge">自動更新を確認中</span>
+    </div>
+    <div class="updateFallback" id="updateFallback" role="status"><span id="updateFallbackText">前回取得できたデータを表示しています。</span><button class="retryButton" id="retryButton" type="button">再読み込み</button></div>
+  </header>
+
+<nav class="pageNav" aria-label="サイトメニュー" id="siteNav"></nav><div class="breadcrumb" id="breadcrumb"></div><div id="sharedSelection"></div><noscript><p class="note">最新の予測計算にはJavaScriptが必要です。<a href="https://npb.jp/bis/2026/stats/index_farm.html">NPB公式成績を見る</a></p></noscript><main><section class="section"><div class="sectionHead"><div><h2>全14球団 Power Ranking</h2><p>Power Ranking Model v1.0｜当サイト独自評価</p></div></div><p>既存の地区戦力指数の球団別得点を順位化。勝率40%＋ピタゴラス勝率35%＋得点力15%＋失点抑制10%。</p><details class="accordion"><summary>100点の意味・使用しない情報</summary><div class="accordionBody">各成分を0〜1に収めて加重平均×100。100は全成分1の理論上限で、最強球団を100に置き換えたものではありません。打撃・投手評価は14球団平均を50とします。対戦相手の違いは調整していないため、厳密な実力順位ではありません。直近成績と前回順位の完全な履歴は未取得のため表示しません。</div></details><div class="section" id="powerList"></div></section></main>  <footer>参照：NPB公式ファーム成績・3地区勝敗表・球団成績・日程。公式結果は毎日8:00・17:00に確認します。<div class="siteCounter" aria-label="サイトの累計閲覧数"><span>サイト閲覧数</span><img src="https://hits.sh/mituteto-png.github.io/farm-east-prediction.svg?style=flat-square&amp;label=&amp;color=8795a8" alt="累計閲覧数"></div></footer>
+</div><script src="auto-data.js"></script><script type="module" src="site.js?v=5"></script></body></html>
