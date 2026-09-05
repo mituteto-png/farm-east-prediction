@@ -226,7 +226,8 @@ function persistSelection(){window.dispatchEvent(new CustomEvent('farmteamchange
 
   function drawLineChart(svgId, data, options = {}) {
     const svg = document.getElementById(svgId);
-    const width = 620, height = 255, left = 46, right = 18, top = 20, bottom = 38;
+    const width = Math.max(260, Math.min(620, svg.clientWidth)), height = 255, left = 46, right = 18, top = 20, bottom = 38;
+    svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
     const innerWidth = width - left - right, innerHeight = height - top - bottom;
     const maximum = options.max ?? Math.max(...data.map(item => item.value), 1);
     const minimum = options.min ?? 0;
@@ -239,6 +240,7 @@ function persistSelection(){window.dispatchEvent(new CustomEvent('farmteamchange
       content += `<line x1="${left}" y1="${vertical}" x2="${width - right}" y2="${vertical}" stroke="#e3eaf3"/><text x="${left - 7}" y="${vertical + 4}" text-anchor="end" class="chartLabel">${options.percent ? `${value.toFixed(0)}%` : value.toFixed(0)}</text>`;
     }
     data.forEach((item, index) => {
+      if(item.value === null){content += `<text x="${width/2}" y="120" text-anchor="middle">マジック未点灯</text>`;return;}
       const displayed = options.percent ? `${item.value.toFixed(1)}%` : item.value === null ? "—" : `M${Math.round(item.value)}`;
       content += `<circle class="chartPoint" tabindex="0" cx="${x(index)}" cy="${y(item.value)}" r="6" fill="${options.color}"><title>${item.label}　${displayed}</title></circle><text x="${x(index)}" y="${height - 15}" text-anchor="middle" class="chartLabel">${item.label}</text><text x="${x(index)}" y="${y(item.value) - 10}" text-anchor="middle" class="chartValue">${displayed}</text>`;
     });

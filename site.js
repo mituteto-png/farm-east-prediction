@@ -5,7 +5,7 @@ import {outsToInnings} from './farmchamp-eligibility.js';
 const raw=window.FARM_AUTO_DATA,page=document.body.dataset.page;
 const routes=[['index.html','ホーム'],['prediction.html','優勝予測'],['simulator.html','シミュレーター'],['farmchamp.html','日本選手権'],['power-ranking.html','パワーランキング'],['about.html','データ・モデル']];
 const el=id=>document.getElementById(id),esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const percent=v=>v===null?'算出対象外':`${(v*100).toFixed(1)}%`;
+const percent=v=>v===null?'算出対象外':v>0&&v<.001?'0.1%未満':`${(v*100).toFixed(1)}%`;
 const allTeams=Object.keys(raw?.standings||{}),params=new URLSearchParams(location.search);
 let saved={};try{saved=JSON.parse(localStorage.getItem('farm-selection')||'{}');}catch{}
 let selected=allTeams.includes(params.get('team'))?params.get('team'):allTeams.includes(saved.team)?saved.team:allTeams[0];
@@ -44,7 +44,7 @@ async function simulator(){renderGames();
   if(busy)return;busy=true;el('runScenario').disabled=true;el('resetScenario').disabled=true;renderGames();el('scenarioStatus').textContent='20,000回 × 現在／仮想結果を計算中…';
   const snapshot=structuredClone(choices);
   try{const {before,after}=await runWorker('scenario',raw,snapshot);
-   el('scenarioResults').innerHTML=`<h3>${Object.keys(snapshot).length}試合を仮適用した結果</h3>`+allTeams.map(t=>{const a=before.rank[t][0],b=after.rank[t][0],delta=(b-a)*100;return `<article class="compareRow"><b>${esc(t)}</b><span>現在 ${percent(a)}</span><span>仮想 ${percent(b)}</span><strong>${delta>=0?'+':''}${delta.toFixed(1)}pt</strong><div class="track"><div class="fill" style="width:${b*100}%;background:#075bc7"></div></div></article>`;}).join('');
+   el('scenarioResults').innerHTML=`<h3>${Object.keys(snapshot).length}試合を仮適用した結果</h3>`+allTeams.map(t=>{const a=before.rank[t][0],b=after.rank[t][0],delta=Math.round((b-a)*1000)/10;return `<article class="compareRow"><b>${esc(t)}</b><span>現在 ${percent(a)}</span><span>仮想 ${percent(b)}</span><strong>${delta>=0?'+':''}${delta.toFixed(1)}pt</strong><div class="track"><div class="fill" style="width:${b*100}%;background:#075bc7"></div></div></article>`;}).join('');
    el('scenarioStatus').textContent='計算完了。得失点は変更せず、指定した勝敗だけを適用した参考値です。';
   }catch(error){el('scenarioStatus').textContent=error.message;}finally{busy=false;el('runScenario').disabled=false;el('resetScenario').disabled=false;renderGames();}
  };
@@ -64,7 +64,7 @@ function renderChamp(){
  el('champNav').querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.panel===activePanel)));
  if(activePanel==='eligibility'){if(!data?.teams?.[selected]){el('farmChampionshipApp').hidden=true;el('champAnalysis').hidden=false;el('champAnalysis').textContent=selected+'：進出候補の資格名簿データはありません。';}return;}
  if(activePanel==='odds'){
-  el('champAnalysis').innerHTML='<h2>Farm Championship Model v1.0</h2><p>当サイト独自予測・大会が予定どおり実施される場合の参考値</p><details class="accordion"><summary>進出から優勝までの計算方法</summary><div class="accordionBody">残り公式戦を20,000回実施し、地区優勝3球団と地区2位最高勝率のワイルドカードを選出。優勝球団の勝率2位対3位、1位対ワイルドカードの準決勝から決勝まで計算します。対戦勝率はV3.0の球団戦力と同じ40%・45%・15%を使用し、中立球場のためホーム補正は付けません。同率の公式対戦成績・過年度勝率は未取得のため勝数・乱数で近似。雨天中止・延長方式・選手別戦力は未反映です。資格選手だけの戦力比較は信頼できる一律名簿がそろわないため除外しています。総合優勝確率＝進出確率×進出時優勝確率。</div></details>'+(!champRows?'<p role="status">大会20,000回を計算中…</p>':champRows.map(r=>`<article class="oddsCard"><h3>${esc(r.team)}</h3><div><span>日本選手権進出</span><b>${percent(r.entry)}</b></div><div><span>進出した場合の優勝</span><b>${percent(r.conditional)}</b></div><div><span>総合 日本選手権優勝</span><strong>${percent(r.title)}</strong></div><div class="track"><div class="fill" style="width:${r.title*100}%;background:#075bc7"></div></div></article>`).join(''));
+  el('champAnalysis').innerHTML='<h2>Farm Championship Model v1.0</h2><p>当サイト独自予測・大会が予定どおり実施される場合の参考値</p><details class="accordion"><summary>進出から優勝までの計算方法</summary><div class="accordionBody">残り公式戦を20,000回実施し、地区優勝3球団と地区2位最高勝率のワイルドカードを選出。優勝球団の勝率2位対3位、1位対ワイルドカードの準決勝から決勝まで計算します。対戦勝率はV3.0の球団戦力と同じ40%・45%・15%を使用し、中立球場のためホーム補正は付けません。同率の公式対戦成績・過年度勝率は未取得のため勝数・乱数で近似。雨天中止・延長方式・選手別戦力は未反映です。資格選手だけの戦力比較は信頼できる一律名簿がそろわないため除外しています。総合優勝確率＝進出確率×進出時優勝確率。0.0%は20,000回の標本で発生しなかった場合を含み、数学的消滅とは異なります。</div></details>'+(!champRows?'<p role="status">大会20,000回を計算中…</p>':champRows.map(r=>`<article class="oddsCard"><h3>${esc(r.team)}</h3><div><span>日本選手権進出</span><b>${percent(r.entry)}</b></div><div><span>進出した場合の優勝</span><b>${percent(r.conditional)}</b></div><div><span>総合 日本選手権優勝</span><strong>${percent(r.title)}</strong></div><div class="track"><div class="fill" style="width:${r.title*100}%;background:#075bc7"></div></div></article>`).join(''));
   return;
  }
  const team=data?.teams?.[selected];

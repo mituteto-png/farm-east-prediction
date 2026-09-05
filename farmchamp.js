@@ -16,6 +16,7 @@ import { getFarmChampionshipEligibility, outsToInnings } from "./farmchamp-eligi
   const requestedTeam = new URLSearchParams(window.location.search).get("team");
   let selectedTeam = teams.includes(requestedTeam) ? requestedTeam : teams[0] || null;
   let selectedFilter = "all";
+  let visibleLimit = 20;
   const filters = [
     ["all", "全選手"], ["eligible", "出場資格あり"], ["rookie", "新人"],
     ["noFirstTeam", "一軍登録なし"], ["threshold", "規定到達"],
@@ -100,6 +101,7 @@ import { getFarmChampionshipEligibility, outsToInnings } from "./farmchamp-eligi
     const node = document.getElementById("farmChampFilters");
     node.innerHTML = filters.map(([value, label]) => `<button type="button" class="filterBtn ${value === selectedFilter ? "active" : ""}" data-filter="${value}">${label}</button>`).join("");
     node.querySelectorAll("button").forEach(button => button.addEventListener("click", () => {
+      visibleLimit = 20;
       selectedFilter = button.dataset.filter;
       renderFilters();
       renderPlayers();
@@ -115,19 +117,23 @@ import { getFarmChampionshipEligibility, outsToInnings } from "./farmchamp-eligi
       return;
     }
     const filtered = teamData.players.filter(player => matchesFilter(player, evaluation(player, selectedTeam)));
-    document.getElementById("farmChampVisibleCount").textContent = `${filtered.length}名表示`;
+    document.getElementById("farmChampVisibleCount").textContent = `${Math.min(visibleLimit, filtered.length)}/${filtered.length}名表示`;
     if (!filtered.length) {
       list.innerHTML = '<div class="farmChampEmpty">この条件に該当する選手はいません。</div>';
       return;
     }
     const groups = [["batter", "野手"], ["pitcher", "投手"]];
     list.innerHTML = groups.map(([role, label]) => {
-      const players = filtered.filter(player => player.role === role);
+      const players = filtered.slice(0, visibleLimit).filter(player => player.role === role);
       return players.length ? `<h4 class="farmRoleHeading">${label}<span>${players.length}名</span></h4>${players.map(player => renderPlayer(player, selectedTeam)).join("")}` : "";
     }).join("");
+    if(filtered.length > visibleLimit){
+      const more=document.createElement('button');more.className='filterBtn';more.textContent='さらに20名を見る';more.onclick=()=>{visibleLimit+=20;renderPlayers();};list.append(more);
+    }
   }
 
   function renderSelectedTeam() {
+    visibleLimit = 20;
     const teamData = data.teams[selectedTeam];
     const title = document.getElementById("farmChampTeamTitle");
     const summary = document.getElementById("farmChampTeamSummary");
