@@ -2,10 +2,10 @@ window.FARM_AUTO_DATA = {
   "season": 2026,
   "source": "https://npb.jp/farm/2026/",
   "statsSource": "https://npb.jp/bis/2026/stats/index_farm.html",
-  "standingsAsOf": "9/7",
+  "standingsAsOf": "9/8",
   "lastCompletedDate": "9/6",
-  "officialThroughDate": "9/7",
-  "fetchedAt": "2026-09-08T12:37:16.259Z",
+  "officialThroughDate": "9/8",
+  "fetchedAt": "2026-09-09T01:02:20.898Z",
   "districts": {
     "east": {
       "name": "東地区",
