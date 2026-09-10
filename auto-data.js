@@ -2,10 +2,10 @@ window.FARM_AUTO_DATA = {
   "season": 2026,
   "source": "https://npb.jp/farm/2026/",
   "statsSource": "https://npb.jp/bis/2026/stats/index_farm.html",
-  "standingsAsOf": "9/8",
+  "standingsAsOf": "9/9",
   "lastCompletedDate": "9/6",
-  "officialThroughDate": "9/8",
-  "fetchedAt": "2026-09-09T12:43:29.617Z",
+  "officialThroughDate": "9/9",
+  "fetchedAt": "2026-09-10T00:50:10.751Z",
   "districts": {
     "east": {
       "name": "東地区",
@@ -833,58 +833,6 @@ window.FARM_AUTO_DATA = {
     }
   ],
   "results": [
-    {
-      "date": "9/1",
-      "home": "ヤクルト",
-      "away": "DeNA",
-      "venue": "戸 田",
-      "homeScore": 8,
-      "awayScore": 5,
-      "status": "final"
-    },
-    {
-      "date": "9/1",
-      "home": "楽天",
-      "away": "西武",
-      "venue": "森林どり泉",
-      "status": "cancelled"
-    },
-    {
-      "date": "9/1",
-      "home": "巨人",
-      "away": "オリックス",
-      "venue": "Ｇタウン",
-      "homeScore": 9,
-      "awayScore": 4,
-      "status": "final"
-    },
-    {
-      "date": "9/1",
-      "home": "広島",
-      "away": "ロッテ",
-      "venue": "由 宇",
-      "homeScore": 7,
-      "awayScore": 2,
-      "status": "final"
-    },
-    {
-      "date": "9/1",
-      "home": "阪神",
-      "away": "日本ハム",
-      "venue": "甲子園",
-      "homeScore": 4,
-      "awayScore": 3,
-      "status": "final"
-    },
-    {
-      "date": "9/1",
-      "home": "中日",
-      "away": "ソフトバンク",
-      "venue": "ナゴヤ",
-      "homeScore": 0,
-      "awayScore": 1,
-      "status": "final"
-    },
     {
       "date": "9/2",
       "home": "ハヤテ",
