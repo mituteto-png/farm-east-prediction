@@ -1,8 +1,1190 @@
 {
   "season": 2026,
-  "eligibilityAsOf": "9/11",
-  "fetchedAt": "2026-09-12T11:58:14.033Z",
+  "eligibilityAsOf": "9/12",
+  "fetchedAt": "2026-09-13T00:36:45.048Z",
   "teams": {
+    "楽天": {
+      "players": {
+        "11015138": {
+          "batting": {
+            "name": "辰己　涼介",
+            "games": 6,
+            "pa": 22,
+            "avg": 0.1,
+            "obp": 0.182,
+            "slg": 0.15,
+            "hr": 0
+          },
+          "pitching": null
+        },
+        "11015157": {
+          "batting": {
+            "name": "平良　竜哉",
+            "games": 1,
+            "pa": 4,
+            "avg": 0.5,
+            "obp": 0.5,
+            "slg": 0.5,
+            "hr": 0
+          },
+          "pitching": null
+        },
+        "11215134": {
+          "batting": {
+            "name": "田中　和基",
+            "games": 26,
+            "pa": 68,
+            "avg": 0.206,
+            "obp": 0.265,
+            "slg": 0.27,
+            "hr": 0
+          },
+          "pitching": null
+        },
+        "11315152": {
+          "batting": {
+            "name": "伊藤　大晟",
+            "games": 6,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "伊藤　大晟",
+            "games": 6,
+            "outs": 28,
+            "era": 8.68,
+            "k": 9,
+            "saves": 0,
+            "whip": 2.357142857142857
+          }
+        },
+        "11415151": {
+          "batting": {
+            "name": "津留﨑　大成",
+            "games": 9,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "津留﨑　大成",
+            "games": 9,
+            "outs": 23,
+            "era": 4.7,
+            "k": 11,
+            "saves": 0,
+            "whip": 1.6956521739130435
+          }
+        },
+        "11415152": {
+          "batting": {
+            "name": "中沢　匠磨",
+            "games": 20,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "中沢　匠磨",
+            "games": 20,
+            "outs": 54,
+            "era": 2,
+            "k": 11,
+            "saves": 1,
+            "whip": 1.2222222222222223
+          }
+        },
+        "11515150": {
+          "batting": {
+            "name": "江原　雅裕",
+            "games": 20,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "江原　雅裕",
+            "games": 20,
+            "outs": 148,
+            "era": 4.01,
+            "k": 41,
+            "saves": 0,
+            "whip": 1.5
+          }
+        },
+        "11715152": {
+          "batting": {
+            "name": "金子　京介",
+            "games": 85,
+            "pa": 268,
+            "avg": 0.235,
+            "obp": 0.295,
+            "slg": 0.42,
+            "hr": 13
+          },
+          "pitching": null
+        },
+        "11815132": {
+          "batting": {
+            "name": "堀内　謙伍",
+            "games": 18,
+            "pa": 53,
+            "avg": 0.238,
+            "obp": 0.377,
+            "slg": 0.405,
+            "hr": 1
+          },
+          "pitching": null
+        },
+        "11915159": {
+          "batting": {
+            "name": "坂井　陽翔",
+            "games": 15,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "坂井　陽翔",
+            "games": 15,
+            "outs": 198,
+            "era": 2.59,
+            "k": 42,
+            "saves": 2,
+            "whip": 1.2424242424242424
+          }
+        },
+        "13015150": {
+          "batting": {
+            "name": "マルテ",
+            "games": 1,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "マルテ",
+            "games": 1,
+            "outs": 3,
+            "era": 9,
+            "k": 1,
+            "saves": 0,
+            "whip": 3
+          }
+        },
+        "13515159": {
+          "batting": {
+            "name": "ワォーターズ",
+            "games": 53,
+            "pa": 196,
+            "avg": 0.203,
+            "obp": 0.255,
+            "slg": 0.253,
+            "hr": 0
+          },
+          "pitching": null
+        },
+        "21425159": {
+          "batting": {
+            "name": "中島　大輔",
+            "games": 5,
+            "pa": 16,
+            "avg": 0.438,
+            "obp": 0.438,
+            "slg": 0.563,
+            "hr": 0
+          },
+          "pitching": null
+        },
+        "21725139": {
+          "batting": {
+            "name": "今野　龍太",
+            "games": 31,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "今野　龍太",
+            "games": 31,
+            "outs": 86,
+            "era": 3.14,
+            "k": 33,
+            "saves": 2,
+            "whip": 1.5348837209302324
+          }
+        },
+        "21725159": {
+          "batting": {
+            "name": "古謝　樹",
+            "games": 3,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "古謝　樹",
+            "games": 3,
+            "outs": 47,
+            "era": 2.87,
+            "k": 13,
+            "saves": 0,
+            "whip": 1.2127659574468086
+          }
+        },
+        "23525150": {
+          "batting": {
+            "name": "蕭　齊",
+            "games": 11,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "蕭　齊",
+            "games": 11,
+            "outs": 34,
+            "era": 4.76,
+            "k": 12,
+            "saves": 0,
+            "whip": 2.735294117647059
+          }
+        },
+        "23525157": {
+          "batting": {
+            "name": "渡辺　翔太",
+            "games": 19,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "渡辺　翔太",
+            "games": 19,
+            "outs": 56,
+            "era": 5.3,
+            "k": 12,
+            "saves": 1,
+            "whip": 1.3928571428571428
+          }
+        },
+        "31035152": {
+          "batting": {
+            "name": "島原　大河",
+            "games": 35,
+            "pa": 65,
+            "avg": 0.254,
+            "obp": 0.323,
+            "slg": 0.305,
+            "hr": 0
+          },
+          "pitching": null
+        },
+        "31135159": {
+          "batting": {
+            "name": "青野　拓海",
+            "games": 13,
+            "pa": 49,
+            "avg": 0.318,
+            "obp": 0.367,
+            "slg": 0.364,
+            "hr": 0
+          },
+          "pitching": null
+        },
+        "31235130": {
+          "batting": {
+            "name": "田中　貴也",
+            "games": 39,
+            "pa": 101,
+            "avg": 0.241,
+            "obp": 0.37,
+            "slg": 0.337,
+            "hr": 2
+          },
+          "pitching": null
+        },
+        "31235151": {
+          "batting": {
+            "name": "瀧中　瞭太",
+            "games": 1,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "瀧中　瞭太",
+            "games": 1,
+            "outs": 12,
+            "era": 2.25,
+            "k": 2,
+            "saves": 0,
+            "whip": 1.5
+          }
+        },
+        "31335152": {
+          "batting": {
+            "name": "伊藤　樹",
+            "games": 14,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "伊藤　樹",
+            "games": 14,
+            "outs": 225,
+            "era": 3.36,
+            "k": 60,
+            "saves": 1,
+            "whip": 1.32
+          }
+        },
+        "31535152": {
+          "batting": {
+            "name": "大坪　梓恩",
+            "games": 75,
+            "pa": 254,
+            "avg": 0.262,
+            "obp": 0.303,
+            "slg": 0.403,
+            "hr": 6
+          },
+          "pitching": null
+        },
+        "31635150": {
+          "batting": {
+            "name": "中込　陽翔",
+            "games": 17,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "中込　陽翔",
+            "games": 17,
+            "outs": 52,
+            "era": 1.56,
+            "k": 20,
+            "saves": 0,
+            "whip": 0.75
+          }
+        },
+        "31735157": {
+          "batting": {
+            "name": "古賀　康誠",
+            "games": 15,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "古賀　康誠",
+            "games": 15,
+            "outs": 214,
+            "era": 5.43,
+            "k": 50,
+            "saves": 0,
+            "whip": 1.6822429906542058
+          }
+        },
+        "31835151": {
+          "batting": {
+            "name": "水上　桂",
+            "games": 39,
+            "pa": 108,
+            "avg": 0.212,
+            "obp": 0.259,
+            "slg": 0.263,
+            "hr": 0
+          },
+          "pitching": null
+        },
+        "31835153": {
+          "batting": {
+            "name": "早川　隆久",
+            "games": 3,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "早川　隆久",
+            "games": 3,
+            "outs": 62,
+            "era": 1.74,
+            "k": 25,
+            "saves": 0,
+            "whip": 0.6774193548387096
+          }
+        },
+        "41145138": {
+          "batting": {
+            "name": "伊藤　裕季也",
+            "games": 55,
+            "pa": 193,
+            "avg": 0.235,
+            "obp": 0.352,
+            "slg": 0.346,
+            "hr": 4
+          },
+          "pitching": null
+        },
+        "41345153": {
+          "batting": {
+            "name": "入江　大樹",
+            "games": 44,
+            "pa": 166,
+            "avg": 0.289,
+            "obp": 0.355,
+            "slg": 0.362,
+            "hr": 3
+          },
+          "pitching": null
+        },
+        "41345159": {
+          "batting": {
+            "name": "大内　誠弥",
+            "games": 18,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "大内　誠弥",
+            "games": 18,
+            "outs": 288,
+            "era": 4.69,
+            "k": 79,
+            "saves": 0,
+            "whip": 1.59375
+          }
+        },
+        "41445134": {
+          "batting": {
+            "name": "西口　直人",
+            "games": 14,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "西口　直人",
+            "games": 14,
+            "outs": 42,
+            "era": 3.86,
+            "k": 16,
+            "saves": 0,
+            "whip": 1.2857142857142858
+          }
+        },
+        "43045152": {
+          "batting": {
+            "name": "フロリモン",
+            "games": 1,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "フロリモン",
+            "games": 1,
+            "outs": 3,
+            "era": 9,
+            "k": 0,
+            "saves": 0,
+            "whip": 1
+          }
+        },
+        "43345155": {
+          "batting": {
+            "name": "YG安田",
+            "games": 32,
+            "pa": 119,
+            "avg": 0.255,
+            "obp": 0.294,
+            "slg": 0.427,
+            "hr": 4
+          },
+          "pitching": null
+        },
+        "43545155": {
+          "batting": {
+            "name": "吉野　創士",
+            "games": 67,
+            "pa": 254,
+            "avg": 0.283,
+            "obp": 0.358,
+            "slg": 0.434,
+            "hr": 7
+          },
+          "pitching": null
+        },
+        "51155118": {
+          "batting": {
+            "name": "浅村　栄斗",
+            "games": 7,
+            "pa": 23,
+            "avg": 0.316,
+            "obp": 0.391,
+            "slg": 0.526,
+            "hr": 1
+          },
+          "pitching": null
+        },
+        "51555153": {
+          "batting": {
+            "name": "内　星龍",
+            "games": 9,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "内　星龍",
+            "games": 9,
+            "outs": 29,
+            "era": 1.86,
+            "k": 9,
+            "saves": 0,
+            "whip": 0.8275862068965518
+          }
+        },
+        "51655114": {
+          "batting": {
+            "name": "前田　健太",
+            "games": 6,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "前田　健太",
+            "games": 6,
+            "outs": 101,
+            "era": 2.94,
+            "k": 31,
+            "saves": 0,
+            "whip": 0.9207920792079208
+          }
+        },
+        "51855152": {
+          "batting": {
+            "name": "幌村　黛汰",
+            "games": 51,
+            "pa": 108,
+            "avg": 0.186,
+            "obp": 0.231,
+            "slg": 0.265,
+            "hr": 0
+          },
+          "pitching": null
+        },
+        "51955155": {
+          "batting": {
+            "name": "小森　航大郎",
+            "games": 29,
+            "pa": 89,
+            "avg": 0.366,
+            "obp": 0.402,
+            "slg": 0.61,
+            "hr": 5
+          },
+          "pitching": null
+        },
+        "53155150": {
+          "batting": {
+            "name": "宗山　塁",
+            "games": 5,
+            "pa": 17,
+            "avg": 0.313,
+            "obp": 0.353,
+            "slg": 0.438,
+            "hr": 0
+          },
+          "pitching": null
+        },
+        "53355150": {
+          "batting": {
+            "name": "陽　柏翔",
+            "games": 63,
+            "pa": 209,
+            "avg": 0.292,
+            "obp": 0.34,
+            "slg": 0.422,
+            "hr": 3
+          },
+          "pitching": null
+        },
+        "53555152": {
+          "batting": {
+            "name": "コントレラス",
+            "games": 8,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "コントレラス",
+            "games": 8,
+            "outs": 80,
+            "era": 2.36,
+            "k": 23,
+            "saves": 0,
+            "whip": 1.05
+          }
+        },
+        "61065155": {
+          "batting": {
+            "name": "泰　勝利",
+            "games": 7,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "泰　勝利",
+            "games": 7,
+            "outs": 20,
+            "era": 1.35,
+            "k": 13,
+            "saves": 0,
+            "whip": 1.3499999999999999
+          }
+        },
+        "61165134": {
+          "batting": {
+            "name": "石原　彪",
+            "games": 19,
+            "pa": 54,
+            "avg": 0.261,
+            "obp": 0.346,
+            "slg": 0.283,
+            "hr": 0
+          },
+          "pitching": null
+        },
+        "61465155": {
+          "batting": {
+            "name": "西垣　雅矢",
+            "games": 7,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "西垣　雅矢",
+            "games": 7,
+            "outs": 21,
+            "era": 1.29,
+            "k": 6,
+            "saves": 0,
+            "whip": 1.2857142857142858
+          }
+        },
+        "61765134": {
+          "batting": {
+            "name": "酒居　知史",
+            "games": 30,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "酒居　知史",
+            "games": 30,
+            "outs": 87,
+            "era": 2.48,
+            "k": 24,
+            "saves": 0,
+            "whip": 1.1724137931034482
+          }
+        },
+        "61865155": {
+          "batting": {
+            "name": "前田　銀治",
+            "games": 37,
+            "pa": 62,
+            "avg": 0.2,
+            "obp": 0.29,
+            "slg": 0.382,
+            "hr": 2
+          },
+          "pitching": null
+        },
+        "61965151": {
+          "batting": {
+            "name": "小深田　大翔",
+            "games": 2,
+            "pa": 7,
+            "avg": 0.571,
+            "obp": 0.571,
+            "slg": 1.429,
+            "hr": 1
+          },
+          "pitching": null
+        },
+        "61965152": {
+          "batting": {
+            "name": "繁永　晟",
+            "games": 70,
+            "pa": 283,
+            "avg": 0.318,
+            "obp": 0.367,
+            "slg": 0.349,
+            "hr": 0
+          },
+          "pitching": null
+        },
+        "71775152": {
+          "batting": {
+            "name": "九谷　瑠",
+            "games": 7,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "九谷　瑠",
+            "games": 7,
+            "outs": 23,
+            "era": 8.22,
+            "k": 9,
+            "saves": 1,
+            "whip": 1.9565217391304348
+          }
+        },
+        "71875153": {
+          "batting": {
+            "name": "藤井　聖",
+            "games": 12,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "藤井　聖",
+            "games": 12,
+            "outs": 186,
+            "era": 3.05,
+            "k": 42,
+            "saves": 0,
+            "whip": 1.2580645161290323
+          }
+        },
+        "71975152": {
+          "batting": {
+            "name": "阪上　翔也",
+            "games": 78,
+            "pa": 299,
+            "avg": 0.245,
+            "obp": 0.301,
+            "slg": 0.348,
+            "hr": 5
+          },
+          "pitching": null
+        },
+        "73175138": {
+          "batting": {
+            "name": "渡邊　佳明",
+            "games": 6,
+            "pa": 23,
+            "avg": 0.348,
+            "obp": 0.348,
+            "slg": 0.435,
+            "hr": 0
+          },
+          "pitching": null
+        },
+        "73175159": {
+          "batting": {
+            "name": "松田　啄磨",
+            "games": 16,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "松田　啄磨",
+            "games": 16,
+            "outs": 128,
+            "era": 5.48,
+            "k": 25,
+            "saves": 0,
+            "whip": 1.6875
+          }
+        },
+        "73375152": {
+          "batting": {
+            "name": "ウレーニャ",
+            "games": 6,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "ウレーニャ",
+            "games": 6,
+            "outs": 93,
+            "era": 4.35,
+            "k": 25,
+            "saves": 0,
+            "whip": 1.2903225806451613
+          }
+        },
+        "73575132": {
+          "batting": {
+            "name": "宋　家豪",
+            "games": 15,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "宋　家豪",
+            "games": 15,
+            "outs": 42,
+            "era": 3.21,
+            "k": 13,
+            "saves": 1,
+            "whip": 1.7142857142857142
+          }
+        },
+        "73775152": {
+          "batting": {
+            "name": "マッカスカー",
+            "games": 18,
+            "pa": 78,
+            "avg": 0.219,
+            "obp": 0.346,
+            "slg": 0.438,
+            "hr": 4
+          },
+          "pitching": null
+        },
+        "81385138": {
+          "batting": {
+            "name": "小郷　裕哉",
+            "games": 18,
+            "pa": 66,
+            "avg": 0.283,
+            "obp": 0.348,
+            "slg": 0.483,
+            "hr": 3
+          },
+          "pitching": null
+        },
+        "81385152": {
+          "batting": {
+            "name": "大栄　利哉",
+            "games": 23,
+            "pa": 46,
+            "avg": 0.146,
+            "obp": 0.239,
+            "slg": 0.244,
+            "hr": 1
+          },
+          "pitching": null
+        },
+        "81685152": {
+          "batting": {
+            "name": "藤原　聡大",
+            "games": 16,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "藤原　聡大",
+            "games": 16,
+            "outs": 97,
+            "era": 4.45,
+            "k": 27,
+            "saves": 0,
+            "whip": 1.577319587628866
+          }
+        },
+        "81985135": {
+          "batting": {
+            "name": "鈴木　大地",
+            "games": 22,
+            "pa": 75,
+            "avg": 0.266,
+            "obp": 0.373,
+            "slg": 0.297,
+            "hr": 0
+          },
+          "pitching": null
+        },
+        "81985155": {
+          "batting": {
+            "name": "柴田　大地",
+            "games": 7,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "柴田　大地",
+            "games": 7,
+            "outs": 22,
+            "era": 1.23,
+            "k": 8,
+            "saves": 0,
+            "whip": 1.090909090909091
+          }
+        },
+        "91095151": {
+          "batting": {
+            "name": "佐藤　直樹",
+            "games": 8,
+            "pa": 22,
+            "avg": 0.316,
+            "obp": 0.409,
+            "slg": 0.526,
+            "hr": 0
+          },
+          "pitching": null
+        },
+        "91095157": {
+          "batting": {
+            "name": "田中　千晴",
+            "games": 20,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "田中　千晴",
+            "games": 20,
+            "outs": 59,
+            "era": 2.29,
+            "k": 25,
+            "saves": 3,
+            "whip": 1.271186440677966
+          }
+        },
+        "91795114": {
+          "batting": {
+            "name": "岸　孝之",
+            "games": 7,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "岸　孝之",
+            "games": 7,
+            "outs": 96,
+            "era": 0.28,
+            "k": 26,
+            "saves": 0,
+            "whip": 0.875
+          }
+        },
+        "03005150": {
+          "batting": {
+            "name": "ボイト",
+            "games": 16,
+            "pa": 66,
+            "avg": 0.333,
+            "obp": 0.424,
+            "slg": 0.439,
+            "hr": 1
+          },
+          "pitching": null
+        },
+        "03305150": {
+          "batting": {
+            "name": "吉納　翼",
+            "games": 56,
+            "pa": 209,
+            "avg": 0.22,
+            "obp": 0.306,
+            "slg": 0.435,
+            "hr": 8
+          },
+          "pitching": null
+        },
+        "01805151": {
+          "batting": {
+            "name": "武藤　敦貴",
+            "games": 36,
+            "pa": 124,
+            "avg": 0.252,
+            "obp": 0.339,
+            "slg": 0.364,
+            "hr": 1
+          },
+          "pitching": null
+        },
+        "01705150": {
+          "batting": {
+            "name": "岸本　佑也",
+            "games": 50,
+            "pa": 160,
+            "avg": 0.242,
+            "obp": 0.289,
+            "slg": 0.342,
+            "hr": 0
+          },
+          "pitching": null
+        },
+        "01605159": {
+          "batting": {
+            "name": "日當　直喜",
+            "games": 27,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "日當　直喜",
+            "games": 27,
+            "outs": 77,
+            "era": 2.45,
+            "k": 32,
+            "saves": 12,
+            "whip": 1.3246753246753247
+          }
+        },
+        "01905138": {
+          "batting": {
+            "name": "鈴木　翔天",
+            "games": 8,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "鈴木　翔天",
+            "games": 8,
+            "outs": 24,
+            "era": 0,
+            "k": 11,
+            "saves": 2,
+            "whip": 1.25
+          }
+        },
+        "01505118": {
+          "batting": {
+            "name": "辛島　航",
+            "games": 8,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "辛島　航",
+            "games": 8,
+            "outs": 78,
+            "era": 3.81,
+            "k": 15,
+            "saves": 0,
+            "whip": 1.3076923076923077
+          }
+        },
+        "01605157": {
+          "batting": {
+            "name": "林　優樹",
+            "games": 5,
+            "pa": 0,
+            "avg": 0,
+            "obp": 0,
+            "slg": 0,
+            "hr": 0
+          },
+          "pitching": {
+            "name": "林　優樹",
+            "games": 5,
+            "outs": 17,
+            "era": 4.76,
+            "k": 7,
+            "saves": 0,
+            "whip": 0.8823529411764706
+          }
+        }
+      },
+      "sources": [
+        "https://npb.jp/bis/2026/stats/idb2_e.html",
+        "https://npb.jp/bis/2026/stats/idp2_e.html"
+      ],
+      "fetchedAt": "2026-09-13T00:36:43.497Z",
+      "status": "ok"
+    },
     "日本ハム": {
       "players": {
         "11015159": {
@@ -1238,1169 +2420,7 @@
         "https://npb.jp/bis/2026/stats/idb2_f.html",
         "https://npb.jp/bis/2026/stats/idp2_f.html"
       ],
-      "fetchedAt": "2026-09-12T11:58:11.956Z",
-      "status": "ok"
-    },
-    "楽天": {
-      "players": {
-        "11015138": {
-          "batting": {
-            "name": "辰己　涼介",
-            "games": 6,
-            "pa": 22,
-            "avg": 0.1,
-            "obp": 0.182,
-            "slg": 0.15,
-            "hr": 0
-          },
-          "pitching": null
-        },
-        "11015157": {
-          "batting": {
-            "name": "平良　竜哉",
-            "games": 1,
-            "pa": 4,
-            "avg": 0.5,
-            "obp": 0.5,
-            "slg": 0.5,
-            "hr": 0
-          },
-          "pitching": null
-        },
-        "11215134": {
-          "batting": {
-            "name": "田中　和基",
-            "games": 25,
-            "pa": 64,
-            "avg": 0.203,
-            "obp": 0.266,
-            "slg": 0.271,
-            "hr": 0
-          },
-          "pitching": null
-        },
-        "11315152": {
-          "batting": {
-            "name": "伊藤　大晟",
-            "games": 6,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "伊藤　大晟",
-            "games": 6,
-            "outs": 28,
-            "era": 8.68,
-            "k": 9,
-            "saves": 0,
-            "whip": 2.357142857142857
-          }
-        },
-        "11415151": {
-          "batting": {
-            "name": "津留﨑　大成",
-            "games": 8,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "津留﨑　大成",
-            "games": 8,
-            "outs": 22,
-            "era": 4.91,
-            "k": 11,
-            "saves": 0,
-            "whip": 1.6363636363636365
-          }
-        },
-        "11415152": {
-          "batting": {
-            "name": "中沢　匠磨",
-            "games": 20,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "中沢　匠磨",
-            "games": 20,
-            "outs": 54,
-            "era": 2,
-            "k": 11,
-            "saves": 1,
-            "whip": 1.2222222222222223
-          }
-        },
-        "11515150": {
-          "batting": {
-            "name": "江原　雅裕",
-            "games": 19,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "江原　雅裕",
-            "games": 19,
-            "outs": 133,
-            "era": 4.26,
-            "k": 39,
-            "saves": 0,
-            "whip": 1.5338345864661653
-          }
-        },
-        "11715152": {
-          "batting": {
-            "name": "金子　京介",
-            "games": 84,
-            "pa": 264,
-            "avg": 0.234,
-            "obp": 0.295,
-            "slg": 0.423,
-            "hr": 13
-          },
-          "pitching": null
-        },
-        "11815132": {
-          "batting": {
-            "name": "堀内　謙伍",
-            "games": 18,
-            "pa": 53,
-            "avg": 0.238,
-            "obp": 0.377,
-            "slg": 0.405,
-            "hr": 1
-          },
-          "pitching": null
-        },
-        "11915159": {
-          "batting": {
-            "name": "坂井　陽翔",
-            "games": 15,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "坂井　陽翔",
-            "games": 15,
-            "outs": 198,
-            "era": 2.59,
-            "k": 42,
-            "saves": 2,
-            "whip": 1.2424242424242424
-          }
-        },
-        "13015150": {
-          "batting": {
-            "name": "マルテ",
-            "games": 1,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "マルテ",
-            "games": 1,
-            "outs": 3,
-            "era": 9,
-            "k": 1,
-            "saves": 0,
-            "whip": 3
-          }
-        },
-        "13515159": {
-          "batting": {
-            "name": "ワォーターズ",
-            "games": 52,
-            "pa": 193,
-            "avg": 0.201,
-            "obp": 0.254,
-            "slg": 0.251,
-            "hr": 0
-          },
-          "pitching": null
-        },
-        "21425159": {
-          "batting": {
-            "name": "中島　大輔",
-            "games": 5,
-            "pa": 16,
-            "avg": 0.438,
-            "obp": 0.438,
-            "slg": 0.563,
-            "hr": 0
-          },
-          "pitching": null
-        },
-        "21725139": {
-          "batting": {
-            "name": "今野　龍太",
-            "games": 31,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "今野　龍太",
-            "games": 31,
-            "outs": 86,
-            "era": 3.14,
-            "k": 33,
-            "saves": 2,
-            "whip": 1.5348837209302324
-          }
-        },
-        "21725159": {
-          "batting": {
-            "name": "古謝　樹",
-            "games": 3,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "古謝　樹",
-            "games": 3,
-            "outs": 47,
-            "era": 2.87,
-            "k": 13,
-            "saves": 0,
-            "whip": 1.2127659574468086
-          }
-        },
-        "23525150": {
-          "batting": {
-            "name": "蕭　齊",
-            "games": 11,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "蕭　齊",
-            "games": 11,
-            "outs": 34,
-            "era": 4.76,
-            "k": 12,
-            "saves": 0,
-            "whip": 2.735294117647059
-          }
-        },
-        "23525157": {
-          "batting": {
-            "name": "渡辺　翔太",
-            "games": 19,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "渡辺　翔太",
-            "games": 19,
-            "outs": 56,
-            "era": 5.3,
-            "k": 12,
-            "saves": 1,
-            "whip": 1.3928571428571428
-          }
-        },
-        "31035152": {
-          "batting": {
-            "name": "島原　大河",
-            "games": 34,
-            "pa": 61,
-            "avg": 0.246,
-            "obp": 0.295,
-            "slg": 0.298,
-            "hr": 0
-          },
-          "pitching": null
-        },
-        "31135159": {
-          "batting": {
-            "name": "青野　拓海",
-            "games": 12,
-            "pa": 48,
-            "avg": 0.318,
-            "obp": 0.354,
-            "slg": 0.364,
-            "hr": 0
-          },
-          "pitching": null
-        },
-        "31235130": {
-          "batting": {
-            "name": "田中　貴也",
-            "games": 39,
-            "pa": 101,
-            "avg": 0.241,
-            "obp": 0.37,
-            "slg": 0.337,
-            "hr": 2
-          },
-          "pitching": null
-        },
-        "31235151": {
-          "batting": {
-            "name": "瀧中　瞭太",
-            "games": 1,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "瀧中　瞭太",
-            "games": 1,
-            "outs": 12,
-            "era": 2.25,
-            "k": 2,
-            "saves": 0,
-            "whip": 1.5
-          }
-        },
-        "31335152": {
-          "batting": {
-            "name": "伊藤　樹",
-            "games": 14,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "伊藤　樹",
-            "games": 14,
-            "outs": 225,
-            "era": 3.36,
-            "k": 60,
-            "saves": 1,
-            "whip": 1.32
-          }
-        },
-        "31535152": {
-          "batting": {
-            "name": "大坪　梓恩",
-            "games": 74,
-            "pa": 251,
-            "avg": 0.261,
-            "obp": 0.303,
-            "slg": 0.4,
-            "hr": 6
-          },
-          "pitching": null
-        },
-        "31635150": {
-          "batting": {
-            "name": "中込　陽翔",
-            "games": 17,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "中込　陽翔",
-            "games": 17,
-            "outs": 52,
-            "era": 1.56,
-            "k": 20,
-            "saves": 0,
-            "whip": 0.75
-          }
-        },
-        "31735157": {
-          "batting": {
-            "name": "古賀　康誠",
-            "games": 15,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "古賀　康誠",
-            "games": 15,
-            "outs": 214,
-            "era": 5.43,
-            "k": 50,
-            "saves": 0,
-            "whip": 1.6822429906542058
-          }
-        },
-        "31835151": {
-          "batting": {
-            "name": "水上　桂",
-            "games": 39,
-            "pa": 108,
-            "avg": 0.212,
-            "obp": 0.259,
-            "slg": 0.263,
-            "hr": 0
-          },
-          "pitching": null
-        },
-        "31835153": {
-          "batting": {
-            "name": "早川　隆久",
-            "games": 3,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "早川　隆久",
-            "games": 3,
-            "outs": 62,
-            "era": 1.74,
-            "k": 25,
-            "saves": 0,
-            "whip": 0.6774193548387096
-          }
-        },
-        "41145138": {
-          "batting": {
-            "name": "伊藤　裕季也",
-            "games": 55,
-            "pa": 193,
-            "avg": 0.235,
-            "obp": 0.352,
-            "slg": 0.346,
-            "hr": 4
-          },
-          "pitching": null
-        },
-        "41345153": {
-          "batting": {
-            "name": "入江　大樹",
-            "games": 44,
-            "pa": 166,
-            "avg": 0.289,
-            "obp": 0.355,
-            "slg": 0.362,
-            "hr": 3
-          },
-          "pitching": null
-        },
-        "41345159": {
-          "batting": {
-            "name": "大内　誠弥",
-            "games": 18,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "大内　誠弥",
-            "games": 18,
-            "outs": 288,
-            "era": 4.69,
-            "k": 79,
-            "saves": 0,
-            "whip": 1.59375
-          }
-        },
-        "41445134": {
-          "batting": {
-            "name": "西口　直人",
-            "games": 14,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "西口　直人",
-            "games": 14,
-            "outs": 42,
-            "era": 3.86,
-            "k": 16,
-            "saves": 0,
-            "whip": 1.2857142857142858
-          }
-        },
-        "43345155": {
-          "batting": {
-            "name": "YG安田",
-            "games": 32,
-            "pa": 119,
-            "avg": 0.255,
-            "obp": 0.294,
-            "slg": 0.427,
-            "hr": 4
-          },
-          "pitching": null
-        },
-        "43545155": {
-          "batting": {
-            "name": "吉野　創士",
-            "games": 67,
-            "pa": 254,
-            "avg": 0.283,
-            "obp": 0.358,
-            "slg": 0.434,
-            "hr": 7
-          },
-          "pitching": null
-        },
-        "51155118": {
-          "batting": {
-            "name": "浅村　栄斗",
-            "games": 6,
-            "pa": 19,
-            "avg": 0.375,
-            "obp": 0.474,
-            "slg": 0.625,
-            "hr": 1
-          },
-          "pitching": null
-        },
-        "51555153": {
-          "batting": {
-            "name": "内　星龍",
-            "games": 9,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "内　星龍",
-            "games": 9,
-            "outs": 29,
-            "era": 1.86,
-            "k": 9,
-            "saves": 0,
-            "whip": 0.8275862068965518
-          }
-        },
-        "51655114": {
-          "batting": {
-            "name": "前田　健太",
-            "games": 6,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "前田　健太",
-            "games": 6,
-            "outs": 101,
-            "era": 2.94,
-            "k": 31,
-            "saves": 0,
-            "whip": 0.9207920792079208
-          }
-        },
-        "51855152": {
-          "batting": {
-            "name": "幌村　黛汰",
-            "games": 50,
-            "pa": 103,
-            "avg": 0.186,
-            "obp": 0.233,
-            "slg": 0.258,
-            "hr": 0
-          },
-          "pitching": null
-        },
-        "51955155": {
-          "batting": {
-            "name": "小森　航大郎",
-            "games": 29,
-            "pa": 89,
-            "avg": 0.366,
-            "obp": 0.402,
-            "slg": 0.61,
-            "hr": 5
-          },
-          "pitching": null
-        },
-        "53155150": {
-          "batting": {
-            "name": "宗山　塁",
-            "games": 5,
-            "pa": 17,
-            "avg": 0.313,
-            "obp": 0.353,
-            "slg": 0.438,
-            "hr": 0
-          },
-          "pitching": null
-        },
-        "53355150": {
-          "batting": {
-            "name": "陽　柏翔",
-            "games": 63,
-            "pa": 209,
-            "avg": 0.292,
-            "obp": 0.34,
-            "slg": 0.422,
-            "hr": 3
-          },
-          "pitching": null
-        },
-        "53555152": {
-          "batting": {
-            "name": "コントレラス",
-            "games": 7,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "コントレラス",
-            "games": 7,
-            "outs": 77,
-            "era": 2.45,
-            "k": 22,
-            "saves": 0,
-            "whip": 1.0909090909090908
-          }
-        },
-        "61065155": {
-          "batting": {
-            "name": "泰　勝利",
-            "games": 7,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "泰　勝利",
-            "games": 7,
-            "outs": 20,
-            "era": 1.35,
-            "k": 13,
-            "saves": 0,
-            "whip": 1.3499999999999999
-          }
-        },
-        "61165134": {
-          "batting": {
-            "name": "石原　彪",
-            "games": 19,
-            "pa": 54,
-            "avg": 0.261,
-            "obp": 0.346,
-            "slg": 0.283,
-            "hr": 0
-          },
-          "pitching": null
-        },
-        "61465155": {
-          "batting": {
-            "name": "西垣　雅矢",
-            "games": 7,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "西垣　雅矢",
-            "games": 7,
-            "outs": 21,
-            "era": 1.29,
-            "k": 6,
-            "saves": 0,
-            "whip": 1.2857142857142858
-          }
-        },
-        "61765134": {
-          "batting": {
-            "name": "酒居　知史",
-            "games": 29,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "酒居　知史",
-            "games": 29,
-            "outs": 85,
-            "era": 2.22,
-            "k": 23,
-            "saves": 0,
-            "whip": 1.0941176470588236
-          }
-        },
-        "61865155": {
-          "batting": {
-            "name": "前田　銀治",
-            "games": 37,
-            "pa": 62,
-            "avg": 0.2,
-            "obp": 0.29,
-            "slg": 0.382,
-            "hr": 2
-          },
-          "pitching": null
-        },
-        "61965151": {
-          "batting": {
-            "name": "小深田　大翔",
-            "games": 2,
-            "pa": 7,
-            "avg": 0.571,
-            "obp": 0.571,
-            "slg": 1.429,
-            "hr": 1
-          },
-          "pitching": null
-        },
-        "61965152": {
-          "batting": {
-            "name": "繁永　晟",
-            "games": 69,
-            "pa": 278,
-            "avg": 0.323,
-            "obp": 0.371,
-            "slg": 0.354,
-            "hr": 0
-          },
-          "pitching": null
-        },
-        "71775152": {
-          "batting": {
-            "name": "九谷　瑠",
-            "games": 7,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "九谷　瑠",
-            "games": 7,
-            "outs": 23,
-            "era": 8.22,
-            "k": 9,
-            "saves": 1,
-            "whip": 1.9565217391304348
-          }
-        },
-        "71875153": {
-          "batting": {
-            "name": "藤井　聖",
-            "games": 12,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "藤井　聖",
-            "games": 12,
-            "outs": 186,
-            "era": 3.05,
-            "k": 42,
-            "saves": 0,
-            "whip": 1.2580645161290323
-          }
-        },
-        "71975152": {
-          "batting": {
-            "name": "阪上　翔也",
-            "games": 77,
-            "pa": 298,
-            "avg": 0.245,
-            "obp": 0.299,
-            "slg": 0.348,
-            "hr": 5
-          },
-          "pitching": null
-        },
-        "73175138": {
-          "batting": {
-            "name": "渡邊　佳明",
-            "games": 6,
-            "pa": 23,
-            "avg": 0.348,
-            "obp": 0.348,
-            "slg": 0.435,
-            "hr": 0
-          },
-          "pitching": null
-        },
-        "73175159": {
-          "batting": {
-            "name": "松田　啄磨",
-            "games": 16,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "松田　啄磨",
-            "games": 16,
-            "outs": 128,
-            "era": 5.48,
-            "k": 25,
-            "saves": 0,
-            "whip": 1.6875
-          }
-        },
-        "73375152": {
-          "batting": {
-            "name": "ウレーニャ",
-            "games": 6,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "ウレーニャ",
-            "games": 6,
-            "outs": 93,
-            "era": 4.35,
-            "k": 25,
-            "saves": 0,
-            "whip": 1.2903225806451613
-          }
-        },
-        "73575132": {
-          "batting": {
-            "name": "宋　家豪",
-            "games": 14,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "宋　家豪",
-            "games": 14,
-            "outs": 39,
-            "era": 3.46,
-            "k": 12,
-            "saves": 1,
-            "whip": 1.8461538461538463
-          }
-        },
-        "73775152": {
-          "batting": {
-            "name": "マッカスカー",
-            "games": 18,
-            "pa": 78,
-            "avg": 0.219,
-            "obp": 0.346,
-            "slg": 0.438,
-            "hr": 4
-          },
-          "pitching": null
-        },
-        "81385138": {
-          "batting": {
-            "name": "小郷　裕哉",
-            "games": 18,
-            "pa": 66,
-            "avg": 0.283,
-            "obp": 0.348,
-            "slg": 0.483,
-            "hr": 3
-          },
-          "pitching": null
-        },
-        "81385152": {
-          "batting": {
-            "name": "大栄　利哉",
-            "games": 23,
-            "pa": 46,
-            "avg": 0.146,
-            "obp": 0.239,
-            "slg": 0.244,
-            "hr": 1
-          },
-          "pitching": null
-        },
-        "81685152": {
-          "batting": {
-            "name": "藤原　聡大",
-            "games": 16,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "藤原　聡大",
-            "games": 16,
-            "outs": 97,
-            "era": 4.45,
-            "k": 27,
-            "saves": 0,
-            "whip": 1.577319587628866
-          }
-        },
-        "81985135": {
-          "batting": {
-            "name": "鈴木　大地",
-            "games": 22,
-            "pa": 75,
-            "avg": 0.266,
-            "obp": 0.373,
-            "slg": 0.297,
-            "hr": 0
-          },
-          "pitching": null
-        },
-        "81985155": {
-          "batting": {
-            "name": "柴田　大地",
-            "games": 7,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "柴田　大地",
-            "games": 7,
-            "outs": 22,
-            "era": 1.23,
-            "k": 8,
-            "saves": 0,
-            "whip": 1.090909090909091
-          }
-        },
-        "91095151": {
-          "batting": {
-            "name": "佐藤　直樹",
-            "games": 8,
-            "pa": 22,
-            "avg": 0.316,
-            "obp": 0.409,
-            "slg": 0.526,
-            "hr": 0
-          },
-          "pitching": null
-        },
-        "91095157": {
-          "batting": {
-            "name": "田中　千晴",
-            "games": 20,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "田中　千晴",
-            "games": 20,
-            "outs": 59,
-            "era": 2.29,
-            "k": 25,
-            "saves": 3,
-            "whip": 1.271186440677966
-          }
-        },
-        "91795114": {
-          "batting": {
-            "name": "岸　孝之",
-            "games": 7,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "岸　孝之",
-            "games": 7,
-            "outs": 96,
-            "era": 0.28,
-            "k": 26,
-            "saves": 0,
-            "whip": 0.875
-          }
-        },
-        "03005150": {
-          "batting": {
-            "name": "ボイト",
-            "games": 16,
-            "pa": 66,
-            "avg": 0.333,
-            "obp": 0.424,
-            "slg": 0.439,
-            "hr": 1
-          },
-          "pitching": null
-        },
-        "03305150": {
-          "batting": {
-            "name": "吉納　翼",
-            "games": 55,
-            "pa": 204,
-            "avg": 0.225,
-            "obp": 0.309,
-            "slg": 0.445,
-            "hr": 8
-          },
-          "pitching": null
-        },
-        "01805151": {
-          "batting": {
-            "name": "武藤　敦貴",
-            "games": 36,
-            "pa": 124,
-            "avg": 0.252,
-            "obp": 0.339,
-            "slg": 0.364,
-            "hr": 1
-          },
-          "pitching": null
-        },
-        "01705150": {
-          "batting": {
-            "name": "岸本　佑也",
-            "games": 50,
-            "pa": 160,
-            "avg": 0.242,
-            "obp": 0.289,
-            "slg": 0.342,
-            "hr": 0
-          },
-          "pitching": null
-        },
-        "01605159": {
-          "batting": {
-            "name": "日當　直喜",
-            "games": 27,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "日當　直喜",
-            "games": 27,
-            "outs": 77,
-            "era": 2.45,
-            "k": 32,
-            "saves": 12,
-            "whip": 1.3246753246753247
-          }
-        },
-        "01905138": {
-          "batting": {
-            "name": "鈴木　翔天",
-            "games": 8,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "鈴木　翔天",
-            "games": 8,
-            "outs": 24,
-            "era": 0,
-            "k": 11,
-            "saves": 2,
-            "whip": 1.25
-          }
-        },
-        "01505118": {
-          "batting": {
-            "name": "辛島　航",
-            "games": 8,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "辛島　航",
-            "games": 8,
-            "outs": 78,
-            "era": 3.81,
-            "k": 15,
-            "saves": 0,
-            "whip": 1.3076923076923077
-          }
-        },
-        "01605157": {
-          "batting": {
-            "name": "林　優樹",
-            "games": 5,
-            "pa": 0,
-            "avg": 0,
-            "obp": 0,
-            "slg": 0,
-            "hr": 0
-          },
-          "pitching": {
-            "name": "林　優樹",
-            "games": 5,
-            "outs": 17,
-            "era": 4.76,
-            "k": 7,
-            "saves": 0,
-            "whip": 0.8823529411764706
-          }
-        }
-      },
-      "sources": [
-        "https://npb.jp/bis/2026/stats/idb2_e.html",
-        "https://npb.jp/bis/2026/stats/idp2_e.html"
-      ],
-      "fetchedAt": "2026-09-12T11:58:12.392Z",
+      "fetchedAt": "2026-09-13T00:36:43.980Z",
       "status": "ok"
     },
     "巨人": {
@@ -2408,12 +2428,12 @@
         "11015136": {
           "batting": {
             "name": "リチャード",
-            "games": 48,
-            "pa": 166,
-            "avg": 0.276,
-            "obp": 0.404,
-            "slg": 0.582,
-            "hr": 11
+            "games": 49,
+            "pa": 170,
+            "avg": 0.277,
+            "obp": 0.406,
+            "slg": 0.599,
+            "hr": 12
           },
           "pitching": null
         },
@@ -2440,7 +2460,7 @@
         "11215114": {
           "batting": {
             "name": "田中　将大",
-            "games": 7,
+            "games": 8,
             "pa": 1,
             "avg": 0,
             "obp": 0,
@@ -2449,12 +2469,12 @@
           },
           "pitching": {
             "name": "田中　将大",
-            "games": 7,
-            "outs": 108,
-            "era": 3.5,
+            "games": 8,
+            "outs": 114,
+            "era": 3.32,
             "k": 22,
             "saves": 0,
-            "whip": 1.5277777777777777
+            "whip": 1.5263157894736843
           }
         },
         "11415155": {
@@ -2492,11 +2512,11 @@
         "13015153": {
           "batting": {
             "name": "ティマ",
-            "games": 71,
-            "pa": 243,
-            "avg": 0.285,
-            "obp": 0.333,
-            "slg": 0.489,
+            "games": 72,
+            "pa": 246,
+            "avg": 0.281,
+            "obp": 0.329,
+            "slg": 0.482,
             "hr": 10
           },
           "pitching": null
@@ -2504,7 +2524,7 @@
         "13115150": {
           "batting": {
             "name": "宮原　駿介",
-            "games": 29,
+            "games": 30,
             "pa": 0,
             "avg": 0,
             "obp": 0,
@@ -2513,22 +2533,22 @@
           },
           "pitching": {
             "name": "宮原　駿介",
-            "games": 29,
-            "outs": 87,
-            "era": 3.1,
+            "games": 30,
+            "outs": 90,
+            "era": 3,
             "k": 35,
             "saves": 0,
-            "whip": 1.0344827586206897
+            "whip": 1.0333333333333334
           }
         },
         "13115157": {
           "batting": {
             "name": "三塚　琉生",
-            "games": 66,
-            "pa": 230,
-            "avg": 0.255,
-            "obp": 0.322,
-            "slg": 0.412,
+            "games": 67,
+            "pa": 234,
+            "avg": 0.26,
+            "obp": 0.325,
+            "slg": 0.423,
             "hr": 6
           },
           "pitching": null
@@ -2724,11 +2744,11 @@
         "21925155": {
           "batting": {
             "name": "笹原　操希",
-            "games": 16,
-            "pa": 53,
-            "avg": 0.326,
-            "obp": 0.431,
-            "slg": 0.465,
+            "games": 17,
+            "pa": 54,
+            "avg": 0.318,
+            "obp": 0.423,
+            "slg": 0.455,
             "hr": 0
           },
           "pitching": null
@@ -2828,11 +2848,11 @@
         "33135152": {
           "batting": {
             "name": "皆川　岳飛",
-            "games": 79,
-            "pa": 296,
-            "avg": 0.291,
-            "obp": 0.39,
-            "slg": 0.394,
+            "games": 80,
+            "pa": 300,
+            "avg": 0.298,
+            "obp": 0.395,
+            "slg": 0.407,
             "hr": 2
           },
           "pitching": null
@@ -2860,7 +2880,7 @@
         "33135159": {
           "batting": {
             "name": "又木　鉄平",
-            "games": 15,
+            "games": 16,
             "pa": 0,
             "avg": 0,
             "obp": 0,
@@ -2869,12 +2889,12 @@
           },
           "pitching": {
             "name": "又木　鉄平",
-            "games": 15,
-            "outs": 266,
-            "era": 1.52,
-            "k": 70,
+            "games": 16,
+            "outs": 281,
+            "era": 1.44,
+            "k": 74,
             "saves": 1,
-            "whip": 0.9473684210526315
+            "whip": 0.9395017793594306
           }
         },
         "41045138": {
@@ -2940,23 +2960,23 @@
         "41645159": {
           "batting": {
             "name": "平山　功太",
-            "games": 32,
-            "pa": 122,
-            "avg": 0.279,
-            "obp": 0.314,
-            "slg": 0.378,
-            "hr": 2
+            "games": 33,
+            "pa": 127,
+            "avg": 0.276,
+            "obp": 0.31,
+            "slg": 0.397,
+            "hr": 3
           },
           "pitching": null
         },
         "43145136": {
           "batting": {
             "name": "湯浅　大",
-            "games": 79,
-            "pa": 176,
-            "avg": 0.214,
-            "obp": 0.353,
-            "slg": 0.271,
+            "games": 80,
+            "pa": 177,
+            "avg": 0.213,
+            "obp": 0.351,
+            "slg": 0.27,
             "hr": 1
           },
           "pitching": null
@@ -3088,11 +3108,11 @@
         "51855132": {
           "batting": {
             "name": "増田　大輝",
-            "games": 34,
-            "pa": 63,
-            "avg": 0.235,
-            "obp": 0.361,
-            "slg": 0.294,
+            "games": 35,
+            "pa": 66,
+            "avg": 0.245,
+            "obp": 0.375,
+            "slg": 0.302,
             "hr": 0
           },
           "pitching": null
@@ -3248,11 +3268,11 @@
         "71175150": {
           "batting": {
             "name": "荒巻　悠",
-            "games": 77,
-            "pa": 237,
-            "avg": 0.207,
-            "obp": 0.283,
-            "slg": 0.305,
+            "games": 78,
+            "pa": 240,
+            "avg": 0.204,
+            "obp": 0.279,
+            "slg": 0.301,
             "hr": 4
           },
           "pitching": null
@@ -3320,11 +3340,11 @@
         "73375134": {
           "batting": {
             "name": "吉川　尚輝",
-            "games": 19,
-            "pa": 64,
-            "avg": 0.315,
-            "obp": 0.422,
-            "slg": 0.37,
+            "games": 20,
+            "pa": 66,
+            "avg": 0.339,
+            "obp": 0.439,
+            "slg": 0.411,
             "hr": 0
           },
           "pitching": null
@@ -3388,11 +3408,11 @@
         "81385155": {
           "batting": {
             "name": "岡田　悠希",
-            "games": 84,
-            "pa": 209,
-            "avg": 0.249,
-            "obp": 0.356,
-            "slg": 0.373,
+            "games": 85,
+            "pa": 211,
+            "avg": 0.246,
+            "obp": 0.352,
+            "slg": 0.369,
             "hr": 4
           },
           "pitching": null
@@ -3412,7 +3432,7 @@
         "81785153": {
           "batting": {
             "name": "川原田　純平",
-            "games": 24,
+            "games": 25,
             "pa": 59,
             "avg": 0.283,
             "obp": 0.304,
@@ -3492,11 +3512,11 @@
         "91595136": {
           "batting": {
             "name": "岸田　行倫",
-            "games": 14,
-            "pa": 41,
-            "avg": 0.184,
-            "obp": 0.244,
-            "slg": 0.263,
+            "games": 15,
+            "pa": 45,
+            "avg": 0.175,
+            "obp": 0.267,
+            "slg": 0.25,
             "hr": 1
           },
           "pitching": null
@@ -3576,11 +3596,11 @@
         "01305159": {
           "batting": {
             "name": "宇都宮　葵星",
-            "games": 8,
-            "pa": 31,
-            "avg": 0.321,
-            "obp": 0.333,
-            "slg": 0.393,
+            "games": 9,
+            "pa": 35,
+            "avg": 0.406,
+            "obp": 0.412,
+            "slg": 0.531,
             "hr": 0
           },
           "pitching": null
@@ -3648,7 +3668,7 @@
         "01505136": {
           "batting": {
             "name": "北浦　竜次",
-            "games": 22,
+            "games": 23,
             "pa": 0,
             "avg": 0,
             "obp": 0,
@@ -3657,12 +3677,12 @@
           },
           "pitching": {
             "name": "北浦　竜次",
-            "games": 22,
-            "outs": 79,
-            "era": 1.71,
+            "games": 23,
+            "outs": 82,
+            "era": 1.65,
             "k": 21,
             "saves": 0,
-            "whip": 1.139240506329114
+            "whip": 1.1341463414634148
           }
         },
         "01105138": {
@@ -3690,7 +3710,7 @@
         "https://npb.jp/bis/2026/stats/idb2_g.html",
         "https://npb.jp/bis/2026/stats/idp2_g.html"
       ],
-      "fetchedAt": "2026-09-12T11:58:12.610Z",
+      "fetchedAt": "2026-09-13T00:36:44.213Z",
       "status": "ok"
     },
     "西武": {
@@ -3698,7 +3718,7 @@
         "11315159": {
           "batting": {
             "name": "糸川　亮太",
-            "games": 18,
+            "games": 19,
             "pa": 0,
             "avg": 0,
             "obp": 0,
@@ -3707,12 +3727,12 @@
           },
           "pitching": {
             "name": "糸川　亮太",
-            "games": 18,
-            "outs": 63,
-            "era": 1.71,
-            "k": 19,
+            "games": 19,
+            "outs": 66,
+            "era": 2.86,
+            "k": 22,
             "saves": 0,
-            "whip": 1.0476190476190477
+            "whip": 1.1363636363636365
           }
         },
         "11415138": {
@@ -3754,11 +3774,11 @@
         "21125134": {
           "batting": {
             "name": "石井　一成",
-            "games": 13,
-            "pa": 47,
-            "avg": 0.293,
-            "obp": 0.383,
-            "slg": 0.439,
+            "games": 14,
+            "pa": 51,
+            "avg": 0.267,
+            "obp": 0.353,
+            "slg": 0.4,
             "hr": 1
           },
           "pitching": null
@@ -3830,11 +3850,11 @@
         "21925150": {
           "batting": {
             "name": "齋藤　大翔",
-            "games": 75,
-            "pa": 273,
-            "avg": 0.204,
-            "obp": 0.301,
-            "slg": 0.268,
+            "games": 76,
+            "pa": 276,
+            "avg": 0.202,
+            "obp": 0.298,
+            "slg": 0.265,
             "hr": 0
           },
           "pitching": null
@@ -3862,7 +3882,7 @@
         "23925152": {
           "batting": {
             "name": "ワイナンス",
-            "games": 9,
+            "games": 10,
             "pa": 0,
             "avg": 0,
             "obp": 0,
@@ -3871,12 +3891,12 @@
           },
           "pitching": {
             "name": "ワイナンス",
-            "games": 9,
-            "outs": 143,
-            "era": 1.32,
-            "k": 57,
+            "games": 10,
+            "outs": 161,
+            "era": 1.17,
+            "k": 64,
             "saves": 0,
-            "whip": 0.9230769230769231
+            "whip": 0.8757763975155279
           }
         },
         "31035150": {
@@ -3902,11 +3922,11 @@
         "31735152": {
           "batting": {
             "name": "川田　悠慎",
-            "games": 79,
-            "pa": 186,
-            "avg": 0.25,
-            "obp": 0.359,
-            "slg": 0.276,
+            "games": 80,
+            "pa": 189,
+            "avg": 0.245,
+            "obp": 0.353,
+            "slg": 0.27,
             "hr": 0
           },
           "pitching": null
@@ -4070,11 +4090,11 @@
         "51055150": {
           "batting": {
             "name": "佐藤　太陽",
-            "games": 65,
-            "pa": 225,
-            "avg": 0.302,
-            "obp": 0.366,
-            "slg": 0.356,
+            "games": 66,
+            "pa": 229,
+            "avg": 0.306,
+            "obp": 0.368,
+            "slg": 0.359,
             "hr": 0
           },
           "pitching": null
@@ -4082,10 +4102,10 @@
         "51155152": {
           "batting": {
             "name": "秋山　俊",
-            "games": 83,
-            "pa": 306,
+            "games": 84,
+            "pa": 307,
             "avg": 0.266,
-            "obp": 0.298,
+            "obp": 0.301,
             "slg": 0.353,
             "hr": 2
           },
@@ -4378,11 +4398,11 @@
         "61065157": {
           "batting": {
             "name": "茶野　篤政",
-            "games": 42,
-            "pa": 137,
-            "avg": 0.287,
-            "obp": 0.365,
-            "slg": 0.385,
+            "games": 43,
+            "pa": 141,
+            "avg": 0.286,
+            "obp": 0.362,
+            "slg": 0.381,
             "hr": 1
           },
           "pitching": null
@@ -4422,11 +4442,11 @@
         "61465153": {
           "batting": {
             "name": "仲三　優太",
-            "games": 90,
-            "pa": 341,
-            "avg": 0.289,
-            "obp": 0.367,
-            "slg": 0.557,
+            "games": 91,
+            "pa": 345,
+            "avg": 0.291,
+            "obp": 0.368,
+            "slg": 0.56,
             "hr": 19
           },
           "pitching": null
@@ -4614,7 +4634,7 @@
         "73975150": {
           "batting": {
             "name": "Ｅ．ラミレス",
-            "games": 12,
+            "games": 13,
             "pa": 0,
             "avg": 0,
             "obp": 0,
@@ -4623,12 +4643,12 @@
           },
           "pitching": {
             "name": "Ｅ．ラミレス",
-            "games": 12,
-            "outs": 36,
-            "era": 3.75,
+            "games": 13,
+            "outs": 39,
+            "era": 3.46,
             "k": 12,
             "saves": 0,
-            "whip": 1.25
+            "whip": 1.2307692307692308
           }
         },
         "81085115": {
@@ -4750,11 +4770,11 @@
         "83185152": {
           "batting": {
             "name": "横田　蒼和",
-            "games": 86,
-            "pa": 324,
-            "avg": 0.312,
-            "obp": 0.352,
-            "slg": 0.442,
+            "games": 87,
+            "pa": 328,
+            "avg": 0.308,
+            "obp": 0.348,
+            "slg": 0.436,
             "hr": 5
           },
           "pitching": null
@@ -4774,11 +4794,11 @@
         "83385153": {
           "batting": {
             "name": "山村　崇嘉",
-            "games": 54,
-            "pa": 213,
-            "avg": 0.346,
-            "obp": 0.408,
-            "slg": 0.445,
+            "games": 55,
+            "pa": 217,
+            "avg": 0.349,
+            "obp": 0.41,
+            "slg": 0.456,
             "hr": 2
           },
           "pitching": null
@@ -4882,11 +4902,11 @@
         "91795157": {
           "batting": {
             "name": "是澤　涼輔",
-            "games": 43,
-            "pa": 130,
-            "avg": 0.25,
-            "obp": 0.331,
-            "slg": 0.313,
+            "games": 44,
+            "pa": 131,
+            "avg": 0.248,
+            "obp": 0.328,
+            "slg": 0.31,
             "hr": 0
           },
           "pitching": null
@@ -4934,11 +4954,11 @@
         "91995112": {
           "batting": {
             "name": "炭谷　銀仁朗",
-            "games": 32,
-            "pa": 86,
-            "avg": 0.231,
-            "obp": 0.262,
-            "slg": 0.333,
+            "games": 33,
+            "pa": 88,
+            "avg": 0.225,
+            "obp": 0.256,
+            "slg": 0.325,
             "hr": 1
           },
           "pitching": null
@@ -5044,7 +5064,7 @@
         "https://npb.jp/bis/2026/stats/idb2_l.html",
         "https://npb.jp/bis/2026/stats/idp2_l.html"
       ],
-      "fetchedAt": "2026-09-12T11:58:12.828Z",
+      "fetchedAt": "2026-09-13T00:36:44.450Z",
       "status": "ok"
     },
     "ロッテ": {
@@ -6278,7 +6298,7 @@
         "https://npb.jp/bis/2026/stats/idb2_m.html",
         "https://npb.jp/bis/2026/stats/idp2_m.html"
       ],
-      "fetchedAt": "2026-09-12T11:58:13.042Z",
+      "fetchedAt": "2026-09-13T00:36:44.682Z",
       "status": "ok"
     },
     "ソフトバンク": {
@@ -6310,11 +6330,11 @@
         "11315157": {
           "batting": {
             "name": "イヒネ　イツア",
-            "games": 53,
-            "pa": 238,
-            "avg": 0.208,
-            "obp": 0.309,
-            "slg": 0.287,
+            "games": 54,
+            "pa": 244,
+            "avg": 0.216,
+            "obp": 0.314,
+            "slg": 0.293,
             "hr": 0
           },
           "pitching": null
@@ -6378,7 +6398,7 @@
         "11815152": {
           "batting": {
             "name": "北斗",
-            "games": 12,
+            "games": 13,
             "pa": 0,
             "avg": 0,
             "obp": 0,
@@ -6387,12 +6407,12 @@
           },
           "pitching": {
             "name": "北斗",
-            "games": 12,
-            "outs": 202,
-            "era": 1.87,
-            "k": 53,
+            "games": 13,
+            "outs": 223,
+            "era": 2.06,
+            "k": 59,
             "saves": 0,
-            "whip": 1.217821782178218
+            "whip": 1.251121076233184
           }
         },
         "13115159": {
@@ -6570,11 +6590,11 @@
         "21325159": {
           "batting": {
             "name": "大泉　周也",
-            "games": 50,
-            "pa": 155,
-            "avg": 0.287,
-            "obp": 0.342,
-            "slg": 0.497,
+            "games": 51,
+            "pa": 157,
+            "avg": 0.283,
+            "obp": 0.338,
+            "slg": 0.49,
             "hr": 4
           },
           "pitching": null
@@ -6690,11 +6710,11 @@
         "31235152": {
           "batting": {
             "name": "髙橋　隆慶",
-            "games": 89,
-            "pa": 363,
-            "avg": 0.248,
-            "obp": 0.343,
-            "slg": 0.311,
+            "games": 90,
+            "pa": 368,
+            "avg": 0.247,
+            "obp": 0.349,
+            "slg": 0.31,
             "hr": 3
           },
           "pitching": null
@@ -6810,11 +6830,11 @@
         "41345152": {
           "batting": {
             "name": "江崎　歩",
-            "games": 26,
-            "pa": 80,
-            "avg": 0.197,
-            "obp": 0.256,
-            "slg": 0.225,
+            "games": 27,
+            "pa": 85,
+            "avg": 0.2,
+            "obp": 0.265,
+            "slg": 0.227,
             "hr": 0
           },
           "pitching": null
@@ -6882,11 +6902,11 @@
         "43245159": {
           "batting": {
             "name": "ダウンズ",
-            "games": 44,
-            "pa": 158,
-            "avg": 0.24,
-            "obp": 0.373,
-            "slg": 0.333,
+            "games": 45,
+            "pa": 160,
+            "avg": 0.237,
+            "obp": 0.369,
+            "slg": 0.328,
             "hr": 1
           },
           "pitching": null
@@ -6914,7 +6934,7 @@
         "51355159": {
           "batting": {
             "name": "岩井　俊介",
-            "games": 12,
+            "games": 13,
             "pa": 0,
             "avg": 0,
             "obp": 0,
@@ -6923,12 +6943,12 @@
           },
           "pitching": {
             "name": "岩井　俊介",
-            "games": 12,
-            "outs": 35,
-            "era": 2.31,
-            "k": 14,
+            "games": 13,
+            "outs": 41,
+            "era": 1.98,
+            "k": 18,
             "saves": 1,
-            "whip": 0.8571428571428572
+            "whip": 0.7317073170731707
           }
         },
         "51455157": {
@@ -6970,11 +6990,11 @@
         "51855155": {
           "batting": {
             "name": "藤野　恵音",
-            "games": 52,
-            "pa": 130,
-            "avg": 0.274,
+            "games": 53,
+            "pa": 133,
+            "avg": 0.269,
             "obp": 0.328,
-            "slg": 0.35,
+            "slg": 0.345,
             "hr": 2
           },
           "pitching": null
@@ -7046,11 +7066,11 @@
         "61665159": {
           "batting": {
             "name": "廣瀨　隆太",
-            "games": 48,
-            "pa": 193,
-            "avg": 0.301,
+            "games": 49,
+            "pa": 198,
+            "avg": 0.304,
             "obp": 0.407,
-            "slg": 0.494,
+            "slg": 0.491,
             "hr": 4
           },
           "pitching": null
@@ -7110,11 +7130,11 @@
         "71175153": {
           "batting": {
             "name": "秋広　優人",
-            "games": 88,
-            "pa": 309,
-            "avg": 0.206,
+            "games": 89,
+            "pa": 312,
+            "avg": 0.208,
             "obp": 0.343,
-            "slg": 0.373,
+            "slg": 0.376,
             "hr": 9
           },
           "pitching": null
@@ -7162,11 +7182,11 @@
         "71475139": {
           "batting": {
             "name": "嶺井　博希",
-            "games": 55,
-            "pa": 150,
-            "avg": 0.186,
-            "obp": 0.235,
-            "slg": 0.257,
+            "games": 56,
+            "pa": 152,
+            "avg": 0.184,
+            "obp": 0.238,
+            "slg": 0.255,
             "hr": 1
           },
           "pitching": null
@@ -7174,7 +7194,7 @@
         "71575150": {
           "batting": {
             "name": "岡田　皓一朗",
-            "games": 16,
+            "games": 17,
             "pa": 0,
             "avg": 0,
             "obp": 0,
@@ -7183,12 +7203,12 @@
           },
           "pitching": {
             "name": "岡田　皓一朗",
-            "games": 15,
-            "outs": 66,
-            "era": 6.95,
+            "games": 16,
+            "outs": 69,
+            "era": 6.65,
             "k": 20,
             "saves": 0,
-            "whip": 2
+            "whip": 1.9130434782608696
           }
         },
         "71775155": {
@@ -7406,11 +7426,11 @@
         "91095153": {
           "batting": {
             "name": "笹川　吉康",
-            "games": 86,
-            "pa": 365,
-            "avg": 0.277,
-            "obp": 0.31,
-            "slg": 0.418,
+            "games": 87,
+            "pa": 370,
+            "avg": 0.276,
+            "obp": 0.308,
+            "slg": 0.415,
             "hr": 9
           },
           "pitching": null
@@ -7438,7 +7458,7 @@
         "91895159": {
           "batting": {
             "name": "藤田　悠太郎",
-            "games": 31,
+            "games": 32,
             "pa": 87,
             "avg": 0.195,
             "obp": 0.259,
@@ -7470,11 +7490,11 @@
         "93195138": {
           "batting": {
             "name": "渡邉　陸",
-            "games": 34,
-            "pa": 111,
-            "avg": 0.265,
-            "obp": 0.318,
-            "slg": 0.422,
+            "games": 35,
+            "pa": 114,
+            "avg": 0.262,
+            "obp": 0.327,
+            "slg": 0.417,
             "hr": 3
           },
           "pitching": null
@@ -7518,11 +7538,11 @@
         "01105151": {
           "batting": {
             "name": "石塚　綜一郎",
-            "games": 65,
-            "pa": 207,
-            "avg": 0.269,
-            "obp": 0.411,
-            "slg": 0.513,
+            "games": 66,
+            "pa": 212,
+            "avg": 0.27,
+            "obp": 0.415,
+            "slg": 0.509,
             "hr": 8
           },
           "pitching": null
@@ -7668,7 +7688,7 @@
         "https://npb.jp/bis/2026/stats/idb2_h.html",
         "https://npb.jp/bis/2026/stats/idp2_h.html"
       ],
-      "fetchedAt": "2026-09-12T11:58:13.258Z",
+      "fetchedAt": "2026-09-13T00:36:44.805Z",
       "status": "ok"
     },
     "オリックス": {
@@ -7688,11 +7708,11 @@
         "11715159": {
           "batting": {
             "name": "河野　聡太",
-            "games": 73,
-            "pa": 251,
-            "avg": 0.23,
-            "obp": 0.328,
-            "slg": 0.282,
+            "games": 74,
+            "pa": 253,
+            "avg": 0.229,
+            "obp": 0.329,
+            "slg": 0.281,
             "hr": 0
           },
           "pitching": null
@@ -7700,11 +7720,11 @@
         "11815155": {
           "batting": {
             "name": "福永　奨",
-            "games": 17,
-            "pa": 55,
-            "avg": 0.116,
-            "obp": 0.255,
-            "slg": 0.116,
+            "games": 18,
+            "pa": 57,
+            "avg": 0.111,
+            "obp": 0.245,
+            "slg": 0.111,
             "hr": 0
           },
           "pitching": null
@@ -7764,11 +7784,23 @@
         "21525130": {
           "batting": {
             "name": "香月　一也",
-            "games": 38,
-            "pa": 96,
-            "avg": 0.318,
-            "obp": 0.396,
-            "slg": 0.388,
+            "games": 39,
+            "pa": 97,
+            "avg": 0.314,
+            "obp": 0.392,
+            "slg": 0.384,
+            "hr": 0
+          },
+          "pitching": null
+        },
+        "21625132": {
+          "batting": {
+            "name": "廣岡　大志",
+            "games": 1,
+            "pa": 2,
+            "avg": 0.5,
+            "obp": 0.5,
+            "slg": 0.5,
             "hr": 0
           },
           "pitching": null
@@ -7796,11 +7828,11 @@
         "21925153": {
           "batting": {
             "name": "元　謙太",
-            "games": 32,
-            "pa": 79,
-            "avg": 0.214,
-            "obp": 0.273,
-            "slg": 0.257,
+            "games": 33,
+            "pa": 83,
+            "avg": 0.208,
+            "obp": 0.284,
+            "slg": 0.25,
             "hr": 0
           },
           "pitching": null
@@ -7868,7 +7900,7 @@
         "31335157": {
           "batting": {
             "name": "入山　海斗",
-            "games": 13,
+            "games": 14,
             "pa": 0,
             "avg": 0,
             "obp": 0,
@@ -7877,22 +7909,22 @@
           },
           "pitching": {
             "name": "入山　海斗",
-            "games": 13,
-            "outs": 38,
-            "era": 6.39,
+            "games": 14,
+            "outs": 40,
+            "era": 6.08,
             "k": 8,
             "saves": 2,
-            "whip": 2.1315789473684212
+            "whip": 2.25
           }
         },
         "31435150": {
           "batting": {
             "name": "田島　光祐",
-            "games": 40,
-            "pa": 116,
-            "avg": 0.29,
-            "obp": 0.324,
-            "slg": 0.38,
+            "games": 41,
+            "pa": 118,
+            "avg": 0.284,
+            "obp": 0.318,
+            "slg": 0.373,
             "hr": 1
           },
           "pitching": null
@@ -8100,7 +8132,7 @@
         "41745153": {
           "batting": {
             "name": "川瀬　堅斗",
-            "games": 25,
+            "games": 26,
             "pa": 0,
             "avg": 0,
             "obp": 0,
@@ -8109,12 +8141,12 @@
           },
           "pitching": {
             "name": "川瀬　堅斗",
-            "games": 25,
-            "outs": 130,
-            "era": 5.61,
-            "k": 40,
+            "games": 26,
+            "outs": 134,
+            "era": 5.44,
+            "k": 41,
             "saves": 1,
-            "whip": 1.7307692307692306
+            "whip": 1.7014925373134329
           }
         },
         "41745157": {
@@ -8180,7 +8212,7 @@
         "43545150": {
           "batting": {
             "name": "陳　睦衡",
-            "games": 6,
+            "games": 7,
             "pa": 0,
             "avg": 0,
             "obp": 0,
@@ -8189,12 +8221,12 @@
           },
           "pitching": {
             "name": "陳　睦衡",
-            "games": 6,
-            "outs": 55,
-            "era": 0.49,
-            "k": 9,
+            "games": 7,
+            "outs": 69,
+            "era": 1.17,
+            "k": 13,
             "saves": 0,
-            "whip": 0.7090909090909091
+            "whip": 1.0869565217391304
           }
         },
         "43545159": {
@@ -8344,7 +8376,7 @@
         "61465131": {
           "batting": {
             "name": "山田　修義",
-            "games": 29,
+            "games": 30,
             "pa": 0,
             "avg": 0,
             "obp": 0,
@@ -8353,12 +8385,12 @@
           },
           "pitching": {
             "name": "山田　修義",
-            "games": 29,
-            "outs": 82,
-            "era": 1.98,
+            "games": 30,
+            "outs": 85,
+            "era": 1.91,
             "k": 16,
             "saves": 1,
-            "whip": 1.1341463414634148
+            "whip": 1.0941176470588236
           }
         },
         "61465150": {
@@ -8680,11 +8712,11 @@
         "81885152": {
           "batting": {
             "name": "三方　陽登",
-            "games": 76,
-            "pa": 263,
-            "avg": 0.247,
-            "obp": 0.304,
-            "slg": 0.383,
+            "games": 77,
+            "pa": 267,
+            "avg": 0.244,
+            "obp": 0.3,
+            "slg": 0.378,
             "hr": 7
           },
           "pitching": null
@@ -8764,11 +8796,11 @@
         "83385159": {
           "batting": {
             "name": "横山　聖哉",
-            "games": 82,
-            "pa": 324,
+            "games": 83,
+            "pa": 329,
             "avg": 0.219,
-            "obp": 0.302,
-            "slg": 0.316,
+            "obp": 0.304,
+            "slg": 0.318,
             "hr": 6
           },
           "pitching": null
@@ -8776,12 +8808,12 @@
         "91295157": {
           "batting": {
             "name": "内藤　鵬",
-            "games": 95,
-            "pa": 365,
-            "avg": 0.213,
-            "obp": 0.263,
-            "slg": 0.349,
-            "hr": 9
+            "games": 96,
+            "pa": 369,
+            "avg": 0.217,
+            "obp": 0.268,
+            "slg": 0.361,
+            "hr": 10
           },
           "pitching": null
         },
@@ -8856,11 +8888,11 @@
         "93595152": {
           "batting": {
             "name": "シーモア",
-            "games": 49,
-            "pa": 155,
-            "avg": 0.192,
-            "obp": 0.226,
-            "slg": 0.274,
+            "games": 50,
+            "pa": 159,
+            "avg": 0.187,
+            "obp": 0.22,
+            "slg": 0.267,
             "hr": 3
           },
           "pitching": null
@@ -8868,35 +8900,35 @@
         "01305150": {
           "batting": {
             "name": "今坂　幸暉",
-            "games": 12,
-            "pa": 25,
-            "avg": 0.182,
-            "obp": 0.28,
-            "slg": 0.182,
-            "hr": 0
+            "games": 13,
+            "pa": 27,
+            "avg": 0.208,
+            "obp": 0.296,
+            "slg": 0.333,
+            "hr": 1
           },
           "pitching": null
         },
         "01705152": {
           "batting": {
             "name": "窪田　洋祐",
-            "games": 84,
-            "pa": 257,
-            "avg": 0.162,
-            "obp": 0.23,
-            "slg": 0.213,
-            "hr": 1
+            "games": 85,
+            "pa": 261,
+            "avg": 0.172,
+            "obp": 0.238,
+            "slg": 0.238,
+            "hr": 2
           },
           "pitching": null
         },
         "01605132": {
           "batting": {
             "name": "平沼　翔太",
-            "games": 21,
-            "pa": 75,
-            "avg": 0.206,
-            "obp": 0.333,
-            "slg": 0.254,
+            "games": 22,
+            "pa": 77,
+            "avg": 0.219,
+            "obp": 0.351,
+            "slg": 0.266,
             "hr": 0
           },
           "pitching": null
@@ -8904,7 +8936,7 @@
         "01105153": {
           "batting": {
             "name": "阿部　翔太",
-            "games": 32,
+            "games": 33,
             "pa": 0,
             "avg": 0,
             "obp": 0,
@@ -8913,12 +8945,12 @@
           },
           "pitching": {
             "name": "阿部　翔太",
-            "games": 32,
-            "outs": 83,
-            "era": 2.28,
+            "games": 33,
+            "outs": 87,
+            "era": 2.17,
             "k": 24,
             "saves": 3,
-            "whip": 1.3012048192771084
+            "whip": 1.3103448275862069
           }
         },
         "01505150": {
@@ -8986,7 +9018,7 @@
         "https://npb.jp/bis/2026/stats/idb2_b.html",
         "https://npb.jp/bis/2026/stats/idp2_b.html"
       ],
-      "fetchedAt": "2026-09-12T11:58:13.371Z",
+      "fetchedAt": "2026-09-13T00:36:44.925Z",
       "status": "ok"
     },
     "DeNA": {
@@ -9034,11 +9066,11 @@
         "11215159": {
           "batting": {
             "name": "高見澤　郁魅",
-            "games": 69,
-            "pa": 222,
-            "avg": 0.325,
-            "obp": 0.383,
-            "slg": 0.443,
+            "games": 70,
+            "pa": 226,
+            "avg": 0.324,
+            "obp": 0.381,
+            "slg": 0.444,
             "hr": 2
           },
           "pitching": null
@@ -9118,11 +9150,11 @@
         "13715152": {
           "batting": {
             "name": "ヒュンメル",
-            "games": 27,
-            "pa": 97,
-            "avg": 0.278,
-            "obp": 0.412,
-            "slg": 0.494,
+            "games": 28,
+            "pa": 100,
+            "avg": 0.272,
+            "obp": 0.41,
+            "slg": 0.481,
             "hr": 2
           },
           "pitching": null
@@ -9190,11 +9222,11 @@
         "21525150": {
           "batting": {
             "name": "加藤　響",
-            "games": 76,
-            "pa": 275,
-            "avg": 0.255,
-            "obp": 0.349,
-            "slg": 0.359,
+            "games": 77,
+            "pa": 279,
+            "avg": 0.252,
+            "obp": 0.348,
+            "slg": 0.355,
             "hr": 3
           },
           "pitching": null
@@ -9258,7 +9290,7 @@
         "31635157": {
           "batting": {
             "name": "橋本　達弥",
-            "games": 28,
+            "games": 29,
             "pa": 0,
             "avg": 0,
             "obp": 0,
@@ -9267,12 +9299,12 @@
           },
           "pitching": {
             "name": "橋本　達弥",
-            "games": 28,
-            "outs": 78,
-            "era": 5.19,
+            "games": 29,
+            "outs": 79,
+            "era": 5.13,
             "k": 29,
             "saves": 1,
-            "whip": 1.6153846153846154
+            "whip": 1.5949367088607596
           }
         },
         "31735134": {
@@ -9290,11 +9322,11 @@
         "31935139": {
           "batting": {
             "name": "関根　大気",
-            "games": 65,
-            "pa": 225,
-            "avg": 0.301,
-            "obp": 0.356,
-            "slg": 0.447,
+            "games": 66,
+            "pa": 226,
+            "avg": 0.3,
+            "obp": 0.354,
+            "slg": 0.444,
             "hr": 3
           },
           "pitching": null
@@ -9334,11 +9366,11 @@
         "33135151": {
           "batting": {
             "name": "森　敬斗",
-            "games": 85,
-            "pa": 304,
-            "avg": 0.272,
-            "obp": 0.357,
-            "slg": 0.347,
+            "games": 86,
+            "pa": 307,
+            "avg": 0.273,
+            "obp": 0.36,
+            "slg": 0.348,
             "hr": 1
           },
           "pitching": null
@@ -9346,7 +9378,7 @@
         "33235155": {
           "batting": {
             "name": "マルセリーノ",
-            "games": 14,
+            "games": 15,
             "pa": 0,
             "avg": 0,
             "obp": 0,
@@ -9355,12 +9387,12 @@
           },
           "pitching": {
             "name": "マルセリーノ",
-            "games": 14,
-            "outs": 41,
-            "era": 3.29,
-            "k": 23,
-            "saves": 1,
-            "whip": 1.1707317073170733
+            "games": 15,
+            "outs": 44,
+            "era": 3.07,
+            "k": 24,
+            "saves": 2,
+            "whip": 1.090909090909091
           }
         },
         "33535157": {
@@ -9386,7 +9418,7 @@
         "41045137": {
           "batting": {
             "name": "藤浪　晋太郎",
-            "games": 14,
+            "games": 15,
             "pa": 0,
             "avg": 0,
             "obp": 0,
@@ -9395,12 +9427,12 @@
           },
           "pitching": {
             "name": "藤浪　晋太郎",
-            "games": 14,
-            "outs": 171,
-            "era": 2.84,
-            "k": 55,
+            "games": 15,
+            "outs": 191,
+            "era": 2.69,
+            "k": 62,
             "saves": 0,
-            "whip": 1.3859649122807018
+            "whip": 1.350785340314136
           }
         },
         "41045150": {
@@ -9466,11 +9498,11 @@
         "41545138": {
           "batting": {
             "name": "勝又　温史",
-            "games": 8,
-            "pa": 28,
-            "avg": 0.4,
-            "obp": 0.429,
-            "slg": 0.44,
+            "games": 9,
+            "pa": 32,
+            "avg": 0.429,
+            "obp": 0.469,
+            "slg": 0.464,
             "hr": 0
           },
           "pitching": null
@@ -9498,11 +9530,11 @@
         "41545152": {
           "batting": {
             "name": "小田　康一郎",
-            "games": 94,
-            "pa": 392,
-            "avg": 0.27,
-            "obp": 0.373,
-            "slg": 0.391,
+            "games": 95,
+            "pa": 396,
+            "avg": 0.269,
+            "obp": 0.372,
+            "slg": 0.395,
             "hr": 5
           },
           "pitching": null
@@ -9586,11 +9618,11 @@
         "51155151": {
           "batting": {
             "name": "東妻　純平",
-            "games": 62,
-            "pa": 189,
-            "avg": 0.249,
-            "obp": 0.321,
-            "slg": 0.396,
+            "games": 63,
+            "pa": 190,
+            "avg": 0.247,
+            "obp": 0.319,
+            "slg": 0.394,
             "hr": 4
           },
           "pitching": null
@@ -9774,7 +9806,7 @@
         "63165157": {
           "batting": {
             "name": "森下　瑠大",
-            "games": 14,
+            "games": 15,
             "pa": 0,
             "avg": 0,
             "obp": 0,
@@ -9783,12 +9815,12 @@
           },
           "pitching": {
             "name": "森下　瑠大",
-            "games": 14,
-            "outs": 57,
-            "era": 1.42,
+            "games": 15,
+            "outs": 60,
+            "era": 1.35,
             "k": 21,
             "saves": 1,
-            "whip": 0.7894736842105263
+            "whip": 0.8
           }
         },
         "63365150": {
@@ -9814,7 +9846,7 @@
         "71475136": {
           "batting": {
             "name": "西巻　賢二",
-            "games": 72,
+            "games": 73,
             "pa": 91,
             "avg": 0.253,
             "obp": 0.326,
@@ -9858,7 +9890,7 @@
         "71675157": {
           "batting": {
             "name": "濱　将乃介",
-            "games": 87,
+            "games": 88,
             "pa": 203,
             "avg": 0.195,
             "obp": 0.295,
@@ -9962,11 +9994,11 @@
         "81585134": {
           "batting": {
             "name": "京田　陽太",
-            "games": 13,
-            "pa": 52,
-            "avg": 0.224,
-            "obp": 0.269,
-            "slg": 0.265,
+            "games": 14,
+            "pa": 56,
+            "avg": 0.226,
+            "obp": 0.268,
+            "slg": 0.264,
             "hr": 0
           },
           "pitching": null
@@ -10038,11 +10070,11 @@
         "91495150": {
           "batting": {
             "name": "田内　真翔",
-            "games": 79,
-            "pa": 316,
-            "avg": 0.234,
+            "games": 80,
+            "pa": 320,
+            "avg": 0.233,
             "obp": 0.291,
-            "slg": 0.315,
+            "slg": 0.313,
             "hr": 2
           },
           "pitching": null
@@ -10062,11 +10094,11 @@
         "91695138": {
           "batting": {
             "name": "益子　京右",
-            "games": 61,
-            "pa": 165,
-            "avg": 0.241,
-            "obp": 0.36,
-            "slg": 0.372,
+            "games": 62,
+            "pa": 168,
+            "avg": 0.236,
+            "obp": 0.353,
+            "slg": 0.364,
             "hr": 4
           },
           "pitching": null
@@ -10130,7 +10162,7 @@
         "01905157": {
           "batting": {
             "name": "上甲　凌大",
-            "games": 42,
+            "games": 43,
             "pa": 124,
             "avg": 0.18,
             "obp": 0.325,
@@ -10184,7 +10216,7 @@
         "https://npb.jp/bis/2026/stats/idb2_db.html",
         "https://npb.jp/bis/2026/stats/idp2_db.html"
       ],
-      "fetchedAt": "2026-09-12T11:58:14.033Z",
+      "fetchedAt": "2026-09-13T00:36:45.048Z",
       "status": "ok"
     }
   }
