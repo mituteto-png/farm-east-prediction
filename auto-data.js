@@ -2,10 +2,10 @@ window.FARM_AUTO_DATA = {
   "season": 2026,
   "source": "https://npb.jp/farm/2026/",
   "statsSource": "https://npb.jp/bis/2026/stats/index_farm.html",
-  "standingsAsOf": "9/15",
+  "standingsAsOf": "9/16",
   "lastCompletedDate": "9/15",
-  "officialThroughDate": "9/15",
-  "fetchedAt": "2026-09-16T13:07:19.051Z",
+  "officialThroughDate": "9/16",
+  "fetchedAt": "2026-09-17T01:04:54.653Z",
   "districts": {
     "east": {
       "name": "東地区",
@@ -152,48 +152,6 @@ window.FARM_AUTO_DATA = {
     }
   },
   "schedule": [
-    {
-      "date": "9/16",
-      "home": "オリックス",
-      "away": "ソフトバンク",
-      "venue": "杉本商事BS",
-      "status": "scheduled"
-    },
-    {
-      "date": "9/16",
-      "home": "ハヤテ",
-      "away": "DeNA",
-      "venue": "ちゅ〜る",
-      "status": "scheduled"
-    },
-    {
-      "date": "9/16",
-      "home": "ロッテ",
-      "away": "楽天",
-      "venue": "ロッテ",
-      "status": "scheduled"
-    },
-    {
-      "date": "9/16",
-      "home": "阪神",
-      "away": "広島",
-      "venue": "ＳＧＬ",
-      "status": "scheduled"
-    },
-    {
-      "date": "9/16",
-      "home": "中日",
-      "away": "西武",
-      "venue": "ナゴヤ",
-      "status": "scheduled"
-    },
-    {
-      "date": "9/16",
-      "home": "日本ハム",
-      "away": "ヤクルト",
-      "venue": "鎌スタ",
-      "status": "scheduled"
-    },
     {
       "date": "9/17",
       "home": "オイシックス",
@@ -862,6 +820,48 @@ window.FARM_AUTO_DATA = {
     },
     {
       "date": "9/15",
+      "home": "日本ハム",
+      "away": "ヤクルト",
+      "venue": "鎌スタ",
+      "status": "cancelled"
+    },
+    {
+      "date": "9/16",
+      "home": "オリックス",
+      "away": "ソフトバンク",
+      "venue": "杉本商事BS",
+      "status": "cancelled"
+    },
+    {
+      "date": "9/16",
+      "home": "ハヤテ",
+      "away": "DeNA",
+      "venue": "ちゅ〜る",
+      "status": "cancelled"
+    },
+    {
+      "date": "9/16",
+      "home": "ロッテ",
+      "away": "楽天",
+      "venue": "ロッテ",
+      "status": "cancelled"
+    },
+    {
+      "date": "9/16",
+      "home": "阪神",
+      "away": "広島",
+      "venue": "ＳＧＬ",
+      "status": "cancelled"
+    },
+    {
+      "date": "9/16",
+      "home": "中日",
+      "away": "西武",
+      "venue": "ナゴヤ",
+      "status": "cancelled"
+    },
+    {
+      "date": "9/16",
       "home": "日本ハム",
       "away": "ヤクルト",
       "venue": "鎌スタ",
