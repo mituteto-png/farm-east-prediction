@@ -86,7 +86,7 @@ async function championship(){
  el('champNav').querySelectorAll('button').forEach(b=>b.onclick=()=>{activePanel=b.dataset.panel;history.replaceState(null,'',url('farmchamp.html#'+activePanel));renderChamp();});
  window.dispatchEvent(new CustomEvent('farmteamchange',{detail:{team:selected}}));
  renderChamp();
- const statsPromise=fetch('./player-stats-data.json').then(r=>{if(!r.ok)throw Error('stats unavailable');return r.json();}).then(d=>{playerStats={teams:Object.fromEntries(Object.entries(d.teams).map(([team,td])=>[team,{status:td.status,fetchedAt:td.fetchedAt,players:Object.fromEntries(td.players.filter(p=>p.playerId).map(p=>[p.playerId,{batting:battingMetrics(p.batting),pitching:pitchingMetrics(p.pitching)}]))}]))};if(activePanel==='roster')renderChamp();}).catch(()=>{});
+ const statsPromise=fetch('./player-stats-data.json?v=20260920b').then(r=>{if(!r.ok)throw Error('stats unavailable');return r.json();}).then(d=>{playerStats={teams:Object.fromEntries(Object.entries(d.teams).map(([team,td])=>[team,{status:td.status,fetchedAt:td.fetchedAt,players:Object.fromEntries(td.players.filter(p=>p.playerId).map(p=>[p.playerId,{batting:battingMetrics(p.batting),pitching:pitchingMetrics(p.pitching)}]))}]))};if(activePanel==='roster')renderChamp();}).catch(()=>{});
  try{champRows=await runWorker('championship',raw);if(activePanel==='odds')renderChamp();}catch(e){el('champAnalysis').textContent='大会確率を計算できませんでした：'+e.message;}
  await statsPromise;
 }
