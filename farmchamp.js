@@ -78,6 +78,7 @@ import { getFarmChampionshipEligibility, outsToInnings } from "./farmchamp-eligi
         <dl><div><dt>登録区分</dt><dd>${registration}</dd></div><div><dt>新人</dt><dd>${rookie}</dd></div><div><dt>一軍登録歴</dt><dd>${firstTeam}</dd></div><div><dt>ファーム出場</dt><dd>${player.farmGames}試合</dd></div></dl>
         <dl><div><dt>打席</dt><dd>${player.pa}</dd></div><div><dt>投球回</dt><dd>${outsToInnings(player.ipOuts)}</dd></div><div><dt>${player.role === "pitcher" ? "必要投球回" : "必要打席"}</dt><dd>${player.role === "pitcher" ? `${result.requiredIP}回` : `${result.requiredPA}打席`}</dd></div><div><dt>判定</dt><dd>${label}</dd></div></dl>
         <p><b>資格根拠：</b>${escapeHtml(result.reason)}</p>
+        <a class="playerLink" href="players/?player=${encodeURIComponent(player.id)}&team=${encodeURIComponent(team)}&name=${encodeURIComponent(player.name)}">個人成績・選手詳細を見る →</a>
       </div>
     </details>`;
   }

@@ -1,9 +1,10 @@
 import {createLeagueModel} from './model-core.js';
 import {powerRanking,borderStatus,bestRoster,gameKey} from './analysis-models.js';
 import {outsToInnings} from './farmchamp-eligibility.js';
+import {battingMetrics,pitchingMetrics} from './player-metrics.js';
 
 const raw=window.FARM_AUTO_DATA,page=document.body.dataset.page;
-const routes=[['index.html','ホーム'],['prediction.html','優勝予測'],['simulator.html','シミュレーター'],['farmchamp.html','日本選手権'],['power-ranking.html','パワーランキング'],['about.html','データ・モデル']];
+const routes=[['index.html','ホーム'],['prediction.html','優勝予測'],['simulator.html','シミュレーター'],['farmchamp.html','日本選手権'],['power-ranking.html','パワーランキング'],['stats/','個人成績'],['about.html','データ・モデル']];
 const el=id=>document.getElementById(id),esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const percent=v=>v===null?'算出対象外':v>0&&v<.001?'0.1%未満':`${(v*100).toFixed(1)}%`;
 const allTeams=Object.keys(raw?.standings||{}),params=new URLSearchParams(location.search);
@@ -13,8 +14,9 @@ let busy=false,playerStats=null,champRows=null,worker=null;
 const choices={};
 function url(route){const [file,hash]=route.split('#'),p=new URLSearchParams({team:selected,district:raw.standings[selected]?.district||'east'});return `${file}?${p}${hash?'#'+hash:''}`;}
 function navigation(){
- el('siteNav').innerHTML=routes.map(([path,label])=>`<a href="${url(path)}" ${path===page?'aria-current="page"':''}>${label}</a>`).join('');
- el('breadcrumb').innerHTML=page==='index.html'?'':`<a href="${url('index.html')}">ホーム</a> › ${routes.find(r=>r[0]===page)?.[1]}`;
+ el('siteNav').innerHTML=routes.map(([path,label])=>`<a href="${url(path)}" ${path===(['stats','titles','prospects','player'].includes(page)?'stats/':page)?'aria-current="page"':''}>${label}</a>`).join('');
+ const statsPages=['stats','titles','prospects','player'];const current=statsPages.includes(page)?'stats/':page;
+ el('breadcrumb').innerHTML=page==='index.html'?'':`<a href="${url('index.html')}">ホーム</a> › ${page==='titles'?'個人タイトル':page==='prospects'?'若手ランキング':page==='player'?'選手詳細':routes.find(r=>r[0]===current)?.[1]||''}`;
  document.querySelectorAll('[data-route]').forEach(a=>a.href=url(a.dataset.route));
  el('sharedSelection').innerHTML=`<label for="globalTeam">選択球団</label><select id="globalTeam">${allTeams.map(t=>`<option ${t===selected?'selected':''}>${esc(t)}</option>`).join('')}</select><span class="tiny">ページを移動しても引き継ぎます</span>`;
  el('globalTeam').addEventListener('change',e=>select(e.target.value));
@@ -73,18 +75,18 @@ function renderChamp(){
   const rows=team.players.map(p=>({p,e:borderStatus(p,selected,data)}));
   const filters=[['border','ボーダー'],['all','全選手'],['eligible','資格あり'],['batter','野手'],['pitcher','投手'],['rookie','新人'],['noFirst','一軍登録なし'],['threshold','規定到達型']];
   const matched=rows.filter(({p,e})=>borderFilter==='all'||borderFilter==='border'&&e.status==='border'||borderFilter==='eligible'&&e.eligible||p.role===borderFilter||borderFilter==='rookie'&&p.rookie||borderFilter==='noFirst'&&p.firstTeamRegistered===false||borderFilter==='threshold'&&p.firstTeamRegistered===true&&!p.rookie);
-  el('champAnalysis').innerHTML=`<h2>${esc(selected)} 出場資格ボーダー</h2><p class="tiny">必要数は残り日程を全消化した試合数から計算。ボーダー＝あと12打席／3回以内。平均ペース判定＝これまでの1出場平均×残り試合（全試合出場を仮定）。到達確率ではありません。新人・一軍未登録の判定は既存資格データに依存します。</p><div class="subnav">${filters.map(([v,l])=>`<button data-border="${v}" aria-pressed="${v===borderFilter}">${l}</button>`).join('')}</div><p>${matched.length}名</p><div class="featureGrid">${matched.map(({p,e})=>`<article class="card"><h3>${esc(p.name)}</h3><span class="statusTag">${e.label}</span><p>${p.role==='pitcher'?`現在 ${outsToInnings(p.ipOuts)}回 ／ 必要 ${e.requiredIP}回`:`現在 ${p.pa}打席 ／ 必要 ${e.requiredPA}打席`}</p><b>${e.eligible?'規定数による条件不要':e.shortage?'あと'+e.shortageText:'現在の基準に到達'}</b><p class="tiny">${esc(e.reason)}</p></article>`).join('')||'<p>この条件に該当する選手はいません。</p>'}</div>`;
+  el('champAnalysis').innerHTML=`<h2>${esc(selected)} 出場資格ボーダー</h2><p class="tiny">必要数は残り日程を全消化した試合数から計算。ボーダー＝あと12打席／3回以内。平均ペース判定＝これまでの1出場平均×残り試合（全試合出場を仮定）。到達確率ではありません。新人・一軍未登録の判定は既存資格データに依存します。</p><div class="subnav">${filters.map(([v,l])=>`<button data-border="${v}" aria-pressed="${v===borderFilter}">${l}</button>`).join('')}</div><p>${matched.length}名</p><div class="featureGrid">${matched.map(({p,e})=>`<article class="card"><h3><a class="playerLink" href="players/?player=${encodeURIComponent(p.id)}&team=${encodeURIComponent(selected)}&name=${encodeURIComponent(p.name)}">${esc(p.name)}</a></h3><span class="statusTag">${e.label}</span><p>${p.role==='pitcher'?`現在 ${outsToInnings(p.ipOuts)}回 ／ 必要 ${e.requiredIP}回`:`現在 ${p.pa}打席 ／ 必要 ${e.requiredPA}打席`}</p><b>${e.eligible?'規定数による条件不要':e.shortage?'あと'+e.shortageText:'現在の基準に到達'}</b><p class="tiny">${esc(e.reason)}</p></article>`).join('')||'<p>この条件に該当する選手はいません。</p>'}</div>`;
   el('champAnalysis').querySelectorAll('[data-border]').forEach(b=>b.onclick=()=>{borderFilter=b.dataset.border;renderChamp();});return;
  }
  const roster=bestRoster(selected,data,playerStats);
- el('champAnalysis').innerHTML=`<h2>${esc(selected)} ベストメンバー予想</h2><p>${roster.note}</p><details class="accordion"><summary>選出基準・データの限界</summary><div class="accordionBody">野手：出塁率×1.8＋長打率を打席/(打席＋100)で信頼度調整し、基準0.95へ縮小。捕手1・内野4・外野3・DH1を優先。打順は出塁率順、4番に残る長打率最上位を配置。投手：防御率＋WHIP×2を投球回20回相当で基準6へ縮小し、小さい順で選出。登板平均3回以上を先発候補とする代用基準です。実際の先発・救援履歴、最近の起用、詳細守備位置、故障は未取得。欠員は架空選手で埋めません。</div></details>${!playerStats?'<p>追加成績を取得できませんでした。</p>':`<p class="tiny">追加成績取得：${esc(playerStats.teams?.[selected]?.fetchedAt||'なし')} ${playerStats.teams?.[selected]?.status==='error'?'（取得エラー：前回値）':''}</p>`}<h3>想定スタメン ${roster.batters.length}/9名</h3><ol class="rosterList">${roster.batters.map(p=>`<li><b>${esc(p.name)}</b> ${esc(p.position)}<span>出塁率 ${p.stats.obp.toFixed(3)}｜長打率 ${p.stats.slg.toFixed(3)}｜${p.stats.pa}打席</span></li>`).join('')}</ol><p class="tiny">内野・外野の詳細ポジションはデータ不足のため指定しません。</p><h3>想定投手陣</h3><div class="featureGrid">${roster.pitchers.map(p=>`<article class="card"><span class="eyebrow">${p.assignment}</span><h3>${esc(p.name)}</h3><p>防御率 ${p.stats.era.toFixed(2)}｜WHIP ${p.stats.whip.toFixed(2)}<br>${outsToInnings(p.stats.outs)}回・${p.stats.games}登板・${p.stats.k}奪三振</p></article>`).join('')||'<p>資格と投手成績を確認できる選手がいません。</p>'}</div>`;
+ el('champAnalysis').innerHTML=`<h2>${esc(selected)} ベストメンバー予想</h2><p>${roster.note}</p><details class="accordion"><summary>選出基準・データの限界</summary><div class="accordionBody">野手：出塁率×1.8＋長打率を打席/(打席＋100)で信頼度調整し、基準0.95へ縮小。捕手1・内野4・外野3・DH1を優先。打順は出塁率順、4番に残る長打率最上位を配置。投手：防御率＋WHIP×2を投球回20回相当で基準6へ縮小し、小さい順で選出。登板平均3回以上を先発候補とする代用基準です。実際の先発・救援履歴、最近の起用、詳細守備位置、故障は未取得。欠員は架空選手で埋めません。</div></details>${!playerStats?'<p>追加成績を取得できませんでした。</p>':`<p class="tiny">追加成績取得：${esc(playerStats.teams?.[selected]?.fetchedAt||'なし')} ${playerStats.teams?.[selected]?.status==='error'?'（取得エラー：前回値）':''}</p>`}<h3>想定スタメン ${roster.batters.length}/9名</h3><ol class="rosterList">${roster.batters.map(p=>`<li><a class="playerLink" href="players/?player=${encodeURIComponent(p.id)}&team=${encodeURIComponent(selected)}&name=${encodeURIComponent(p.name)}"><b>${esc(p.name)}</b></a> ${esc(p.position)}<span>出塁率 ${p.stats.obp.toFixed(3)}｜長打率 ${p.stats.slg.toFixed(3)}｜${p.stats.pa}打席</span></li>`).join('')}</ol><p class="tiny">内野・外野の詳細ポジションはデータ不足のため指定しません。</p><h3>想定投手陣</h3><div class="featureGrid">${roster.pitchers.map(p=>`<article class="card"><span class="eyebrow">${p.assignment}</span><h3><a class="playerLink" href="players/?player=${encodeURIComponent(p.id)}&team=${encodeURIComponent(selected)}&name=${encodeURIComponent(p.name)}">${esc(p.name)}</a></h3><p>防御率 ${p.stats.era.toFixed(2)}｜WHIP ${p.stats.whip.toFixed(2)}<br>${outsToInnings(p.stats.outs)}回・${p.stats.games}登板・${p.stats.k}奪三振</p></article>`).join('')||'<p>資格と投手成績を確認できる選手がいません。</p>'}</div>`;
 }
 
 async function championship(){
  el('champNav').querySelectorAll('button').forEach(b=>b.onclick=()=>{activePanel=b.dataset.panel;history.replaceState(null,'',url('farmchamp.html#'+activePanel));renderChamp();});
  window.dispatchEvent(new CustomEvent('farmteamchange',{detail:{team:selected}}));
  renderChamp();
- const statsPromise=fetch('./analysis-data.json').then(r=>{if(!r.ok)throw Error('stats unavailable');return r.json();}).then(d=>{playerStats=d;if(activePanel==='roster')renderChamp();}).catch(()=>{});
+ const statsPromise=fetch('./player-stats-data.json').then(r=>{if(!r.ok)throw Error('stats unavailable');return r.json();}).then(d=>{playerStats={teams:Object.fromEntries(Object.entries(d.teams).map(([team,td])=>[team,{status:td.status,fetchedAt:td.fetchedAt,players:Object.fromEntries(td.players.filter(p=>p.playerId).map(p=>[p.playerId,{batting:battingMetrics(p.batting),pitching:pitchingMetrics(p.pitching)}]))}]))};if(activePanel==='roster')renderChamp();}).catch(()=>{});
  try{champRows=await runWorker('championship',raw);if(activePanel==='odds')renderChamp();}catch(e){el('champAnalysis').textContent='大会確率を計算できませんでした：'+e.message;}
  await statsPromise;
 }
