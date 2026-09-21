@@ -2,10 +2,10 @@ window.FARM_AUTO_DATA = {
   "season": 2026,
   "source": "https://npb.jp/farm/2026/",
   "statsSource": "https://npb.jp/bis/2026/stats/index_farm.html",
-  "standingsAsOf": "9/19",
-  "lastCompletedDate": "9/19",
-  "officialThroughDate": "9/19",
-  "fetchedAt": "2026-09-20T12:51:04.882Z",
+  "standingsAsOf": "9/20",
+  "lastCompletedDate": "9/20",
+  "officialThroughDate": "9/20",
+  "fetchedAt": "2026-09-21T00:49:30.470Z",
   "districts": {
     "east": {
       "name": "東地区",
@@ -104,96 +104,54 @@ window.FARM_AUTO_DATA = {
     },
     "中日": {
       "district": "central",
-      "w": 52,
+      "w": 53,
       "l": 62,
       "t": 5,
-      "rs": 463,
+      "rs": 472,
       "ra": 510
     },
     "ハヤテ": {
       "district": "central",
       "w": 37,
-      "l": 78,
+      "l": 79,
       "t": 4,
       "rs": 406,
-      "ra": 662
+      "ra": 671
     },
     "ソフトバンク": {
       "district": "west",
       "w": 69,
-      "l": 46,
+      "l": 47,
       "t": 5,
-      "rs": 545,
-      "ra": 393
+      "rs": 550,
+      "ra": 402
     },
     "オリックス": {
       "district": "west",
       "w": 53,
-      "l": 52,
+      "l": 53,
       "t": 7,
-      "rs": 387,
-      "ra": 449
+      "rs": 390,
+      "ra": 456
     },
     "阪神": {
       "district": "west",
-      "w": 45,
+      "w": 46,
       "l": 63,
       "t": 13,
-      "rs": 371,
-      "ra": 491
+      "rs": 380,
+      "ra": 496
     },
     "広島": {
       "district": "west",
-      "w": 43,
+      "w": 44,
       "l": 61,
       "t": 10,
-      "rs": 367,
-      "ra": 441
+      "rs": 374,
+      "ra": 444
     }
   },
   "schedule": [
-    {
-      "date": "9/20",
-      "home": "DeNA",
-      "away": "ロッテ",
-      "venue": "横須賀",
-      "status": "scheduled"
-    },
-    {
-      "date": "9/20",
-      "home": "ソフトバンク",
-      "away": "阪神",
-      "venue": "タマスタ筑後",
-      "status": "scheduled"
-    },
-    {
-      "date": "9/20",
-      "home": "ヤクルト",
-      "away": "オイシックス",
-      "venue": "戸 田",
-      "status": "scheduled"
-    },
-    {
-      "date": "9/20",
-      "home": "巨人",
-      "away": "西武",
-      "venue": "Ｇタウン",
-      "status": "scheduled"
-    },
-    {
-      "date": "9/20",
-      "home": "広島",
-      "away": "オリックス",
-      "venue": "三 次",
-      "status": "scheduled"
-    },
-    {
-      "date": "9/20",
-      "home": "中日",
-      "away": "ハヤテ",
-      "venue": "ナゴヤ",
-      "status": "scheduled"
-    },
     {
       "date": "9/21",
       "home": "DeNA",
@@ -491,58 +449,6 @@ window.FARM_AUTO_DATA = {
   ],
   "results": [
     {
-      "date": "9/12",
-      "home": "ソフトバンク",
-      "away": "広島",
-      "venue": "タマスタ筑後",
-      "homeScore": 4,
-      "awayScore": 3,
-      "status": "final"
-    },
-    {
-      "date": "9/12",
-      "home": "ヤクルト",
-      "away": "中日",
-      "venue": "戸 田",
-      "homeScore": 6,
-      "awayScore": 2,
-      "status": "final"
-    },
-    {
-      "date": "9/12",
-      "home": "楽天",
-      "away": "オイシックス",
-      "venue": "森林どり泉",
-      "homeScore": 3,
-      "awayScore": 5,
-      "status": "final"
-    },
-    {
-      "date": "9/12",
-      "home": "巨人",
-      "away": "ハヤテ",
-      "venue": "ジャイアンツ",
-      "homeScore": 13,
-      "awayScore": 0,
-      "status": "final"
-    },
-    {
-      "date": "9/12",
-      "home": "日本ハム",
-      "away": "ロッテ",
-      "venue": "鎌スタ",
-      "status": "cancelled"
-    },
-    {
-      "date": "9/13",
-      "home": "DeNA",
-      "away": "西武",
-      "venue": "横須賀",
-      "homeScore": 6,
-      "awayScore": 1,
-      "status": "final"
-    },
-    {
       "date": "9/13",
       "home": "オリックス",
       "away": "阪神",
@@ -824,6 +730,54 @@ window.FARM_AUTO_DATA = {
       "venue": "ナゴヤ",
       "homeScore": 12,
       "awayScore": 8,
+      "status": "final"
+    },
+    {
+      "date": "9/20",
+      "home": "DeNA",
+      "away": "ロッテ",
+      "venue": "横須賀",
+      "status": "cancelled"
+    },
+    {
+      "date": "9/20",
+      "home": "ソフトバンク",
+      "away": "阪神",
+      "venue": "タマスタ筑後",
+      "homeScore": 5,
+      "awayScore": 9,
+      "status": "final"
+    },
+    {
+      "date": "9/20",
+      "home": "ヤクルト",
+      "away": "オイシックス",
+      "venue": "戸 田",
+      "status": "cancelled"
+    },
+    {
+      "date": "9/20",
+      "home": "巨人",
+      "away": "西武",
+      "venue": "Ｇタウン",
+      "status": "cancelled"
+    },
+    {
+      "date": "9/20",
+      "home": "広島",
+      "away": "オリックス",
+      "venue": "三 次",
+      "homeScore": 7,
+      "awayScore": 3,
+      "status": "final"
+    },
+    {
+      "date": "9/20",
+      "home": "中日",
+      "away": "ハヤテ",
+      "venue": "ナゴヤ",
+      "homeScore": 9,
+      "awayScore": 0,
       "status": "final"
     }
   ]
