@@ -2,6 +2,7 @@ import {DISTRICTS,enrichedPlayers,BAT_METRICS,PIT_METRICS,metricValue,formatMetr
 import {getFarmChampionshipEligibility,outsToInnings} from './farmchamp-eligibility.js';
 import {renderComparePage,storedCompare,addComparisonCandidate,comparisonUrl} from './player-analysis.js?v=2';
 import {careerPeriod} from './player-career.js';
+import {playerSeo} from './seo.js';
 const page=document.body.dataset.page,el=id=>document.getElementById(id),esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const playerUrl=p=>`players/?id=${encodeURIComponent(p.recordId)}`;
 const qualifies=(p,role)=>role==='batter'?(p.batting?.pa??-1)>=Math.ceil(p.teamMeta.teamGames*2.7):(p.pitching?.outs??-1)>=Math.ceil(p.teamMeta.teamGames*.8*3);
@@ -44,8 +45,10 @@ function prospectsPage(){const options={batter:['ops','avg','hr','rbi','obp','sl
 function playerPage(){
  const query=new URLSearchParams(location.search),id=query.get('id'),sourceId=query.get('player'),sourceName=query.get('name'),sourceTeam=query.get('team');
  const p=players.find(x=>x.recordId===id)||players.find(x=>x.team===sourceTeam&&(x.playerId===sourceId||normalizeSearch(x.name)===normalizeSearch(sourceName||'')));
- if(!p){el('playerDetail').innerHTML='<div class="emptyState">選手が見つかりません。<br><a href="stats/">個人成績一覧へ戻る</a></div>';return;}
- document.title=`${p.name}｜選手詳細`;
+ if(!p){document.querySelector('meta[name="robots"]')?.setAttribute('content','noindex,follow');el('playerDetail').innerHTML='<div class="emptyState">選手が見つかりません。<br><a href="stats/">個人成績一覧へ戻る</a></div>';return;}
+ playerSeo({...p,teamFullName:p.teamMeta?.fullName},p.recordId);
+ const pageHeading=document.querySelector('.siteHeader h1');if(pageHeading)pageHeading.textContent=`${p.name}の2026ファーム個人成績・経歴`;
+ const breadcrumb=el('breadcrumb');if(breadcrumb)breadcrumb.innerHTML=`<a href="index.html">ホーム</a> › <a href="stats/">個人成績</a> › ${esc(p.name)}`;
  const role=p.pitching&&!p.batting?'pitcher':p.role,defs=role==='pitcher'?PIT_METRICS:BAT_METRICS,stats=role==='pitcher'?p.pitching:p.batting,key=role==='pitcher'?['era','outs','so','whip']:['avg','hr','rbi','ops'];
  const career=p.playerId?careerData.players?.[p.playerId]:null,officialProfile=career?.profile||{},birthDate=p.birthDate||officialProfile.birthDate,height=p.height||officialProfile.height,weight=p.weight||officialProfile.weight,throws=p.throws||officialProfile.throws,bats=p.bats||officialProfile.bats;
  const other=players.filter(x=>x.playerId&&x.playerId===p.playerId&&x.recordId!==p.recordId),champ=window.FARM_CHAMP_DATA,champPlayer=champ?.teams?.[p.team]?.players?.find(x=>x.id===p.playerId||normalizeSearch(x.name)===normalizeSearch(p.name));let champHtml='<p>現在の進出候補球団向け資格データでは判定対象外です。</p>';

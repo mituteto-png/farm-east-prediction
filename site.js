@@ -2,8 +2,10 @@ import {createLeagueModel} from './model-core.js';
 import {powerRanking,borderStatus,bestRoster,gameKey} from './analysis-models.js';
 import {outsToInnings} from './farmchamp-eligibility.js';
 import {battingMetrics,pitchingMetrics} from './player-metrics.js';
+import {applyStaticPageSeo} from './seo.js';
 
 const raw=window.FARM_AUTO_DATA,page=document.body.dataset.page;
+if(page!=='player')applyStaticPageSeo(page);
 const routes=[['index.html','ホーム'],['prediction.html','優勝予測'],['simulator.html','シミュレーター'],['farmchamp.html','日本選手権'],['power-ranking.html','パワーランキング'],['stats/','個人成績'],['about.html','データ・モデル']];
 const el=id=>document.getElementById(id),esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const percent=v=>v===null?'算出対象外':v>0&&v<.001?'0.1%未満':`${(v*100).toFixed(1)}%`;

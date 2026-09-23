@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#061b38"/><stop offset="1" stop-color="#0b4f8a"/></linearGradient></defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1050" cy="118" r="190" fill="#56b6ff" opacity=".12"/>
+  <circle cx="1050" cy="118" r="88" fill="#fff"/>
+  <path d="M995 62c36 32 59 72 67 120M1100 57c-26 39-38 82-35 128" fill="none" stroke="#e5484d" stroke-width="10"/>
+  <text x="82" y="118" fill="#7ed0ff" font-family="sans-serif" font-size="30" font-weight="700" letter-spacing="3">2026 NPB FARM DATA</text>
+  <text x="82" y="245" fill="#fff" font-family="sans-serif" font-size="72" font-weight="800">ファーム順位・個人成績</text>
+  <text x="82" y="343" fill="#fff" font-family="sans-serif" font-size="72" font-weight="800">優勝確率・選手分析</text>
+  <rect x="82" y="408" width="1036" height="2" fill="#56b6ff" opacity=".55"/>
+  <text x="82" y="483" fill="#d8e9f8" font-family="sans-serif" font-size="33">東・中・西地区｜全14球団｜非公式データサイト</text>
+  <text x="82" y="552" fill="#8fb8d8" font-family="sans-serif" font-size="27">順位予測　日本選手権　若手ランキング　選手比較</text>
+</svg>
