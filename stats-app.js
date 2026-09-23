@@ -1,6 +1,6 @@
 import {DISTRICTS,enrichedPlayers,BAT_METRICS,PIT_METRICS,metricValue,formatMetric,normalizeSearch,outsLabel} from './player-metrics.js';
 import {getFarmChampionshipEligibility,outsToInnings} from './farmchamp-eligibility.js';
-import {renderComparePage,storedCompare,addComparisonCandidate,comparisonUrl} from './player-analysis.js';
+import {renderComparePage,storedCompare,addComparisonCandidate,comparisonUrl} from './player-analysis.js?v=2';
 const page=document.body.dataset.page,el=id=>document.getElementById(id),esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const playerUrl=p=>`players/?id=${encodeURIComponent(p.recordId)}`;
 const qualifies=(p,role)=>role==='batter'?(p.batting?.pa??-1)>=Math.ceil(p.teamMeta.teamGames*2.7):(p.pitching?.outs??-1)>=Math.ceil(p.teamMeta.teamGames*.8*3);
