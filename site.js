@@ -14,12 +14,13 @@ let busy=false,playerStats=null,champRows=null,worker=null;
 const choices={};
 function url(route){const [file,hash]=route.split('#'),p=new URLSearchParams({team:selected,district:raw.standings[selected]?.district||'east'});return `${file}?${p}${hash?'#'+hash:''}`;}
 function navigation(){
- el('siteNav').innerHTML=routes.map(([path,label])=>`<a href="${url(path)}" ${path===(['stats','titles','prospects','player'].includes(page)?'stats/':page)?'aria-current="page"':''}>${label}</a>`).join('');
- const statsPages=['stats','titles','prospects','player'];const current=statsPages.includes(page)?'stats/':page;
- el('breadcrumb').innerHTML=page==='index.html'?'':`<a href="${url('index.html')}">ホーム</a> › ${page==='titles'?'個人タイトル':page==='prospects'?'若手ランキング':page==='player'?'選手詳細':routes.find(r=>r[0]===current)?.[1]||''}`;
+ el('siteNav').innerHTML=routes.map(([path,label])=>`<a href="${url(path)}" ${path===(['stats','titles','prospects','compare','player'].includes(page)?'stats/':page)?'aria-current="page"':''}>${label}</a>`).join('');
+ const statsPages=['stats','titles','prospects','compare','player'];const current=statsPages.includes(page)?'stats/':page;
+ el('breadcrumb').innerHTML=page==='index.html'?'':`<a href="${url('index.html')}">ホーム</a> › ${page==='titles'?'個人タイトル':page==='prospects'?'若手ランキング':page==='compare'?'選手比較':page==='player'?'選手詳細':routes.find(r=>r[0]===current)?.[1]||''}`;
  document.querySelectorAll('[data-route]').forEach(a=>a.href=url(a.dataset.route));
  el('sharedSelection').innerHTML=`<label for="globalTeam">選択球団</label><select id="globalTeam">${allTeams.map(t=>`<option ${t===selected?'selected':''}>${esc(t)}</option>`).join('')}</select><span class="tiny">ページを移動しても引き継ぎます</span>`;
  el('globalTeam').addEventListener('change',e=>select(e.target.value));
+ document.querySelectorAll('.statsSubnav').forEach(nav=>{if(nav.querySelector('a[href="stats/compare/"]'))return;const link=document.createElement('a');link.href='stats/compare/';link.textContent='選手比較';const titles=nav.querySelector('a[href="stats/titles/"]');nav.insertBefore(link,titles||null);});
 }
 function select(team,notify=true){if(!allTeams.includes(team))return;selected=team;try{localStorage.setItem('farm-selection',JSON.stringify({team}));}catch{}
  const u=new URL(location.href);u.searchParams.set('team',team);u.searchParams.set('district',raw.standings[team].district);history.replaceState(null,'',u);navigation();
