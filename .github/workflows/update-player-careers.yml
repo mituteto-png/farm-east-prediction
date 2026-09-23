@@ -1,0 +1,40 @@
+name: Update official player careers
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Stable profile data is refreshed weekly to avoid unnecessary requests to NPB.
+    - cron: "20 22 * * 1"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-official-player-careers
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Fetch NPB official player profiles
+        run: node scripts/update-player-careers.mjs
+      - name: Test career data logic
+        run: node --test tests/player-career.test.mjs
+      - name: Commit verified career data
+        shell: bash
+        run: |
+          if git diff --quiet -- player-career-data.json; then
+            echo "No player career changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add player-career-data.json
+          git commit -m "Update official player career data"
+          git push
