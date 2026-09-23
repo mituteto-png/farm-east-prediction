@@ -1,7 +1,7 @@
 {
   "season": 2026,
   "asOf": "2026年9月22日",
-  "generatedAt": "2026-09-23T01:14:45.941Z",
+  "generatedAt": "2026-09-23T13:21:40.926Z",
   "status": "ok",
   "teamCount": 14,
   "playerCount": 1020,
@@ -24,7 +24,7 @@
       "teamGames": 108,
       "remainingGames": 4,
       "status": "ok",
-      "fetchedAt": "2026-09-23T01:14:38.678Z",
+      "fetchedAt": "2026-09-23T13:21:34.202Z",
       "sources": {
         "batting": "https://npb.jp/bis/2026/stats/idb2_f.html",
         "pitching": "https://npb.jp/bis/2026/stats/idp2_f.html",
@@ -5750,7 +5750,7 @@
       "teamGames": 113,
       "remainingGames": 4,
       "status": "ok",
-      "fetchedAt": "2026-09-23T01:14:39.324Z",
+      "fetchedAt": "2026-09-23T13:21:34.792Z",
       "sources": {
         "batting": "https://npb.jp/bis/2026/stats/idb2_e.html",
         "pitching": "https://npb.jp/bis/2026/stats/idp2_e.html",
@@ -11173,7 +11173,7 @@
       "teamGames": 110,
       "remainingGames": 4,
       "status": "ok",
-      "fetchedAt": "2026-09-23T01:14:39.962Z",
+      "fetchedAt": "2026-09-23T13:21:35.278Z",
       "sources": {
         "batting": "https://npb.jp/bis/2026/stats/idb2_m.html",
         "pitching": "https://npb.jp/bis/2026/stats/idp2_m.html",
@@ -16817,7 +16817,7 @@
       "teamGames": 109,
       "remainingGames": 4,
       "status": "ok",
-      "fetchedAt": "2026-09-23T01:14:40.481Z",
+      "fetchedAt": "2026-09-23T13:21:35.756Z",
       "sources": {
         "batting": "https://npb.jp/bis/2026/stats/idb2_s.html",
         "pitching": "https://npb.jp/bis/2026/stats/idp2_s.html",
@@ -22262,7 +22262,7 @@
       "teamGames": 115,
       "remainingGames": 4,
       "status": "ok",
-      "fetchedAt": "2026-09-23T01:14:40.979Z",
+      "fetchedAt": "2026-09-23T13:21:36.231Z",
       "sources": {
         "batting": "https://npb.jp/bis/2026/stats/idb2_a.html",
         "pitching": "https://npb.jp/bis/2026/stats/idp2_a.html",
@@ -25604,7 +25604,7 @@
       "teamGames": 119,
       "remainingGames": 4,
       "status": "ok",
-      "fetchedAt": "2026-09-23T01:14:41.485Z",
+      "fetchedAt": "2026-09-23T13:21:36.712Z",
       "sources": {
         "batting": "https://npb.jp/bis/2026/stats/idb2_db.html",
         "pitching": "https://npb.jp/bis/2026/stats/idp2_db.html",
@@ -31082,7 +31082,7 @@
       "teamGames": 120,
       "remainingGames": 4,
       "status": "ok",
-      "fetchedAt": "2026-09-23T01:14:41.992Z",
+      "fetchedAt": "2026-09-23T13:21:37.192Z",
       "sources": {
         "batting": "https://npb.jp/bis/2026/stats/idb2_g.html",
         "pitching": "https://npb.jp/bis/2026/stats/idp2_g.html",
@@ -36840,7 +36840,7 @@
       "teamGames": 119,
       "remainingGames": 4,
       "status": "ok",
-      "fetchedAt": "2026-09-23T01:14:42.499Z",
+      "fetchedAt": "2026-09-23T13:21:37.674Z",
       "sources": {
         "batting": "https://npb.jp/bis/2026/stats/idb2_l.html",
         "pitching": "https://npb.jp/bis/2026/stats/idp2_l.html",
@@ -43011,7 +43011,7 @@
       "teamGames": 121,
       "remainingGames": 4,
       "status": "ok",
-      "fetchedAt": "2026-09-23T01:14:43.003Z",
+      "fetchedAt": "2026-09-23T13:21:38.154Z",
       "sources": {
         "batting": "https://npb.jp/bis/2026/stats/idb2_d.html",
         "pitching": "https://npb.jp/bis/2026/stats/idp2_d.html",
@@ -48623,7 +48623,7 @@
       "teamGames": 121,
       "remainingGames": 4,
       "status": "ok",
-      "fetchedAt": "2026-09-23T01:14:43.525Z",
+      "fetchedAt": "2026-09-23T13:21:38.628Z",
       "sources": {
         "batting": "https://npb.jp/bis/2026/stats/idb2_v.html",
         "pitching": "https://npb.jp/bis/2026/stats/idp2_v.html",
@@ -51405,7 +51405,7 @@
       "teamGames": 123,
       "remainingGames": 4,
       "status": "ok",
-      "fetchedAt": "2026-09-23T01:14:44.076Z",
+      "fetchedAt": "2026-09-23T13:21:39.110Z",
       "sources": {
         "batting": "https://npb.jp/bis/2026/stats/idb2_h.html",
         "pitching": "https://npb.jp/bis/2026/stats/idp2_h.html",
@@ -57927,7 +57927,7 @@
       "teamGames": 115,
       "remainingGames": 4,
       "status": "ok",
-      "fetchedAt": "2026-09-23T01:14:44.584Z",
+      "fetchedAt": "2026-09-23T13:21:39.606Z",
       "sources": {
         "batting": "https://npb.jp/bis/2026/stats/idb2_b.html",
         "pitching": "https://npb.jp/bis/2026/stats/idp2_b.html",
@@ -63889,7 +63889,7 @@
       "teamGames": 117,
       "remainingGames": 4,
       "status": "ok",
-      "fetchedAt": "2026-09-23T01:14:45.088Z",
+      "fetchedAt": "2026-09-23T13:21:40.093Z",
       "sources": {
         "batting": "https://npb.jp/bis/2026/stats/idb2_c.html",
         "pitching": "https://npb.jp/bis/2026/stats/idp2_c.html",
@@ -68950,7 +68950,7 @@
       "teamGames": 124,
       "remainingGames": 4,
       "status": "ok",
-      "fetchedAt": "2026-09-23T01:14:45.591Z",
+      "fetchedAt": "2026-09-23T13:21:40.575Z",
       "sources": {
         "batting": "https://npb.jp/bis/2026/stats/idb2_t.html",
         "pitching": "https://npb.jp/bis/2026/stats/idp2_t.html",
