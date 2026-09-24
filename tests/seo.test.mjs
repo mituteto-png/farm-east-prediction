@@ -48,3 +48,8 @@ test('robots exposes sitemap and 404 is noindex with useful links',async()=>{
  assert.match(notFound,/href="stats\/"/);
  assert.equal(SEO_CONFIG.baseUrl,'https://mituteto-png.github.io/farm-east-prediction/');
 });
+
+test('home page keeps the Google Search Console verification tag',async()=>{
+ const html=await load('index.html');
+ assert.equal(matches(html,/<meta name="google-site-verification" content="Pyqrlcr54yct9qiKlkrNugllblJIUV0xEOgzvIaKOuE">/g).length,1);
+});
