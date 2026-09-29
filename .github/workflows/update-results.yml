@@ -57,4 +57,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add auto-data.js farmchamp-data.js analysis-data.json player-stats-data.json sitemap.xml robots.txt
           git commit -m "Update official farm and championship data"
+          # Another scheduled updater can push while this job is running.
+          # Rebase our generated-data commit so unrelated updates are preserved.
+          git pull --rebase origin main
           git push
