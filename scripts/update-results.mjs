@@ -103,7 +103,7 @@ function parseStandings(html) {
       standings[team] = { district, w: Number(cells[1]), l: Number(cells[2]), t: Number(cells[3]), rs: 0, ra: 0 };
     }
   }
-  const asOfMatch = html.match(/(\d{4})年(\d{1,2})月(\d{1,2})日\s*現在/);
+  const asOfMatch = stripHtml(html).match(/(\d{4})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日\s*現在/);
   const asOfDate = asOfMatch ? `${Number(asOfMatch[2])}/${Number(asOfMatch[3])}` : null;
   return { standings, asOfDate };
 }
@@ -152,8 +152,22 @@ const [statsHtml, schedulePages, battingPages, pitchingPages] = await Promise.al
   Promise.all(regionSuffixes.map(suffix => fetchText(`https://npb.jp/bis/${YEAR}/stats/tmp_${suffix}.html`)))
 ]);
 
-const { standings, asOfDate } = parseStandings(statsHtml);
-if (!asOfDate) throw new Error("Could not determine the official standings date.");
+const { standings, asOfDate: parsedAsOfDate } = parseStandings(statsHtml);
+const seasonComplete = /<p\b[^>]*>\s*全日程終了\s*<\/p>/i.test(statsHtml);
+const unique = new Map();
+for (const game of schedulePages.flatMap(parseSchedulePage)) {
+  unique.set(`${game.date}|${game.home}|${game.away}`, game);
+}
+const allGames = [...unique.values()].sort((a, b) => dateOrder(a.date) - dateOrder(b.date) || a.home.localeCompare(b.home, "ja"));
+
+// Final standings already include every completed game. Use the last official
+// result date only when NPB explicitly marks the season as complete.
+const asOfDate = seasonComplete
+  ? allGames.filter(game => game.status === "final").at(-1)?.date
+  : parsedAsOfDate;
+if (!asOfDate) {
+  throw new Error(`Could not determine the official standings date: ${STATS_SOURCE} (seasonComplete=${seasonComplete}, games=${allGames.length}).`);
+}
 
 for (const page of battingPages) {
   for (const [team, value] of Object.entries(parseTeamMetric(page, "得点"))) {
@@ -166,13 +180,8 @@ for (const page of pitchingPages) {
   }
 }
 
-const unique = new Map();
-for (const game of schedulePages.flatMap(parseSchedulePage)) {
-  unique.set(`${game.date}|${game.home}|${game.away}`, game);
-}
-const allGames = [...unique.values()].sort((a, b) => dateOrder(a.date) - dateOrder(b.date) || a.home.localeCompare(b.home, "ja"));
 const asOfOrder = dateOrder(asOfDate);
-const newerFinals = allGames.filter(game => game.status === "final" && dateOrder(game.date) > asOfOrder);
+const newerFinals = seasonComplete ? [] : allGames.filter(game => game.status === "final" && dateOrder(game.date) > asOfOrder);
 
 for (const game of newerFinals) {
   const home = standings[game.home];
@@ -197,7 +206,7 @@ for (const game of newerFinals) {
 const completed = allGames.filter(game => game.status === "final");
 const lastCompletedDate = completed.at(-1)?.date ?? asOfDate;
 const officialThroughDate = dateOrder(lastCompletedDate) > asOfOrder ? lastCompletedDate : asOfDate;
-const schedule = allGames.filter(game => game.status === "scheduled" && dateOrder(game.date) > asOfOrder);
+const schedule = seasonComplete ? [] : allGames.filter(game => game.status === "scheduled" && dateOrder(game.date) > asOfOrder);
 const recentResults = allGames.filter(game => game.status !== "scheduled" && dateOrder(game.date) >= Math.max(301, dateOrder(officialThroughDate) - 7)).slice(-40);
 
 const payload = {
