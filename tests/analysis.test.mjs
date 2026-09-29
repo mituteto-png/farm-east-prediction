@@ -16,12 +16,18 @@ test('V3.0 20,000 iterations are unchanged after shared-module extraction',()=>{
  assert.equal(JSON.stringify(after),JSON.stringify(before));
 });
 test('multiple scenario outcomes change only copied W/L/T and remaining schedule',()=>{
- const original=JSON.stringify(data),choices={};data.schedule.slice(0,3).forEach((g,i)=>choices[gameKey(g)]=['home','away','draw'][i]);
- const changed=scenarioData(data,choices);assert.equal(JSON.stringify(data),original);assert.equal(changed.schedule.length,data.schedule.length-3);
+ const fixture=structuredClone(data),teams=Object.keys(fixture.standings).slice(0,6);
+ fixture.schedule=[
+  {date:'10/1',home:teams[0],away:teams[1],status:'scheduled'},
+  {date:'10/2',home:teams[2],away:teams[3],status:'scheduled'},
+  {date:'10/3',home:teams[4],away:teams[5],status:'scheduled'}
+ ];
+ const original=JSON.stringify(fixture),choices={};fixture.schedule.forEach((g,i)=>choices[gameKey(g)]=['home','away','draw'][i]);
+ const changed=scenarioData(fixture,choices);assert.equal(JSON.stringify(fixture),original);assert.equal(changed.schedule.length,0);
  const totals=d=>Object.values(d.standings).reduce((a,r)=>({w:a.w+r.w,l:a.l+r.l,t:a.t+r.t}),{w:0,l:0,t:0});
- const a=totals(data),b=totals(changed);assert.equal(b.w-a.w,2);assert.equal(b.l-a.l,2);assert.equal(b.t-a.t,2);
- for(const t of Object.keys(data.standings)){assert.equal(data.standings[t].rs,changed.standings[t].rs);assert.equal(data.standings[t].ra,changed.standings[t].ra);}
- assert.equal(JSON.stringify(scenarioData(data,{})),original);
+ const a=totals(fixture),b=totals(changed);assert.equal(b.w-a.w,2);assert.equal(b.l-a.l,2);assert.equal(b.t-a.t,2);
+ for(const t of Object.keys(fixture.standings)){assert.equal(fixture.standings[t].rs,changed.standings[t].rs);assert.equal(fixture.standings[t].ra,changed.standings[t].ra);}
+ assert.equal(JSON.stringify(scenarioData(fixture,{})),original);
 });
 test('power scores reproduce existing district-index averages for all 14 teams',()=>{
  const rank=powerRanking(data),m=createLeagueModel(data);assert.equal(rank.length,14);assert.equal(new Set(rank.map(r=>r.team)).size,14);
