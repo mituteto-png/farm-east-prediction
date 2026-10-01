@@ -1,7 +1,7 @@
 {
   "season": 2026,
   "asOf": null,
-  "generatedAt": "2026-09-30T14:36:35.659Z",
+  "generatedAt": "2026-10-01T01:48:10.340Z",
   "status": "ok",
   "teamCount": 14,
   "playerCount": 1020,
@@ -24,7 +24,7 @@
       "teamGames": 111,
       "remainingGames": 0,
       "status": "ok",
-      "fetchedAt": "2026-09-30T14:36:28.438Z",
+      "fetchedAt": "2026-10-01T01:48:03.342Z",
       "sources": {
         "batting": "https://npb.jp/bis/2026/stats/idb2_f.html",
         "pitching": "https://npb.jp/bis/2026/stats/idp2_f.html",
@@ -5750,7 +5750,7 @@
       "teamGames": 117,
       "remainingGames": 0,
       "status": "ok",
-      "fetchedAt": "2026-09-30T14:36:29.053Z",
+      "fetchedAt": "2026-10-01T01:48:03.959Z",
       "sources": {
         "batting": "https://npb.jp/bis/2026/stats/idb2_e.html",
         "pitching": "https://npb.jp/bis/2026/stats/idp2_e.html",
@@ -11173,7 +11173,7 @@
       "teamGames": 114,
       "remainingGames": 0,
       "status": "ok",
-      "fetchedAt": "2026-09-30T14:36:29.666Z",
+      "fetchedAt": "2026-10-01T01:48:04.573Z",
       "sources": {
         "batting": "https://npb.jp/bis/2026/stats/idb2_m.html",
         "pitching": "https://npb.jp/bis/2026/stats/idp2_m.html",
@@ -16840,7 +16840,7 @@
       "teamGames": 112,
       "remainingGames": 0,
       "status": "ok",
-      "fetchedAt": "2026-09-30T14:36:30.159Z",
+      "fetchedAt": "2026-10-01T01:48:05.063Z",
       "sources": {
         "batting": "https://npb.jp/bis/2026/stats/idb2_s.html",
         "pitching": "https://npb.jp/bis/2026/stats/idp2_s.html",
@@ -22285,7 +22285,7 @@
       "teamGames": 119,
       "remainingGames": 0,
       "status": "ok",
-      "fetchedAt": "2026-09-30T14:36:30.646Z",
+      "fetchedAt": "2026-10-01T01:48:05.554Z",
       "sources": {
         "batting": "https://npb.jp/bis/2026/stats/idb2_a.html",
         "pitching": "https://npb.jp/bis/2026/stats/idp2_a.html",
@@ -25627,7 +25627,7 @@
       "teamGames": 122,
       "remainingGames": 0,
       "status": "ok",
-      "fetchedAt": "2026-09-30T14:36:31.141Z",
+      "fetchedAt": "2026-10-01T01:48:06.046Z",
       "sources": {
         "batting": "https://npb.jp/bis/2026/stats/idb2_db.html",
         "pitching": "https://npb.jp/bis/2026/stats/idp2_db.html",
@@ -31105,7 +31105,7 @@
       "teamGames": 124,
       "remainingGames": 0,
       "status": "ok",
-      "fetchedAt": "2026-09-30T14:36:31.636Z",
+      "fetchedAt": "2026-10-01T01:48:06.540Z",
       "sources": {
         "batting": "https://npb.jp/bis/2026/stats/idb2_g.html",
         "pitching": "https://npb.jp/bis/2026/stats/idp2_g.html",
@@ -36874,7 +36874,7 @@
       "teamGames": 121,
       "remainingGames": 0,
       "status": "ok",
-      "fetchedAt": "2026-09-30T14:36:32.130Z",
+      "fetchedAt": "2026-10-01T01:48:07.031Z",
       "sources": {
         "batting": "https://npb.jp/bis/2026/stats/idb2_l.html",
         "pitching": "https://npb.jp/bis/2026/stats/idp2_l.html",
@@ -43045,7 +43045,7 @@
       "teamGames": 123,
       "remainingGames": 0,
       "status": "ok",
-      "fetchedAt": "2026-09-30T14:36:32.620Z",
+      "fetchedAt": "2026-10-01T01:48:07.521Z",
       "sources": {
         "batting": "https://npb.jp/bis/2026/stats/idb2_d.html",
         "pitching": "https://npb.jp/bis/2026/stats/idp2_d.html",
@@ -48657,7 +48657,7 @@
       "teamGames": 122,
       "remainingGames": 0,
       "status": "ok",
-      "fetchedAt": "2026-09-30T14:36:33.112Z",
+      "fetchedAt": "2026-10-01T01:48:08.010Z",
       "sources": {
         "batting": "https://npb.jp/bis/2026/stats/idb2_v.html",
         "pitching": "https://npb.jp/bis/2026/stats/idp2_v.html",
@@ -51439,7 +51439,7 @@
       "teamGames": 125,
       "remainingGames": 0,
       "status": "ok",
-      "fetchedAt": "2026-09-30T14:36:33.826Z",
+      "fetchedAt": "2026-10-01T01:48:08.507Z",
       "sources": {
         "batting": "https://npb.jp/bis/2026/stats/idb2_h.html",
         "pitching": "https://npb.jp/bis/2026/stats/idp2_h.html",
@@ -54506,7 +54506,7 @@
           "registrationType": "development",
           "rookie": false,
           "active": true,
-          "rosterNote": "8/7 ハヤテへ派遣（8/7～9/27）",
+          "rosterNote": "8/7 ハヤテへ派遣（シーズン終了まで）",
           "batting": {
             "name": "盛島 稜大",
             "games": 14,
@@ -57961,7 +57961,7 @@
       "teamGames": 119,
       "remainingGames": 0,
       "status": "ok",
-      "fetchedAt": "2026-09-30T14:36:34.321Z",
+      "fetchedAt": "2026-10-01T01:48:09.002Z",
       "sources": {
         "batting": "https://npb.jp/bis/2026/stats/idb2_b.html",
         "pitching": "https://npb.jp/bis/2026/stats/idp2_b.html",
@@ -63923,7 +63923,7 @@
       "teamGames": 121,
       "remainingGames": 0,
       "status": "ok",
-      "fetchedAt": "2026-09-30T14:36:34.814Z",
+      "fetchedAt": "2026-10-01T01:48:09.497Z",
       "sources": {
         "batting": "https://npb.jp/bis/2026/stats/idb2_c.html",
         "pitching": "https://npb.jp/bis/2026/stats/idp2_c.html",
@@ -68984,7 +68984,7 @@
       "teamGames": 126,
       "remainingGames": 0,
       "status": "ok",
-      "fetchedAt": "2026-09-30T14:36:35.310Z",
+      "fetchedAt": "2026-10-01T01:48:09.989Z",
       "sources": {
         "batting": "https://npb.jp/bis/2026/stats/idb2_t.html",
         "pitching": "https://npb.jp/bis/2026/stats/idp2_t.html",
