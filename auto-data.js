@@ -2,10 +2,10 @@ window.FARM_AUTO_DATA = {
   "season": 2026,
   "source": "https://npb.jp/farm/2026/",
   "statsSource": "https://npb.jp/bis/2026/stats/index_farm.html",
-  "standingsAsOf": "10/3",
-  "lastCompletedDate": "10/3",
-  "officialThroughDate": "10/3",
-  "fetchedAt": "2026-10-04T13:40:20.006Z",
+  "standingsAsOf": "10/4",
+  "lastCompletedDate": "10/4",
+  "officialThroughDate": "10/4",
+  "fetchedAt": "2026-10-05T01:35:15.619Z",
   "districts": {
     "east": {
       "name": "東地区",
@@ -169,6 +169,15 @@ window.FARM_AUTO_DATA = {
       "venue": "静 岡",
       "homeScore": 7,
       "awayScore": 6,
+      "status": "final"
+    },
+    {
+      "date": "10/4",
+      "home": "日本ハム",
+      "away": "巨人",
+      "venue": "静 岡",
+      "homeScore": 5,
+      "awayScore": 2,
       "status": "final"
     }
   ]
