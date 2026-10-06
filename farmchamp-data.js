@@ -1,7 +1,7 @@
 window.FARM_CHAMP_DATA = {
   "season": 2026,
   "asOf": "10/4",
-  "fetchedAt": "2026-10-06T02:40:50.268Z",
+  "fetchedAt": "2026-10-06T14:44:35.930Z",
   "rosterSnapshotDate": "2026-08-31",
   "historyFetchedThrough": "2026-10-01",
   "historyComplete": true,
