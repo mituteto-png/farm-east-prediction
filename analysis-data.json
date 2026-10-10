@@ -1,7 +1,7 @@
 {
   "season": 2026,
   "eligibilityAsOf": "10/4",
-  "fetchedAt": "2026-10-09T14:57:41.217Z",
+  "fetchedAt": "2026-10-10T02:03:54.695Z",
   "teams": {
     "DeNA": {
       "players": {
@@ -1198,7 +1198,7 @@
         "https://npb.jp/bis/2026/stats/idb2_db.html",
         "https://npb.jp/bis/2026/stats/idp2_db.html"
       ],
-      "fetchedAt": "2026-10-09T14:57:40.247Z",
+      "fetchedAt": "2026-10-10T02:03:53.197Z",
       "status": "ok"
     },
     "日本ハム": {
@@ -2436,7 +2436,7 @@
         "https://npb.jp/bis/2026/stats/idb2_f.html",
         "https://npb.jp/bis/2026/stats/idp2_f.html"
       ],
-      "fetchedAt": "2026-10-09T14:57:40.781Z",
+      "fetchedAt": "2026-10-10T02:03:54.021Z",
       "status": "ok"
     },
     "巨人": {
@@ -3726,7 +3726,7 @@
         "https://npb.jp/bis/2026/stats/idb2_g.html",
         "https://npb.jp/bis/2026/stats/idp2_g.html"
       ],
-      "fetchedAt": "2026-10-09T14:57:40.999Z",
+      "fetchedAt": "2026-10-10T02:03:54.359Z",
       "status": "ok"
     },
     "ソフトバンク": {
@@ -5116,7 +5116,7 @@
         "https://npb.jp/bis/2026/stats/idb2_h.html",
         "https://npb.jp/bis/2026/stats/idp2_h.html"
       ],
-      "fetchedAt": "2026-10-09T14:57:41.217Z",
+      "fetchedAt": "2026-10-10T02:03:54.695Z",
       "status": "ok"
     }
   }
