@@ -5,7 +5,7 @@ window.FARM_AUTO_DATA = {
   "standingsAsOf": "10/4",
   "lastCompletedDate": "10/4",
   "officialThroughDate": "10/4",
-  "fetchedAt": "2026-10-30T14:49:07.203Z",
+  "fetchedAt": "2026-10-31T01:59:53.652Z",
   "districts": {
     "east": {
       "name": "東地区",
