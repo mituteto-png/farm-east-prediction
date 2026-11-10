@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "generatedAt": "2026-11-03T03:29:56.487Z",
+  "generatedAt": "2026-11-10T04:09:37.808Z",
   "source": "https://npb.jp/bis/players/",
   "playerCount": 925,
   "status": "ok",
@@ -40956,6 +40956,53 @@
       "registrationHistory": [],
       "dataStatus": "official_profile"
     },
+    "03105157": {
+      "playerId": "03105157",
+      "source": "NPB公式 個人年度別成績",
+      "sourceUrl": "https://npb.jp/bis/players/03105157.html",
+      "lastChecked": "2026-11-03T03:29:36.451Z",
+      "profile": {
+        "position": "内野手",
+        "throws": "右",
+        "bats": "左",
+        "height": 172,
+        "weight": 80,
+        "birthDate": "2001-01-06",
+        "birthplace": null
+      },
+      "career": {
+        "raw": "静岡高 - 明治大",
+        "steps": [
+          {
+            "order": 1,
+            "label": "静岡高",
+            "kind": "高校",
+            "period": null
+          },
+          {
+            "order": 2,
+            "label": "明治大",
+            "kind": "大学",
+            "period": null
+          }
+        ]
+      },
+      "draft": {
+        "raw": "2022年ドラフト2位",
+        "year": 2022,
+        "round": 2,
+        "type": "regular"
+      },
+      "teamHistory": [
+        {
+          "team": "中 日",
+          "startYear": 2023,
+          "endYear": 2026
+        }
+      ],
+      "registrationHistory": [],
+      "dataStatus": "official_profile"
+    },
     "01305131": {
       "playerId": "01305131",
       "source": "NPB公式 個人年度別成績",
@@ -41003,53 +41050,6 @@
         {
           "team": "中 日",
           "startYear": 2010,
-          "endYear": 2026
-        }
-      ],
-      "registrationHistory": [],
-      "dataStatus": "official_profile"
-    },
-    "03105157": {
-      "playerId": "03105157",
-      "source": "NPB公式 個人年度別成績",
-      "sourceUrl": "https://npb.jp/bis/players/03105157.html",
-      "lastChecked": "2026-11-03T03:29:36.451Z",
-      "profile": {
-        "position": "内野手",
-        "throws": "右",
-        "bats": "左",
-        "height": 172,
-        "weight": 80,
-        "birthDate": "2001-01-06",
-        "birthplace": null
-      },
-      "career": {
-        "raw": "静岡高 - 明治大",
-        "steps": [
-          {
-            "order": 1,
-            "label": "静岡高",
-            "kind": "高校",
-            "period": null
-          },
-          {
-            "order": 2,
-            "label": "明治大",
-            "kind": "大学",
-            "period": null
-          }
-        ]
-      },
-      "draft": {
-        "raw": "2022年ドラフト2位",
-        "year": 2022,
-        "round": 2,
-        "type": "regular"
-      },
-      "teamHistory": [
-        {
-          "team": "中 日",
-          "startYear": 2023,
           "endYear": 2026
         }
       ],
